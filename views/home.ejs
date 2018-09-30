@@ -1,0 +1,457 @@
+<!Doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>MILI</title>
+
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="">
+		<meta name="description" content="">
+		
+		<link rel="stylesheet" href="css/bootstrap.min.css">
+		<!-- <link href="https://bootswatch.com/yeti/bootstrap.min.css" rel="stylesheet"> -->
+		<!-- <link rel="stylesheet" href="css/animate.min.css"> -->
+		<link rel="stylesheet" href="css/font-awesome.min.css">
+		<!-- <link rel="stylesheet" href="css/nivo-lightbox.css"> -->
+		<link rel="stylesheet" href="css/nivo_themes/default/default.css">
+		
+		<!-- <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet" type="text/css"> -->
+		<link rel="stylesheet" type="text/css" href="css/maincss.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/firebase.js"></script>
+		<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyDqdpDVJ5cnTMcn0N_Jq4XXWYLpqVXEQJY",
+			authDomain: "test-6d54b.firebaseapp.com",
+			databaseURL: "https://test-6d54b.firebaseio.com",
+			projectId: "test-6d54b",
+			storageBucket: "test-6d54b.appspot.com",
+			messagingSenderId: "27004136578"
+		};
+		firebase.initializeApp(config);
+		</script>
+		<script src="js/authentication.js"></script>
+	</head>
+	<body>
+
+		<!-- preloader section -->
+		<section class="preloader" style="display: none;">
+			<div class="sk-spinner sk-spinner-pulse"></div>
+		</section>
+		
+		<!-- navigation section -->
+		<nav class="navbar navbar-inverse navbar-fixed-top" style="border-color:#fff;margin-bottom: 0px" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+						<span class="icon icon-bar"></span>
+					</button>
+					<a href="#" class="navbar-brand smoothScroll"><strong>MILI</strong></a>
+				</div>
+				<div class="collapse navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li><a href="#download" class="smoothScroll">DOWNLOAD</a></li>
+						<li><a href="#restaurants" class="smoothScroll">RESTAURANTS</a></li>
+						<li><a href="#working" class="smoothScroll">HOW IT WORKS?</a></li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+							<li><a class="smoothScroll" href="/login"><span class="glyphicon glyphicon-log-in"></span> LOGIN</a></li>
+							  </ul>
+				</div>
+			</div>
+		</nav>
+		
+		
+		<div class="container" id="form">
+				<div class="row main">
+				
+					<div class="main-login main-center col-sm">
+						<h3><strong></strong></h3>
+						<div class="layout__item one-whole">
+								
+								<ul class="text-orange text--left push-tiny--top">
+									<!-- <li class="flush--bottom">Phone number is required.</li>
+									<li class="flush--bottom">Password is required.</li>
+									<li class="flush--bottom">First name is required.</li>
+									<li class="flush--bottom">Last name is required.</li>
+								<li class="flush--bottom">Email is required.</li> -->
+							</ul>
+							</div>
+						<div class="form-horizontal" id="restaurant_register">
+								<div class="form-group ">
+										<a type="button" id = "registerButton" href="/login" class="btn btn-primary btn-lg btn-block login-register">Already Have An Account</a>
+									</div>
+							<div class="form-group">
+									<div class="cols-sm-10">
+										<div class="input-group">
+											<!-- <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span> -->
+											<input type="text" class="form-control form-rounded" name="firstname" id="firstname"  placeholder=" First Name" style="width: 50%"/>								
+											<input type="text" class="form-control form-rounded" name="lastname" id="lastname"  placeholder=" Last Name" style="width: 50%"/>
+										</div>
+									</div>
+							</div>
+											
+		
+							<div class="form-group">
+								
+								<div class="cols-sm-10">
+									<div class="input-group">
+										<!-- <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span> -->
+										<input class="form-control" name="email" id="email"  placeholder="Email Id" required/>
+									</div>
+								</div>
+							</div>
+		
+							<div class="form-group">
+								
+								<div class="cols-sm-10">
+									<div class="input-group">
+										<!-- <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span> -->
+										<input type="text" class="form-control" name="restaurantname" id="restaurantname"  placeholder="Restaurant Name"/>
+									</div>
+								</div>
+							</div>
+		
+							<div class="form-group">
+									
+									<div class="cols-sm-10">
+										<div class="input-group">
+											<!-- <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span> -->
+											<input type="tel"  class="form-control" name="phonenumber" id="phonenumber"  placeholder="Phone Number"/>
+										</div>
+									</div>
+								</div>
+		
+							<div class="form-group">
+								
+								<div class="cols-sm-10">
+									<div class="input-group">
+										<!-- <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span> -->
+										<input type="password" class="form-control" name="password" id="password"  placeholder="Password"/>
+									</div>
+								</div>
+							</div>
+		
+		
+							<div class="form-group ">
+								<button type="button" id = "registerButton" class="btn btn-primary btn-lg btn-block login-register" onclick="signUpWithEmailVerification();">Register</button>
+							</div>
+							
+							<p class="flush">By proceeding, I agree that Mili or its representatives may contact me by email, phone, or SMS at the email address or number I provide, including for marketing purposes. I have read and understand the relevant Privacy Statement.</p>
+					</div>
+				</div>
+				<div class="col-sm left-content">
+						<h3 style="color: #fff;">Mili The New Way To Order Food Inside The Restaurant
+						</h3>
+						<p class="left-content">
+							Don't let your customers do <strong>pssh pssh! hiss hiss! excuse me.. 
+							FWEET!.. Oye Waiter, Bro, Mere Bhai, Anna, @#$%</strong> for calling out waiters <br>
+							Let the customers scan the QR code on the table and place the order through there own mobile without any hardware cost and waiter training sorry it's actually waiter less ordering
+							Introducing Mili! Register To Know How We Can Change The Restaurant Interact With Customers and take it to next level you alays thought of
+							along with all new innovative feature of scanning and placing the order at a price you will love to use it.
+						</p>
+				</div>
+			</div>
+		
+		<!-- benefits section -->
+		<div class="admin_panel_features " style="margin-top:4%">				
+				  <div class="container">
+					<div class="sec-title margbt50 text-center">
+					  <h2 class="margbt5">Powerful Admin Panel</h2>
+					  <p class="margbt20">Manage your Restaurant App on the go with Powerful Admin Features available on Mobile, Tablet and Desktop</p><span class="line"></span>
+					</div>
+					<div class="row">
+					 
+							<div class="col-xs-12 col-sm-6 col-md-4">
+									<div class="servicesThumbnail">
+									  <div class="imgWrapper"><img src="images/analytics.svg" class="" alt=""></div>
+									  <div class="servicesContent">
+										<h6 class="h6 as">Track sales and growth trends &amp; Billing Details</h6>
+									  </div>
+									</div>
+									<div class="emptySpace"></div>
+								  </div>
+		
+					 <div class="col-xs-12 col-sm-6 col-md-4">
+					  <div class="servicesThumbnail">
+						<div class="imgWrapper"><img src="images/menu_edit.svg" class="" alt=""></div>
+						<div class="servicesContent">
+						  <h6 class="h6 as">Customize your Menu, Packages &amp; Tables</h6>
+						  
+						</div>
+					  </div>
+					  <div class="emptySpace"></div>
+					</div>
+		
+		
+		
+		
+		
+					 <div class="col-xs-12 col-sm-6 col-md-4">
+					  <div class="servicesThumbnail">
+						<div class="imgWrapper"><img src="images/discount.svg" class="" alt=""></div>
+						<div class="servicesContent">
+						  <h6 class="h6 as">Manage Offers, Discounts &amp; Promotions</h6>
+						  
+						</div>
+					  </div>
+					  <div class="emptySpace"></div>
+					</div>
+		
+		
+		
+					 <div class="col-xs-12 col-sm-6 col-md-4">
+					  <div class="servicesThumbnail">
+						<div class="imgWrapper"><img src="images/reserved.svg" class="" alt=""></div>
+						<div class="servicesContent">
+						  <h6 class="h6 as">Confirm Reservations in Real Time</h6>
+						  
+						</div>
+					  </div>
+					  <div class="emptySpace"></div>
+					</div>
+		
+		
+		
+					 <div class="col-xs-12 col-sm-6 col-md-4">
+					  <div class="servicesThumbnail">
+						<div class="imgWrapper"><img src="images/notification.svg" class="" alt=""></div>
+						<div class="servicesContent">
+						  <h6 class="h6 as">Send Targeted Push Notifications</h6>
+						</div>
+					  </div>
+					  <div class="emptySpace"></div>
+					</div>
+		
+		
+		
+					 <div class="col-xs-12 col-sm-6 col-md-4">
+					  <div class="servicesThumbnail">
+						<div class="imgWrapper"><img src="images/take-away.svg" class="" alt=""></div>
+						<div class="servicesContent">
+						  <h6 class="h6 as">Receive &amp; Manage Take-Away Orders</h6>
+						  
+						</div>
+					  </div>
+					  <div class="emptySpace"></div>
+					</div>
+		
+					</div>
+				  </div>
+				
+			  </div>
+		<!-- Content Row -->
+		<div class="container text-center" style="margin-top:3%">
+				<h2 class="margbt5" style="margin-bottom:2%">GLIMPSE of features in Mili</h2>
+				<div class="col-md-4 mb-4">
+						<div class="card h-100">
+							  <div class="card-body">
+								  <h3 class="card-title font_size_p col_black">Scan</h3>
+								  <img src="images/scan.svg" alt="Scan Function" width="100px" height="100px">
+									<p class="card-text">Now Place your order by scanning the QR code on the table instead of waiting for the waiter
+										And when you are done with your food just pay from your favourite UPI based app
+									</p>
+							  </div>
+							  
+						  
+						</div>
+					  </div>
+				<!-- /.col-md-4 -->
+				<div class="col-md-4 mb-4">
+				  <div class="card h-100">
+					
+						<div class="card-body">
+								<h2 class="card-title font_size_p col_black">Food Database</h2>
+								<img src="images/tray.svg" alt="Scan Function" width="100px" height="100px">
+								  <p class="card-text">Confused What the food item on the menu means well hold on we are building and adding all food items to our database. So that when you order your food you don't regret that you ordered the food without knowing it. </p>
+						</div>
+						
+					
+				  </div>
+				</div>
+				<!-- /.col-md-4 -->
+				<div class="col-md-4 mb-4">
+				  <div class="card h-100">
+						
+					<div class="card-body">
+								<h2 class="card-title font_size_p col_black">Social Network</h2>
+								<img src="images/share.svg" alt="Scan Function" width="100px" height="100px">
+					  <p class="card-text">Food! we not only eat but cherish about, read and share about.
+						  Download Mili to read about, create and share your stories about food and also know about social events around you related to food.
+					  </p>
+					</div>
+				  </div>
+				</div>
+				
+					  <!-- /.col-md-4 -->
+					  <div class="card-footer">
+							<a href="#" class="btn btn-primary">Download The App Now</a>
+						  </div>
+				 
+		<!-- gallery section -->
+		
+		<div class="why_choose_us">
+				<div class="container bg pad80_100bottom">
+				  <div class="sec-title margbt40">
+					<h2 class="col_black text-center">Glimpse of what we do!</h2>
+					 <p class="col_black text-center" >Mili turns your restaurant's standard to an international scale with outstanding features in mobile app for Restaurant</p>
+				   
+				  </div>
+				  <div class="col-md-4 item first" style="margin-bottom: 20px;"><img src="images/scan.svg" alt="" class="margbt10">
+					<h3 class="font_size_p col_black">Waiter Less Ordering</h3>
+					<p class="col_blue">Don't make your customers wait for the waiter to place the order.
+						Let them place the order by just scanning the QR code </p>
+				  </div>
+				  <div class="col-md-4 item" style="margin-bottom: 20px;"><img src="images/delivery.svg" alt="" class="margbt10">
+					<h3 class="font_size_p col_black">Home Delivery &amp; Take Away</h3>
+					<p class="col_blue">Give
+							your customers the delight of placing their take away
+							orders online via the app or book their home delivery orders directly from their mobile phone</p>
+				  </div>
+				  <div class="col-md-4 item last" style="margin-bottom: 20px;"><img src="images/online-payment.svg" alt="" class="margbt10">
+					<h3 class="font_size_p col_black">MOBILE PAYMENTS
+		</h3>
+					<p class="col_blue">Avoid fees on transactions on payments from customers with our UPI based payment integration which lets cutomers enjoy the offers and make payment from variety</p>
+				  </div>
+				 
+		
+				  <div class="col-md-4 item first" style="margin-bottom: 20px;"><img src="images/menu.svg" alt="" class="margbt10">
+					<h3 class="font_size_p col_black">Digital Menu Card</h3>
+					<p class="col_blue">Let your customers know what you have to
+		offer with a digital menu card to display all
+		cuisines and food items </p>
+				  </div>
+				
+				  <div class="col-md-4 item last" style="margin-bottom: 20px;"><img src="images/dinner.svg" alt="" class="margbt10">
+					<h3 class="font_size_p col_black">TABLE RESERVATION
+		</h3>
+					<p class="col_blue">Don’t let your customers wait in queue or be
+		unsure about wasting their time. Get real-time
+		table reservation directly from your app</p>
+				  </div>
+		
+			<div class="col-md-4 item first" style="margin-bottom: 20px;"><img src="images/discount.svg" alt="" class="margbt10">
+					<h3 class="font_size_p col_black">LOYALTY PROGRAMS &amp; OFFERS</h3>
+					<p class="col_blue">There is no better way to increase your
+		retention than to offer a loyalty program via in
+		app discounts and offers on orders</p>
+				  </div>
+				 
+				 
+			
+				  <div class="col-md-4 item item first" style="margin-bottom: 20px;"><img src="images/calendar.svg" alt="" class="margbt10">
+					<h3 class="font_size_p col_black">EVENTS</h3>
+					<p class="col_blue">Planning an event and want every foodie 
+						to know about it? Now do that with just a push of the button from the awesome admin panel</p>
+				  </div>
+				  <div class="col-md-4 item last" style="margin-bottom: 20px;"><img src="images/review.svg" alt="" class="margbt10">
+					<h3 class="font_size_p col_black">IN-APP REVIEWS
+		</h3>
+					<p class="col_blue">Review system which actually makes sense and that doesn't irritate.
+						Let your customers review your food, service, hygeine and ambience and you make it a better
+					</p>
+				  </div>
+		
+		
+			
+				 
+				 
+		
+			<div class="col-md-4 item " style="margin-bottom: 20px;"><img src="images/social-media.svg" alt="" class="margbt10">
+					<h3 class="font_size_p col_black">SOCIAL FEEDS</h3>
+					<p class="col_blue">Integrate your social media accounts directly
+		into your mobile app and let your customers
+		receive your social updates</p>
+				  </div>
+				</div>
+			  </div>
+			</div>
+		</div>
+		<!-- Footer -->
+		
+				<div class="container-fluid site-footer" id="footer">
+					<div class="row rox">		
+						
+							<div class="col-md-3 medium-hide order-md-1">
+									<div class="site-footer__logo">
+										 <a href="#">
+												<div class="mili-logo"></div>
+										 </a>
+									</div>
+							 </div>
+		
+							<div class="col-md-5 col-lg-4 col-sm-6 col-12 order-sm-3 site-footer__apps">
+									<div>
+										<ul class="apps-list">
+											<!-- <li>
+												<a href="https://itunes.apple.com/us/app/jump-mobility/id1251322970?mt=8">
+													<span class="app-icon appstore"></span>
+												</a>
+											</li> -->
+											<li>
+												<a href="https://play.google.com/store/apps/details?id=com.mili">
+													<span class="app-icon gplay"></span>
+												</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+		
+					</div>
+					<div class="row">	
+							<div class="col-xs-12 col-sm-4 col-md-4">
+									<div>
+										<div class="contact">
+										<p>Email: 
+											<a href="mailto:support@militheapp.com">support@militheapp.com</a></p>
+										<p>Call: <a href="tel:+918886780265">+91 (888) 678-0265</a></p>
+									</div><div class="copy">
+											<p class="notranslate">© 2018 Mili Inc.</p>
+										<p>All rights reserved.</p>
+									</div>
+								</div>
+								</div>
+						<div class="col-xs-12 col-sm-4 col-md-4">
+							<ul class="list-unstyled quick-links">
+								<li><a href="#">Home</a></li>
+								<!-- <li><a href="#">Book Demo</a></li> -->
+								<li><a href="#">About</a></li>
+								<li><a href="#">FAQ</a></li>
+								<!-- <li><a href="#">Book Demo</a></li> -->
+							</ul>
+						</div>
+						
+						<div class="col-xs-12 col-sm-4 col-md-4">				
+							<ul class="list-unstyled quick-links social">
+									<li class="list-inline-item"><a href="#"><span><i class="fa fa-facebook"></i> facebook</span></a></li>
+									<li class="list-inline-item"><a href="#"><span><i class="fa fa-twitter"></i> twitter</span></a></li>
+									<li class="list-inline-item"><a href="#"><span><i class="fa fa-google-plus"><span></i> google+</span></a></li>
+									<li class="list-inline-item"><a href="#" target="_blank"><span><i class="fa fa-envelope"></i> email </span></a></li>
+								</ul>
+						</div>
+		
+					</div>
+					<div class="row">
+						<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+							<ul class="list-unstyled list-inline social text-center">
+								
+							</ul>
+						</div>
+						
+					</div>	
+				</div>	
+				
+			
+			<!-- ./Footer --><!-- Footer -->
+				
+		<!-- JAVASCRIPT JS FILES -->	
+		<script src="js/jquery.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/custom.js"></script>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+	</body>
+</html>
