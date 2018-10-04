@@ -1,17 +1,25 @@
 
-/**
- * Handles the sign in button press.
- */
+$(document).ready(function(){
+  var config = {
+    apiKey: "AIzaSyDqdpDVJ5cnTMcn0N_Jq4XXWYLpqVXEQJY",
+    authDomain: "test-6d54b.firebaseapp.com",
+    databaseURL: "https://test-6d54b.firebaseio.com",
+    projectId: "test-6d54b",
+    storageBucket: "test-6d54b.appspot.com",
+    messagingSenderId: "27004136578"
+  };
+  firebase.initializeApp(config);
+});
 
- function signUpWithEmailVerification(){
-    handleSignUp();
-    return;
- }
+function signUpWithEmailVerification(){
+  handleSignUp();
+  return;
+}
 
- function signIn(){
-    toggleSignIn();
-     return;
- }
+function signIn(){
+  toggleSignIn();
+  return;
+}
 
 function toggleSignIn() {
   // if (firebase.auth().currentUser) {

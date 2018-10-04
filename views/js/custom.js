@@ -7,7 +7,7 @@
   $( ".push-tiny--top" ).empty( ".push-tiny--top" );
  });
 
-$('.btn').click(function(){
+$('#registerButton').click(function(){
   $( ".push-tiny--top" ).empty( ".push-tiny--top" );
   //Get parent..
 
