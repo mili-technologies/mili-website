@@ -127,6 +127,11 @@ app.get('/login', function(request, response){
     response.render('login.ejs');
 });
 
+app.get('/aboutus', function(request, response){   
+    //context.set("req:user",idToken);
+    response.render('aboutus.ejs');
+});
+
 app.post('/login',function(request,response){
     var idToken = request.body.idToken;
     var res = "success";    
