@@ -8,12 +8,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<meta name="keywords" content="">
 		<meta name="description" content="">
-		
+		<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree" rel="stylesheet">
 		<link rel="stylesheet" href="css/bootstrap.min.css">		
 		<link rel="stylesheet" href="css/font-awesome.min.css">		
 		<link rel="stylesheet" href="css/nivo_themes/default/default.css">
 		<link rel="stylesheet" type="text/css" href="css/maincss.css">
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/home_style.css">
 		<script src="js/jquery.js"></script>
 		<script src="js/firebase.js"></script>
 		<script src="js/authentication.min.js"></script>
@@ -27,18 +30,20 @@
 		
 		<!-- navigation section -->
 		<nav class="navbar navbar-inverse navbar-fixed-top" style="border-color:#fff;margin-bottom: 0px" role="navigation">
-			<div class="container-fluid-style">
+			<div class="container-fluid-style brand-color">
 				<div class="navbar-header">
 					<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
 						<span class="icon icon-bar"></span>
 						<span class="icon icon-bar"></span>
 						<span class="icon icon-bar"></span>
 					</button>
-					<a href="#" class="navbar-brand smoothScroll" style="margin:6px 0px"><strong>MILI</strong></a>
+					<!-- <a href="#" class="navbar-brand smoothScroll logo" style="margin:6px 0px"><strong>MiLi</strong></a> -->
+					<div class="logo">MILI</div>
 				</div>
 				<div class="collapse navbar-collapse">
 					<ul class="nav navbar-nav">
-						<li><a href="#download" class="smoothScroll">DOWNLOAD</a></li>
+						<!-- <li><a href="#download" class="smoothScroll">DOWNLOAD</a></li> -->
+						<li class="shift-left"><a href="#download" class="smoothScroll">DOWNLOAD</a></li>
 						<li><a href="#restaurants" class="smoothScroll">RESTAURANTS</a></li>
 						<li><a href="#working" class="smoothScroll">HOW IT WORKS?</a></li>
 					</ul>
@@ -66,15 +71,16 @@
 							</ul>
 							</div>
 						<div class="form-horizontal" id="restaurant_register">
-								<div class="form-group ">
+							<h3><center class="only_for">Only For Restaurant</center></h3>
+								<div class="form-group  brand-color">
 										<a type="button" id = "loginButton" href="/login" class="btn btn-primary btn-lg btn-block login-register">Already Have An Account</a>
 									</div>
 							<div class="form-group">
 									<div class="cols-sm-10">
 										<div class="input-group">
 											<!-- <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span> -->
-											<input type="text" class="form-control form-rounded" name="firstname" id="firstname"  placeholder=" First Name" style="width: 50%"/>								
-											<input type="text" class="form-control form-rounded" name="lastname" id="lastname"  placeholder=" Last Name" style="width: 50%"/>
+											<input type="text" class="form-control form-rounded place_color" name="firstname" id="firstname"  placeholder=" First Name" style="width: 50%"/>								
+											<input type="text" class="form-control form-rounded place_color" name="lastname" id="lastname"  placeholder=" Last Name" style="width: 50%"/>
 										</div>
 									</div>
 							</div>
@@ -85,7 +91,7 @@
 								<div class="cols-sm-10">
 									<div class="input-group">
 										<!-- <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span> -->
-										<input class="form-control" name="email" id="email"  placeholder="Email Id" required/>
+										<input class="form-control place_color" name="email" id="email"  placeholder="Email Id" required/>
 									</div>
 								</div>
 							</div>
@@ -95,7 +101,7 @@
 								<div class="cols-sm-10">
 									<div class="input-group">
 										<!-- <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span> -->
-										<input type="text" class="form-control" name="restaurantname" id="restaurantname"  placeholder="Restaurant Name"/>
+										<input type="text" class="form-control place_color" name="restaurantname" id="restaurantname"  placeholder="Restaurant Name"/>
 									</div>
 								</div>
 							</div>
@@ -105,7 +111,7 @@
 									<div class="cols-sm-10">
 										<div class="input-group">
 											<!-- <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span> -->
-											<input type="tel"  class="form-control" name="phonenumber" id="phonenumber"  placeholder="Phone Number"/>
+											<input type="tel"  class="form-control place_color" name="phonenumber" id="phonenumber"  placeholder="Phone Number"/>
 										</div>
 									</div>
 								</div>
@@ -115,7 +121,7 @@
 								<div class="cols-sm-10">
 									<div class="input-group">
 										<!-- <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span> -->
-										<input type="password" class="form-control" name="password" id="password"  placeholder="Password"/>
+										<input type="password" class="form-control place_color" name="password" id="password"  placeholder="Password"/>
 									</div>
 								</div>
 							</div>
@@ -145,7 +151,7 @@
 		<div class="admin_panel_features " style="margin-top:4%">				
 				  <div class="container">
 					<div class="sec-title margbt50 text-center">
-					  <h2 class="margbt5">Powerful Admin Panel</h2>
+					  <h2 class="margbt5 brand_font">Powerful Admin Panel</h2>
 					  <p class="margbt20">Manage your Restaurant App on the go with Powerful Admin Features available on Mobile, Tablet and Desktop</p><span class="line"></span>
 					</div>
 					<div class="row">
@@ -230,7 +236,7 @@
 			  </div>
 		<!-- Content Row -->
 		<div class="container text-center" style="margin-top:3%">
-				<h2 class="margbt5" style="margin-bottom:2%">GLIMPSE of features in Mili</h2>
+				<h2 class="margbt5 brand_font" style="margin-bottom:2%">GLIMPSE of features in Mili</h2>
 				<div class="col-md-4 mb-4">
 						<div class="card h-100">
 							  <div class="card-body">
@@ -273,7 +279,7 @@
 				
 					  <!-- /.col-md-4 -->
 					  <div class="card-footer">
-							<a href="#" class="btn disabled">Demo of Admin Panel</a>
+							<a href="#" class="btn disabled admin_btn">Demo of Admin Panel</a>
 						  </div>
 				 
 		<!-- gallery section -->
@@ -355,8 +361,40 @@
 			  </div>
 			</div>
 		</div>
+
+		<div class="form-horizontal" id="restaurant_register">
+			<div class="form-msg">
+				<div class="cols-sm-10">
+					<div class="input-group">
+						<!-- <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span> -->
+						<input type="text" class="form-rounded place_color name-size inp-margin" name="Name" id="your_name"  placeholder="    Your Name"/>								
+						<input type="text" class="form-rounded place_color name-size inp-margin" name="lastname" id="lastname"  placeholder="    Your Email"/>
+					</div>
+				</div>					
+				<!-- <div class="form-group"> -->
+					<div class="cols-sm-10">
+						<div class="input-group">
+						<!-- <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span> -->
+							<input class="form-control place_color inp-margin" name="email" id="email"  placeholder="Contact Number" required/>
+						</div>
+					</div>
+				<!-- </div> -->
+		
+				<!-- <div class="form-group"> -->
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<!-- <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span> -->
+							<textarea type="text" class="form-control place_color inp-margin" name="restaurantname" id="restaurantname"  placeholder="Message"/></textarea>
+						</div>
+					</div>
+					<div class="col-sm-4"></div>
+					<div class="col-sm-4"><input type="button" class="sub_button" value="Submit"></div>
+					<div class="col-sm-4"></div>
+				<!-- </div> -->
+		</div>
+	</div>	
 		<!-- Footer -->
-		<div class="container-fluid site-footer" id="footer" style="padding-left: 6%;padding-top: 1.5%;padding-bottom: 1.5%">
+		<!-- <div class="container-fluid site-footer" id="footer" style="padding-left: 6%;padding-top: 1.5%;padding-bottom: 1.5%">
 				<div class="row rox">				
 					<div class="col-md-3 medium-hide">
 						<div class="site-footer-logo">
@@ -397,8 +435,98 @@
 					</div>			
 				</div>
 			</div>
-			<!-- ./Footer -->
-				
+		 -->	<!-- ./Footer -->
+		
+
+
+		<!--Amit footer-->
+		<footer>
+			<div class="foot_back">
+				<div class="follow_us">
+					<div class="li_align">
+						<a href="https://www.facebook.com/Mili-716847228672366"><i class="fab fa-facebook-f FB1"></i></a>
+						<a href="https://twitter.com/themiliapp"><i class="fab fa-twitter FB2"></i></a>
+					</div>
+				</div>
+				<ul>
+					<li class="foot_list"><a href="/" class="logo">MILI</a></li>
+					<div class="col-sm-3 footer_list"><a href="/aboutus" style="color:black;">About Us</a></div>
+					<div class="col-sm-3 footer_list"><a href="mailto:admin@militheapp.com" style="color:black;">Email : admin@militheapp.com</a></div>
+					<div class="col-sm-3 footer_list"><a href="tel:+918886780265" style="color:black;">Call : +91 (888) 678-0265</a></div>
+					<div class="col-sm-3 footer_list" style="border-right:none;"><a href="" style="color:black;">© 2018 Mili Inc. All rights reserved.</a></div>
+				</ul>
+				<!-- <div class="foot_img">
+					
+					<center style="color: white;padding: 15px 10px 10px 10px;">© MILI INC. All Rights Reserved.</center>
+					<ul class="follow_us">
+						<li class="li_align">MILI</li>
+						<li class="li_align">Contact</li>
+					</ul>
+				</div> -->
+			</div>
+		</footer>
+		<style type="text/css">
+			/*.footer_li{
+				list-style-type: none;
+				margin: 0;
+				padding: 10px 10px 10px 10px;
+				overflow: hidden;
+				float: left;
+				border: white solid 1px;
+				/*background: white;*/
+				.nav>li:hover {
+    position: relative;
+    background:#e0460d;
+}
+			.foot_back{
+				/*background-image: url("../images/footback.jpg");*/
+    			background:white;
+    			border-top:2px solid black;
+    			height: 166px;
+    			width: 100%;	
+    			margin-top: 4%;
+    			background-size: cover;
+    			box-shadow: 0px 0px 5px grey;
+			}
+			.foot_img{
+				background: black;
+				width: 100%;
+				opacity: 0.6;
+				height: 70px;
+			}
+ input:focus{
+    /*outline: none !important;*/
+    border:1px solid red;
+    box-shadow: 0 0 10px #719ECE;
+ }
+
+			@media screen and (max-width: 600px){
+.container-fluid {
+    padding-left: 4%;
+}
+.breadcrumb>li, .breadcrumb>li>a, .list--horizontal>li, .list--horizontal>li>a, .nav>li, .nav>li>a, .secondary-nav>li, .secondary-nav>li>a, .top-bar>li, .top-bar>li>a {
+    display: block;
+    text-align: center;
+    zoom: 1;
+}
+			.form-size{
+  width: 50%;
+}
+.navbar-toggle {
+    margin-top: 8px;
+}
+.foot_back {
+    /* background-image: url(../images/footback.jpg); */
+    background: white;
+    border-top: 2px solid black;
+    height: 200px;
+    width: 100%;
+    margin-top: 4%;
+    background-size: cover;
+    box-shadow: 0px 0px 5px grey;
+}
+}
+		</style>		
 		<!-- JAVASCRIPT JS FILES -->			
 		<script src="js/bootstrap.min.js"></script>
 		<script src="js/custom.js"></script>		
