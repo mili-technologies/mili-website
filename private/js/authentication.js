@@ -60,7 +60,7 @@ function toggleSignIn() {
 function handleSignUp() {
   var email = document.getElementById('email').value;
   var password = document.getElementById('password').value;
-  console.log(email,password);
+  //console.log(email,password);
   if (email.length < 4) {
     alert('Please enter an email address.');
     return;
@@ -76,7 +76,7 @@ function handleSignUp() {
     var errorMessage = error.message;
     if(!!errorCode)
         response = errorCode;
-    console.log(error);
+    console.error(error);
     if (errorCode == 'auth/weak-password') {
       alert('The password is too weak.');
     } else {
@@ -98,7 +98,7 @@ function sendPasswordReset() {
     } else if (errorCode == 'auth/user-not-found') {
       alert(errorMessage);
     }
-    console.log(error);
+    console.error(error);
   });
 }
 
@@ -117,20 +117,20 @@ function initApp() {
       // var isAnonymous = user.isAnonymous;
       // var uid = user.uid;
       // var providerData = user.providerData;
-      console.log("Email Status",emailVerified);
+      //console.log("Email Status",emailVerified);
       if (!emailVerified) {
         currentUser = user;
         firebase.auth().currentUser.sendEmailVerification().then(function() {
             // Email Verification sent!            
-            console.log(currentUser);            
+            // console.log(currentUser);            
             firebase.auth().currentUser.getIdToken(true).then(function(idToken) {
               //$('body').append('<input name="user" id="user" value='+idToken+' type="hidden"/>');              
               verifyToken(idToken);              
-              console.log(idToken);
+              //console.log(idToken);
             }).catch(function(error) {
               var errorCode = error.code;
               var errorMessage = error.message;
-              console.log(errorCode,errorMessage);
+              console.error(errorCode,errorMessage);
             });
 
             function verifyToken(token){
@@ -139,7 +139,7 @@ function initApp() {
                 type:'POST',
                 data:{'idToken':token,'restaurantName':$('#restaurantname').val(),'tableCount':$('#noftables').val(),'firstname':$('#firstname').val(),'lastname':$('#lastname').val()},
                 success:function(data){
-                  console.log(data);
+                  //console.log(data);
                   if(data == "success")
                     window.location.href = "/login";
                   else
@@ -155,9 +155,9 @@ function initApp() {
         }).catch(function(error){
           var user = firebase.auth().currentUser;
           user.delete().then(function() {
-            console.log("deleted");
+            console.error("deleted");
           }).catch(function(error) {
-            console.log("user not found");
+            console.error("user not found");
           });
         });          
       } else {
@@ -183,17 +183,17 @@ function loginToApp(){
       // var isAnonymous = user.isAnonymous;
       // var uid = user.uid;
       // var providerData = user.providerData;
-      console.log("Email Status",emailVerified);
+      //console.log("Email Status",emailVerified);
       if (emailVerified) {
         currentUser = user;
         firebase.auth().currentUser.getIdToken(true).then(function(idToken) {
           $('div.main-login').append('<input name="idToken" id="idToken" value='+idToken+' type="hidden"/>');
-          console.log(idToken);
+          //console.log(idToken);
           addSubmitForm();
         }).catch(function(error) {
           var errorCode = error.code;
           var errorMessage = error.message;
-          console.log(errorCode,errorMessage);
+          console.error(errorCode,errorMessage);
         });  
       } else {
         alert("Email is not verified!Please verify your email");
