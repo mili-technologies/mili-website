@@ -1,0 +1,27 @@
+12:56:17.134 | Info | 'Server started and Listening to the port 8000' | 
+12:56:17.240 | Info | 'connected' | 
+12:58:03.465 | Info | 'Server started and Listening to the port 8000' | 
+12:58:03.508 | Info | 'connected' | 
+12:58:46.825 | Info | 'Server started and Listening to the port 8000' | 
+12:58:46.949 | Info | 'connected' | 
+12:59:12.552 | Info | 'Server started and Listening to the port 8000' | 
+12:59:12.571 | Info | 'connected' | 
+01:03:01.668 | Info | 'Server started and Listening to the port 8000' | 
+01:03:01.714 | Info | 'connected' | 
+01:08:18.224 | Info | 'routed to login' | 
+01:09:30.646 | Debug | 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjA2OThjZmNlMTgzNWZjNDZmNWVhZWZjOGJmOTMwNjk0OGQ2OTFmMGIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdGVzdC02ZDU0YiIsImF1ZCI6InRlc3QtNmQ1NGIiLCJhdXRoX3RpbWUiOjE1Mzg5ODYxNzUsInVzZXJfaWQiOiJKcG1XS2N3WnVxWEN2UmlBMUZlMk9NSTJUMDYzIiwic3ViIjoiSnBtV0tjd1p1cVhDdlJpQTFGZTJPTUkyVDA2MyIsImlhdCI6MTUzODk4NjE3NywiZXhwIjoxNTM4OTg5Nzc3LCJlbWFpbCI6ImthcmFucGF3YXI2NDNAZ21haWwuY29tIiwiZW1haWxfdmVyaWZpZWQiOmZhbHNlLCJmaXJlYmFzZSI6eyJpZGVudGl0aWVzIjp7ImVtYWlsIjpbImthcmFucGF3YXI2NDNAZ21haWwuY29tIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.T3Taku4sz1x8-_iG5vXrE3JvRcu_2-R7p8U-Cki5JE2muNm9yXNxfAVZMJphvwFoitanhBEDg2HC7_UNLsUluUZZONLKMjBmxg82ds48pl5DS4pWfn-qsTSELkjb5EKlB9nWupRTsnCEi_hAfIswAiTdkXBTDK0A2MI-9Igb-1J80dHvyBsyRcGJkUsQsqKOp6XUfA4DeyQoBUoN6mnH03F3DXm3hlyVpznYaZct8zOToA-lHS2Sgy9yFetV-0b9ptuoG4s-1RUtWKqYJR_9oGP_dBKehRRNFOonveQYv5kz2QO1m_dmsBTgCCG70idTm1WMBXwixnB6gaF3BHclMA' | 
+01:09:30.649 | Info | 'routed to login' | 
+01:09:30.777 | Info | 'routed to login' | 
+01:09:31.045 | Debug | 'JpmWKcwZuqXCvRiA1Fe2OMI2T063' | Service: [object Object] | 
+01:32:52.783 | Debug | 'eyJhbGciOiJSUzI1NiIsImtpZCI6IjA2OThjZmNlMTgzNWZjNDZmNWVhZWZjOGJmOTMwNjk0OGQ2OTFmMGIiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL3NlY3VyZXRva2VuLmdvb2dsZS5jb20vdGVzdC02ZDU0YiIsImF1ZCI6InRlc3QtNmQ1NGIiLCJhdXRoX3RpbWUiOjE1Mzg5ODc1NzcsInVzZXJfaWQiOiJKZWVtb01WUmRkT1psZDdLNHN3dElxOExaYzMyIiwic3ViIjoiSmVlbW9NVlJkZE9abGQ3SzRzd3RJcThMWmMzMiIsImlhdCI6MTUzODk4NzU4MCwiZXhwIjoxNTM4OTkxMTgwLCJlbWFpbCI6InNhZmFAc2QuamsiLCJlbWFpbF92ZXJpZmllZCI6ZmFsc2UsImZpcmViYXNlIjp7ImlkZW50aXRpZXMiOnsiZW1haWwiOlsic2FmYUBzZC5qayJdfSwic2lnbl9pbl9wcm92aWRlciI6InBhc3N3b3JkIn19.JZf2KvZkqaeMxWnxAoYDJKoztUl2lKKbzdJiVdst1_AU8DccqRKSbpEBQ4UkTTO4Y-0g6IhglPHCmhcdV-YddG0YMV5szJzGKS1YU8rUTtWX7nsZ_A14WWFaGrMOeF59qOrH8Kx8PU5xILPNiUnP9zXCrOdNIqY784zxVLzMiKBWpsGP4TTPmxwiK9CO35YAJggeVJi5dY3ZWX-P4r0ghTLnoPqxmEq6UxG8EInLv1OC5qBkQYFJBkeEVB0_xzpwkyp2iK6gpi9y3k6PNqA4gPrrDt6Dtu4ri8fljJKIQVIbMPcVqJ3QSy6wnrw5CBfdJHS-9wn7JYo7rChhL_AUng' | 
+01:32:52.785 | Info | 'routed to login' | 
+01:32:52.789 | Debug | 'JeemoMVRddOZld7K4swtIq8LZc32' | Service: [object Object] | 
+01:32:52.817 | Info | 'routed to login' | 
+01:39:31.049 | Debug | 'After 30 min call ' | Service: karanpawar643@gmail.com | 
+01:39:31.789 | Debug | false | 
+01:39:32.745 | Info | 'Successfully deleted user' | Service: karanpawar643@gmail.com | 
+02:02:52.786 | Debug | 'After 30 min call ' | Service: safa@sd.jk | 
+02:02:53.194 | Debug | false | 
+02:02:54.026 | Info | 'Successfully deleted user' | Service: safa@sd.jk | 
+05:27:01.121 | Info | 'routed to login' | 
+05:27:02.480 | Info | 'routed to login' | 
