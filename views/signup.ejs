@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mili - Sign Up</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <!-- Core css -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" id="bulma" href="assets/css/bulma.css" />
+    <link rel="stylesheet" type="text/css" href="assets/css/core_green.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <!-- Plugins css -->
+    <link rel="stylesheet" type="text/css" href="assets/js/ggpopover/ggtooltip.css">
+    <!-- Icons -->
+    <link rel="stylesheet" type="text/css" href="assets/css/icons.min.css">
+</head>
+
+<body>
+    <!-- Pageloader -->
+    <div class="pageloader"></div>
+    <div class="infraloader is-active"></div>
+
+    <!-- Hero and nav -->
+    <div class="hero is-light-grey is-fullheight">
+        <div class="navbar-wrapper navbar-fade">
+            <div class="hero-head">
+
+                <!-- Nav -->
+                <div class="container">
+                    <nav class="nav">
+                        <div class="container big">
+                            <div class="nav-left">
+                                <a class="nav-item mililogo" href="/">
+                                    <img src="assets/images/logos/brands/milithelogo-1.png" alt="">
+                                    <!-- MILI -->
+                                </a>
+                                <!-- Sidebar trigger -->
+
+                                <a href="landing-v3-pricing.html" class="nav-item is-tab nav-inner is-not-mobile">
+                                    Pricing
+                                </a>
+                                <a href="help" class="nav-item is-tab nav-inner is-not-mobile">
+                                    Help
+                                </a>
+                                <a href="landing-v3-login.html" class="nav-item is-tab nav-inner is-not-mobile">
+                                    Dashboard
+                                </a>
+                            </div>
+                            <!-- Responsive toggle -->
+                            <span class="nav-toggle">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                            <div class="nav-right nav-menu">
+
+                                <a href="landing-v3-pricing.html" class="nav-item is-tab nav-inner is-menu-mobile">
+                                    Pricing
+                                </a>
+                                <a href="landing-v3-help.html" class="nav-item is-tab nav-inner is-menu-mobile">
+                                    Help
+                                </a>
+                                <a href="landing-v3-login.html" class="nav-item is-tab nav-inner is-menu-mobile">
+                                    Dashboard
+                                </a>
+                                <span class="nav-item">
+                                    <a id="signup-btn" class="button button-signup btn-outlined is-bold btn-align primary-btn rounded raised modal-trigger"
+                                        data-modal="vertical-form-modal">
+                                        Log in
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- /Nav -->
+
+            </div>
+        </div>
+
+
+
+        <!-- Modal LOGIN Markup -->
+
+        <div id="vertical-form-modal" class="modal modal-sm main-login" id="loginModal">
+            <div class="modal-background"></div>
+            <div class="modal-content" id="loginForm">
+                <div class="flex-card simple-shadow">
+                    <div class="card-body">
+                        <h2 class="title has-text-centered is-3 mb-40">Login</h2>
+                        <div class="control-material is-accent">
+                            <input class="material-input" type="text" name="login_email" id="login_email" required>
+                            <span class="material-highlight"></span>
+                            <span class="bar"></span>
+                            <label>Name *</label>
+                        </div>
+                        <div class="control-material is-accent">
+                            <input class="material-input" type="text" name="login_password" id="login_password"
+                                required>
+                            <span class="material-highlight"></span>
+                            <span class="bar"></span>
+                            <label>Password *</label>
+                        </div>
+                        <p class="has-text-left mt-30">
+                            <a class="no-account is-accent" href="#">Dont have an account?</a>
+                        </p>
+                        <div class="mt-20">
+                            <button class="button button-cta btn-align accent-btn raised is-fullwidth no-lh" onclick="signIn();">Login</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="modal-close is-large is-hidden" aria-label="close"></button>
+        </div>
+        <!-- /Modal Markup -->
+        <!-- /Modal LOGIN Markup -->
+        <!-- Hero image -->
+        <div id="main-hero" class="hero-body">
+            <div class="container">
+                <div class="columns is-vcentered">
+                    <div class="column is-5 is-offset-1 is-hidden-mobile">
+                        <div class="flex-card clean-signup-info padding-20">
+                            <h2 class="has-text-centered clean-text">Get started</h2>
+                            <div class="feature">
+                                <img src="assets/images/illustrations/icons/landing-v1/business-ready.svg" alt="">
+                                <div class="feature-text">Lorem ipsum dolor sit amet, cu has blandit intellegat, qui
+                                    ludus consequuntur ad.</div>
+                            </div>
+                            <div class="feature">
+                                <img src="assets/images/illustrations/icons/landing-v1/credit-card.svg" alt="">
+                                <div class="feature-text">Lorem ipsum dolor sit amet, cu has blandit intellegat, qui
+                                    ludus consequuntur ad.</div>
+                            </div>
+                            <div class="feature">
+                                <img src="assets/images/illustrations/icons/landing-v1/components.svg" alt="">
+                                <div class="feature-text">Lorem ipsum dolor sit amet, cu has blandit intellegat, qui
+                                    ludus consequuntur ad.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-6 main-login">
+                        <div class="animated preFadeInLeft fadeInLeft" id="signup-card restaurant_register">
+                            <div class="flex-card clean-signup-card">
+                                <h2 class="has-text-centered">Register</h2>
+                                <form>
+                                    <div class="control-material is-primary">
+                                        <input class="material-input" type="text" name="name" id="name" required>
+                                        <span class="material-highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Your Name *</label>
+                                    </div>
+                                    <div class="control-material is-primary">
+                                        <input class="material-input" type="text" name="email" id="email" required>
+                                        <span class="material-highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Email *</label>
+                                    </div>
+                                    <div class="control-material is-primary">
+                                        <input class="material-input" type="text" name="city" id="city" required>
+                                        <span class="material-highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Your City *</label>
+                                    </div>
+                                    <div class="control-material is-primary">
+                                        <input class="material-input" type="text" name="phonenumber" id="phonenumber"
+                                            required>
+                                        <span class="material-highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Mobile or Landline with(STD) *</label>
+                                    </div>
+                                    <div class="control-material is-primary">
+                                        <input class="material-input" type="text" name="restaurantname" id="restaurantname"
+                                            required>
+                                        <span class="material-highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Restaurant Name *</label>
+                                    </div>
+                                    <div class="control-material is-primary">
+                                        <input class="material-input" type="password" name="password" id="password"
+                                            required>
+                                        <span class="material-highlight"></span>
+                                        <span class="bar"></span>
+                                        <label>Create Password *</label>
+                                    </div>
+
+                                    <div class="mt-20">
+                                        <button type="button" class="button button-cta btn-align primary-btn is-fullwidth raised no-lh"
+                                            onclick="signUpWithEmailVerification();" id="registerButton">Get
+                                            started now</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Hero image -->
+    </div>
+
+
+
+
+    <!-- Back To Top Button -->
+    <div id="backtotop"><a href="#"></a></div>
+
+    <!-- Core js -->
+    <script src="assets/js/core/jquery.min.js"></script>
+    <script src="assets/js/core/modernizr.min.js"></script>
+    <!-- Plugins js -->
+    <script src="assets/js/ggpopover/ggtooltip.js"></script>
+    <script src="assets/js/scrollreveal/scrollreveal.min.js"></script>
+    <!-- Bulkit js -->
+    <script src="assets/js/main.js"></script>
+    <!-- Page specific js -->
+    <script src="assets/js/pages/auth.js"></script>
+    <script src="assets/js/pages/components-modals.js"></script>
+</body>
+<style>
+    .navbar-wrapper.navbar-fade .hero-head,
+    .navbar-wrapper.navbar-minimal .hero-head {
+        background-color: transparent;
+        box-shadow: inherit;
+        /* box-shadow: 2px 2px 2px #e5e5e5e0; */
+        box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.12);
+        background: white;
+    }
+
+    .control-material input.material-input,
+    .control-material textarea {
+        width: 100% !important;
+        font-size: 18px;
+        padding: 0.625em 0.625em 0.1em 0.3125em;
+        display: block;
+        width: 18.75em;
+        border: none;
+        border-bottom: 1px solid #A9ABAC;
+        background-color: transparent !important;
+    }
+
+    .control-material {
+        position: relative;
+        margin-bottom: 2em;
+    }
+</style>
+
+</html>

@@ -2,7 +2,6 @@
 
 
 
-
 $(document).ready(function () {
   var config = {
     apiKey: "AIzaSyDqdpDVJ5cnTMcn0N_Jq4XXWYLpqVXEQJY",
@@ -34,7 +33,8 @@ function toggleSignIn() {
   var email = document.getElementById('login_email').value;
   var password = document.getElementById('login_password').value;
   if (email.length < 4) {
-    alert('Please enter an email address.');
+    // alert('Please enter an email address.');
+    $('.model1').fadeIn();
     return;
   }
   if (password.length < 4) {
@@ -213,7 +213,7 @@ function addSubmitForm() {
   // $('#loginForm'). 
   $('div.main-login').wrap('<form id="loginForm" name="loginForm">');
   var loginForm = $('#loginForm').get(0);
-  loginForm.action = 'login';
+  loginForm.action = '/dashboard';
   loginForm.method = 'POST';
   loginForm.submit();
 }

@@ -1,0 +1,21 @@
+.dashboard-wrapper {
+    padding: 80px 20px 0 20px!important;
+    margin-left: 0px!important;
+    min-height: 100vh;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #04b261!important;
+    border-color: #04b261!important;
+    border-radius: 0px!important;
+}
+.btn-danger {
+    color: #fff;
+    background-color: #d9534f;
+    border-color: #d43f3a;
+    border-radius: 0px!important;
+}
+li.left-icon {
+    text-align: -webkit-center;
+}
+

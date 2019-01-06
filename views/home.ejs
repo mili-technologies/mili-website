@@ -1,704 +1,778 @@
-<!Doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<title>MILI</title>
-
-	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="keywords" content="">
-	<meta name="description" content="">
-	<link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree" rel="stylesheet">
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/nivo_themes/default/default.css">
-	<link rel="stylesheet" type="text/css" href="css/maincss.css">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
-	 crossorigin="anonymous">
-	<link rel="stylesheet" href="css/home_style.css">
-	<script src="js/jquery.js"></script>
-	<script src="js/firebase.js"></script>
-	<script src="js/authentication.min.js"></script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mili</title>
+    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+    <!-- Core css -->
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" id="bulma" href="assets/css/bulma.css" />
+    <script src="js/jquery.js"></script>
+    <script src="js/firebase.js"></script>
+    <!-- <script src="js/authentication.min.js"></script> -->
+    <script src="js/authentication.js"></script>
+    <script src="js/bulkit.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/core_lemonade.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/core_green.css">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- Core css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/core_demo.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <!-- Plugins css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/home_style.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/ggpopover/ggtooltip.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/slick-carousel/slick.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/slick-carousel/slick-theme.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/chosen/chosen.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/highlightjs/style.css">
+    <!-- Icons -->
+    <link rel="stylesheet" type="text/css" href="assets/css/icons.min.css">
+    <!-- Plugins css -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+    <!-- Plugins css -->
+    <link rel="stylesheet" type="text/css" href="assets/css/core_flashy.css">
+    <!-- 
+    <script>
+        $(document).ready(function () {
+            $(".model1").hide();
+            $(".button_login").click(function () {
+                $(".model1").show();
+            });
+        });
+    </script> -->
+    <!-- Plugins css -->
 </head>
 
 <body>
+    <!-- Pageloader -->
+    <div class="pageloader"></div>
+    <div class="infraloader is-active"></div>
 
-	<!-- preloader section -->
-	<section class="preloader" style="display: none;">
-		<div class="sk-spinner sk-spinner-pulse"></div>
-	</section>
+    <!-- Hero and nav -->
+    <div class="hero is-medium">
+        <div class="navbar-wrapper navbar-fade">
+            <div class="hero-head">
 
-	<!-- navigation section -->
-	<!-- <div class="container-fluid" ;background:#101010;"> -->
-	<div class="container-fluid div1">
-		<!-- <nav class="container navbar header_div  navbar-fixed-top" role="navigation">
-			<div class="navbar-header">
-				<button class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
-					<span class="icon icon-bar"></span>
-					<span class="icon icon-bar"></span>
-					<span class="icon icon-bar"></span>
-				</button>
-				<div class="logo" style="margin-top:10px;">MILI</div>
-			</div>
-			<div class="collapse" id="navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li class="shift-left">
-						<a class="smoothScroll btn4" data-toggle="modal" data-target="#myDmodal">
-							DOWNLOAD
-						</a>
-					</li>
-					<li><a href="#restaurants" class="smoothScroll btn4" data-toggle="modal" data-target="#myDmodal">RESTAURANTS</a></li>
-					<li><a href="#working" class="smoothScroll btn4" data-toggle="modal" data-target="#myDmodal">HOW IT WORKS?</a></li>
-				</ul>
-				<ul class="nav navbar-nav navbar-right">
-					<li><a class="smoothScroll btn4" data-toggle="modal" data-target="#loginModal">
-							LOGIN</a></li>
-				</ul>
-			</div>
-		</nav> -->
-		<!-- New Navigation bar -->
-		<nav>
-			<div class="nav-fostrap">
-				<ul>
-					<li><a href="" class="btn4">MILI</a></li>
-					<li><a href="javascript:void(0)" class="btn4" data-toggle="modal" data-target="#myDmodal">Download</a>
-					</li>
-					<li><a href="javascript:void(0)" class="btn4" data-toggle="modal" data-target="#myDmodal">Restaurant</a>
-					</li>
-					<li><a href="javascript:void(0)" class="btn4" data-toggle="modal" data-target="#myDmodal">How it work?
-							<!-- <span class="arrow-down"></span> -->
-						</a>
-						<!-- <ul class="dropdown">
-							<li><a href="">Tools</a></li>
-							<li><a href="">Backlink</a></li>
-						</ul> -->
-					</li>
-					<li><a href="" class="btn4" data-toggle="modal" data-target="#loginModal">Log In</a></li>
-				</ul>
-			</div>
-			<div class="nav-bg-fostrap">
-				<div class="navbar-fostrap"> <span></span> <span></span> <span></span> </div>
-				<a href="" class="title-mobile">MILI</a>
-			</div>
-		</nav>
-		<div class='content'>
-		</div>
-		<!-- Navigation Script -->
-		<script>
-			$(document).ready(function () {
-				$('.navbar-fostrap').click(function () {
-					$('.nav-fostrap').toggleClass('visible');
-					$('body').toggleClass('cover-bg');
-				});
-			});
-		</script>
-		<!-- Navigation bar end -->
-	</div>
-	<script>
-		$(document).ready(function () {
-			$(window).scroll(function () {
-				var scroll = $(window).scrollTop();
-				if (scroll > 50) {
-					$(".nav-fostrap").css({ "background": "#03A9F4" }),
-						$(".logo").css({ "color": "#555" }),
-						$(".container-fluid.div1").css({ "box-shadow": "0px 0px 4px grey" }),
-						$(".smoothScroll.btn4").css({ "color": "#555" });
-				}
+                <!-- Nav -->
+                <div class="container">
+                    <nav class="nav">
+                        <div class="container big">
+                            <div class="nav-left">
+                                <a class="nav-item mililogo" href="/">
+                                    <img src="assets/images/logos/brands/milithelogo-1.png" alt="">
+                                    <!-- MILI -->
+                                </a>
+                                <!-- Sidebar trigger -->
 
-				else {
-					$(".logo").css({ "color": "white" }),
-						$(".nav-fostrap").css({ "background": "none" }),
-						$(".container-fluid.div1").css({ "box-shadow": "none" }),
-						$(".smoothScroll.btn4").css({ "color": "white" });
-				}
-			})
-		})
-	</script>
-	<style>
-		.header_div{
-    border-color: rgba(255, 255, 255, 0);
-    margin-bottom: 0px;
+                                <a href="Download.html" class="nav-item is-tab nav-inner is-not-mobile">
+                                    Download
+                                </a>
+                                <a href="#process" class="nav-item is-tab nav-inner is-not-mobile">
+                                    How it work
+                                </a>
+                                <a href="dashboard" class="nav-item is-tab nav-inner is-not-mobile">
+                                    Dashboard
+                                </a>
+                            </div>
+                            <!-- Responsive toggle -->
+                            <span class="nav-toggle">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+                            <div class="nav-right nav-menu">
+
+                                <a href="landing-v3-pricing.html" class="nav-item is-tab nav-inner is-menu-mobile">
+                                    Pricing
+                                </a>
+                                <a href="landing-v3-help.html" class="nav-item is-tab nav-inner is-menu-mobile">
+                                    Help
+                                </a>
+                                <a href="dashboard" class="nav-item is-tab nav-inner is-menu-mobile">
+                                    Dashboard
+                                </a>
+                                <span class="nav-item">
+                                    <a id="signup-btn" class="button button-signup btn-outlined is-bold btn-align primary-btn rounded raised modal-trigger"
+                                        data-modal="vertical-form-modal">
+                                        Log in
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+                <!-- /Nav -->
+
+            </div>
+        </div>
+
+        <!-- Hero image -->
+        <div id="main-hero" class="hero-body is-relative no-padding-bottom">
+            <div class="container has-text-centered">
+                <div class="columns">
+                    <div class="column is-8 is-offset-2 has-text-centered">
+                        <h1 class="title big-title text-bold is-2">
+                            Scan Eat Enjoy
+                        </h1>
+                        <div class="subtitle light-subtitle">
+                            Start collaborating immediatly on a powerful and easy to use Restaurant Management
+                            system
+                        </div>
+                        <!-- CTA button -->
+                        <div class="has-text-centered">
+                            <a href="signup" class="button button-cta primary-btn rounded raised">Get
+                                started free</a>
+                        </div>
+                        <!-- Popup video link -->
+                        <div class="video-link has-text-centered modal-trigger" data-modal="video-modal">
+                            <i class="fa fa-play"></i> <span>See how it works</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Hero image -->
+    </div>
+    <!-- /Hero and nav -->
+    <!-- Mockup section -->
+    <div id="product" class="section is-relative mockup-section">
+        <div class="container">
+            <div class="columns has-text-centered">
+                <div class="column">
+                    <!-- App -->
+                    <img class="app-mockup" src="assets/images/illustrations/mockups/landing3/food3.png" alt="">
+                    <!-- Background image -->
+                    <img class="hr-bg" src="assets/images/illustrations/mockups/landing3/hrbg.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Mockup section -->
+
+    <!-- Modal LOGIN Markup -->
+
+    <div id="vertical-form-modal" name="loginForm" class="modal modal-sm main-login" id="loginModal">
+        <div class="wrong_login">
+            Wrong password or username!!!
+        </div>
+        <style>
+            .wrong_login {
+    height: 16%;
+    width: 43%;
+    text-align: center;
+    padding: 40px;
+    margin-top: -244px;
+    box-shadow: 1px 0px 4px 4px #9e9b9b8a;
+    font-family: none;
+    font-size: 18px;
+    background: rgb(255, 255, 255);
+    position: absolute;
+    z-index: 99;
+    color: #ef0707;
+    display: none;
 }
-.smoothScroll.btn4 {
-color: white;
+.modal .modal-content{
+    z-index: 95!important;
 }
-.smoothScroll.btn4:hover{
-	color: white;
-	transition: 0.2s;
+.modal.is-active .modal-background{
+    z-index: 90!important;
 }
-.header_text.btn4{
-	color:rgb(0, 0, 0);
-}
-/* .smoothScroll.btn4 {
-    color: black;
-} */
-/* a.smoothScroll.header_text {
-    color: white;
-} */
-	</style>
-	<!-- </div> -->
+        </style>
+        <div class="modal-background"></div>
+        <div class="modal-content" id="loginForm">
+            <div class="flex-card simple-shadow">
+                <div class="card-body">
+                    <h2 class="title has-text-centered is-3 mb-40" id="login">Login</h2>
+                    <div class="model1" style="display:none;">
+                        please enter email id.
+                    </div>
+                    <div class="control-material is-accent">
+                        <input class="material-input" type="text" name="login_email" id="login_email" required>
+                        <span class="material-highlight"></span>
+                        <span class="bar"></span>
+                        <label>Name *</label>
+                    </div>
+                    <div class="model2" style="display:none;">
+                        please enter email id.
+                    </div>
+                    <div class="control-material is-accent">
+                        <input class="material-input" type="password" name="login_password" id="login_password"
+                            required>
+                        <span class="material-highlight"></span>
+                        <span class="bar"></span>
+                        <label>Password *</label>
+                    </div>
+                    <p class="has-text-left mt-30">
+                        <a class="no-account is-accent" href="signup">Don't have an account ?</a>
+                    </p>
+                    <div class="mt-20">
+                        <button class="button button-cta btn-align accent-btn raised is-fullwidth no-lh button_login"
+                            onclick="signIn();">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <button class="modal-close is-large is-hidden" aria-label="close"></button>
+    </div>
+    <!-- /Modal Markup -->
 
-	<!-- -------------------------------------------------------------------------------------------------------- -->
-	<!-- LOGIN MODAL for Login Page-->
-	<div class="form-group modal fade main-login" id="loginModal" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body" id="loginForm">
-					<div class="input-log">
-						<input type="email" name="login_email" id="login_email" required />
-						<label for="email-id">Email Id:</label>
-					</div>
-					<div class="input-log">
-						<input type="password" name="login_password" id="login_password" required />
-						<label for="pass">Password:</label>
-					</div>
-					<center>
-						<button class="sub_log" onclick="signIn();">Login</button>
-					</center>
-					<div class="forget_acc">
-						<center><a href="" class="forget_acc">Forgot Password?</a><br><b class="or">Or</b></center>
-					</div>
-					<div class="no-account">
-						Don't have an account?
-						<a href="/" class="sign-up" style="text-decoration:underline">Sign-up</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--  -->
-	<div class="container-fluid div2">
-		<div class="container sign-up">
-			<div class="row main">
-				<div class="main-login main-center col-sm">
-					<h3><strong></strong></h3>
-					<div class="layout__ one-whole">
+    <!-- Modal for message -->
 
-						<ul class="text-orange text--left push-tiny--top">
-							<!-- <li class="flush--bottom">Phone number is required.</li>
-								<li class="flush--bottom">Password is required.</li>
-								<li class="flush--bottom"> name is required.</li>
-								<li class="flush--bottom">Last name is required.</li>
-							<li class="flush--bottom">Email is required.</li> -->
-						</ul>
-					</div>
-					<div class="form-horizontal" id="restaurant_register">
-						<h3>
-							<center class="only_for">Only For Restaurant</center>
-						</h3>
-						<div class="form-group  brand-color">
-							<a type="button" id="loginButton" data-toggle="modal" data-target="#loginModal" class="btn  btn-primary btn-lg btn-block login-register">Already
-								Have An Account</a>
-						</div>
-						<div class="form-group">
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<!-- <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span> -->
-									<input type="text" class="form-control form-rounded place_color" name="name" id="name" placeholder="  Name"
-									 style="width: 50%" />
-									<input type="text" class="form-control form-rounded place_color" name="lastname" id="lastname" placeholder=" Last Name"
-									 style="width: 50%" />
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<!-- <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span> -->
-									<input class="form-control place_color" name="email" id="email" placeholder="Email Id" required />
-								</div>
-							</div>
-						</div>
+    <script>
+        function checkEmail() {
 
-						<div class="form-group">
+            var email = document.getElementById('login_email');
+            var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
 
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<!-- <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span> -->
-									<input type="text" class="form-control place_color" name="restaurantname" id="restaurantname" placeholder="Restaurant Name" />
-								</div>
-							</div>
-						</div>
+            if (!filter.test(email.value)) {
+                alert('Please provide a valid email address');
+                email.focus;
+                return false;
+            }
+        }
+    </script>
+    <!-- /Modal LOGIN Markup -->
 
-						<div class="form-group">
+    <!-- Feature Matrix -->
+    <section class="section is-medium">
+        <div class="container has-text-centered  all-in-one">
+            <!-- Title -->
+            <div class="section-title-wrapper has-text-centered">
+                <div class="bg-number">1</div>
+                <h2 class="section-title-landing">
+                    An all in one platform
+                </h2>
+                <h4>New features added on a regular basis</h4>
+            </div>
+            <!-- /Title -->
 
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<!-- <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span> -->
-									<input type="tel" class="form-control place_color" name="phonenumber" id="phonenumber" placeholder="Phone Number" />
-								</div>
-							</div>
-						</div>
+            <div class="content-wrapper">
+                <div class="columns is-vcentered is-multiline has-text-centered">
+                    <div class="column is-hidden-mobile"></div>
+                    <!-- Icon box -->
+                    <div class="column is-3">
+                        <div class="square-icon-box rounded secondary">
+                            <div class="icon-box-wrapper">
+                                <div class="icon-box">
+                                    <!-- <i class="material-icons">dashboard</i> -->
+                                    <img src="assets/images/custom icon/analytics.png" class="six-icon">
+                                </div>
+                            </div>
+                            <div class="box-title">
+                                Track sales and growth trends & billing details
+                                <!-- TRACK SALES AND GROWTH TRENDS & BILLING DETAILS -->
+                            </div>
+                            <!-- <div class="box-text is-tablet-padded-lg">
+                                Centralized admin panel
+                            </div> -->
+                        </div>
+                    </div>
+                    <!-- Icon box -->
+                    <div class="column is-3">
+                        <div class="square-icon-box rounded secondary">
+                            <div class="icon-box-wrapper">
+                                <div class="icon-box">
+                                    <!-- <i class="material-icons">graphic_eq</i> -->
+                                    <img src="assets/images/custom icon/bag.png" class="six-icon">
+                                </div>
+                            </div>
+                            <div class="box-title">
+                                Receive & manage take-away orders
+                                <!-- RECEIVE & MANAGE TAKE-AWAY ORDERS -->
+                            </div>
+                            <!-- <div class="box-text is-tablet-padded-lg">
+                                Available on Web and mobile
+                            </div> -->
+                        </div>
+                    </div>
+                    <!-- Icon box -->
+                    <div class="column is-3">
+                        <div class="square-icon-box rounded secondary">
+                            <div class="icon-box-wrapper">
+                                <div class="icon-box">
+                                    <!-- <i class="material-icons">assessment</i> -->
+                                    <img src="assets/images/custom icon/menu.png" class="six-icon">
+                                </div>
+                            </div>
+                            <div class="box-title">
+                                Customize your menu, packages & tables
+                                <!-- CUSTOMIZE YOUR MENU, PACKAGES & TABLES -->
+                            </div>
+                            <!-- <div class="box-text is-tablet-padded-lg">
+                                Track Sales and growth trends
+                            </div> -->
+                        </div>
+                    </div>
+                    <!-- /Icon box -->
+                    <div class="column is-hidden-mobile"></div>
+                </div>
 
-						<div class="form-group">
+                <div class="columns is-vcentered has-text-centered">
+                    <div class="column is-hidden-mobile"></div>
+                    <!-- Icon box -->
+                    <div class="column is-3">
+                        <div class="square-icon-box rounded primary">
+                            <div class="icon-box-wrapper">
+                                <div class="icon-box">
+                                    <!-- <i class="material-icons">cloud</i> -->
+                                    <img src="assets/images/custom icon/notification.png" class="six-icon">
+                                </div>
+                            </div>
+                            <div class="box-title">
+                                <!-- SEND TARGETED PUSH NOTIFICATIONS -->
+                                Send tagted push notification
+                            </div>
+                            <!-- <div class="box-text is-tablet-padded-lg">
+                                Lorem ipsum dolor sit amet, usu no ancillae verterem.
+                            </div> -->
+                        </div>
+                    </div>
+                    <!-- /Icon box -->
+                    <!-- Icon box -->
+                    <div class="column is-3">
+                        <div class="square-icon-box rounded primary">
+                            <div class="icon-box-wrapper">
+                                <div class="icon-box">
+                                    <!-- <i class="material-icons">lock</i> -->
+                                    <img src="assets/images/custom icon/offer.png" class="six-icon">
+                                </div>
+                            </div>
+                            <div class="box-title">
+                                <!-- MANAGE OFFERS, DISCOUNTS & PROMOTIONS -->
+                                Manage offers, discount & promotions
+                            </div>
+                            <!-- <div class="box-text is-tablet-padded-lg">
+                                Lorem ipsum dolor sit amet, usu no ancillae verterem.
+                            </div> -->
+                        </div>
+                    </div>
+                    <!-- /Icon box -->
+                    <!-- Icon box -->
+                    <div class="column is-3">
+                        <div class="square-icon-box rounded primary">
+                            <div class="icon-box-wrapper">
+                                <div class="icon-box">
+                                    <!-- <i class="material-icons">account_circle</i> -->
+                                    <img src="assets/images/custom icon/reservation.png" class="six-icon">
+                                </div>
+                            </div>
+                            <div class="box-title">
+                                <!-- CONFIRM RESERVATIONS IN REAL TIME -->
+                                Confirm reservation in real time
+                            </div>
+                            <!-- <div class="box-text is-tablet-padded-lg">
+                                Lorem ipsum dolor sit amet, usu no ancillae verterem.
+                            </div> -->
+                        </div>
+                    </div>
+                    <!-- /Icon box -->
+                    <div class="column is-hidden-mobile"></div>
+                </div>
+                <!-- <div class="is-title-reveal pt-40 pb-40">
+                    <a href="landing-v1-signup.html" class="button button-cta btn-align primary-btn rounded raised">Start
+                        your Free trial</a>
+                </div> -->
+            </div>
+        </div>
+    </section>
+    <!-- /Feature Matrix -->
 
-							<div class="cols-sm-10">
-								<div class="input-group">
-									<!-- <span class="input-group-addon"><i class="fa fa-lock fa-lg" aria-hidden="true"></i></span> -->
-									<input type="password" class="form-control place_color" name="password" id="password" placeholder="Password" />
-								</div>
-							</div>
-						</div>
+    <!-- Process section -->
+    <section class="section section-feature-grey is-medium huge-pb" id="process">
+        <div class="container">
+            <!-- Title -->
+            <div class="centered-title">
+                <h2>Our Process</h2>
+                <div class="title-divider"></div>
+                <div class="subheading">
+                    Before creation, there's thinking. Our process is sharp and let us craft the best quality.
+                </div>
+            </div>
+            <!-- /Title -->
 
-
-						<div class="form-group ">
-							<button type="button" id="registerButton" class="btn btn-primary btn-lg btn-block login-register" onclick="signUpWithEmailVerification();">Register</button>
-						</div>
-
-						<p class="flush">By proceeding, I agree that Mili or its representatives may contact me by email, phone,
-							or SMS
-							at
-							the email address or number I provide, including for marketing purposes. I have read and understand the
-							relevant
-							Privacy Statement.</p>
-					</div>
-				</div>
-				<div class="col-sm left-content">
-					<h3 style="color: #fff;">Mili The New Way To Order Food Inside The Restaurant
-					</h3>
-					<p class="left-content">
-						<li>Don't let your customers do <strong>pssh pssh! hiss hiss! excuse me..
-								FWEET!.. Oye Waiter, Bro, Mere Bhai, Anna, @#$%</strong> for calling out waiters</li>
-						<li>Let the customers scan the QR code on the table and place the order through there own mobile without
-							any
-							hardware
-							cost and waiter training sorry it's actually waiter less ordering</li>
-						<li>Introducing Mili! Register To Know How We Can Change The Restaurant Interact With Customers and take
-							it to
-							next level you alays thought of along with all new innovative feature of scanning and placing the order
-							at a
-							price you will love to use it.</li>
-					</p>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Model for download -->
-	<div class="form-group modal fade" id="myDmodal" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body">
-					<div class="error_msg">Work In Progress!!!</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- ---------------------------------------------------------------------------------------------- -->
-	<div class="container-fluid div3" ;">
-		<div class="container">
-			<div class="admin_panel_features " style="margin-top:0%">
-				<div class="container">
-					<div class="sec-title margbt50 text-center">
-						<h2 class="margbt5 brand_font_inv">Powerful Admin Panel</h2>
-						<p class="margbt20">Manage your Restaurant App on the go with Powerful Admin Features available on Mobile,
-							Tablet
-							and Desktop</p><span class="line"></span>
-					</div>
-					<div class="row">
-
-						<div class="col-xs-12 col-sm-6 col-md-4">
-							<div class="servicesThumbnail btn10">
-								<div class="imgWrapper"><img src="images/analytics.png" class="" alt=""></div>
-								<div class="servicesContent">
-									<h6 class="h6 as">Track sales and growth trends &amp; Billing Details</h6>
-								</div>
-							</div>
-							<div class="emptySpace"></div>
-						</div>
-
-						<div class="col-xs-12 col-sm-6 col-md-4">
-							<div class="servicesThumbnail btn10">
-								<div class="imgWrapper"><img src="images/menu.png" class="" alt=""></div>
-								<div class="servicesContent">
-									<h6 class="h6 as">Customize your Menu, Packages &amp; Tables</h6>
-
-								</div>
-							</div>
-							<div class="emptySpace"></div>
-						</div>
-
-
-
-
-
-						<div class="col-xs-12 col-sm-6 col-md-4">
-							<div class="servicesThumbnail btn10">
-								<div class="imgWrapper"><img src="images/discount.png" class="" alt=""></div>
-								<div class="servicesContent">
-									<h6 class="h6 as">Manage Offers, Discounts &amp; Promotions</h6>
-
-								</div>
-							</div>
-							<div class="emptySpace"></div>
-						</div>
-
-
-
-						<div class="col-xs-12 col-sm-6 col-md-4">
-							<div class="servicesThumbnail btn10">
-								<div class="imgWrapper"><img src="images/reserved.png" class="" alt=""></div>
-								<div class="servicesContent">
-									<h6 class="h6 as">Confirm Reservations in Real Time</h6>
-
-								</div>
-							</div>
-							<div class="emptySpace"></div>
-						</div>
-
-
-
-						<div class="col-xs-12 col-sm-6 col-md-4">
-							<div class="servicesThumbnail btn10">
-								<div class="imgWrapper"><img src="images/notification.png" class="" alt=""></div>
-								<div class="servicesContent">
-									<h6 class="h6 as">Send Targeted Push Notifications</h6>
-								</div>
-							</div>
-							<div class="emptySpace"></div>
-						</div>
-
-
-
-						<div class="col-xs-12 col-sm-6 col-md-4">
-							<div class="servicesThumbnail btn10">
-								<div class="imgWrapper"><img src="images/take-away.png" class="" alt=""></div>
-								<div class="servicesContent">
-									<h6 class="h6 as">Receive &amp; Manage Take-Away Orders</h6>
-
-								</div>
-							</div>
-							<div class="emptySpace"></div>
-						</div>
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!--  ----------------------------------------------------------------------------------------->
-	<div class="container-fluid div4" ;">
-		<div class="container">
-			<div class="text-center" style="margin-top:3%">
-				<h2 class="margbt5 brand_font" style="margin-bottom:2%">GLIMPSE of features in Mili</h2>
-				<div class="col-md-4 mb-4">
-					<div class="card h-100">
-						<div class="card-body">
-							<img src="images/scan1.png" class="diamond" alt="Scan Function" width="100px" height="100px">
-							<h3 class="card-title font_size_p col_black">Scan</h3>
-							<p class="card-text">Now Place your order by scanning the QR code on the table instead of waiting for the
-								waiter
-								And when you are done with your food just pay from your favourite UPI based app
-							</p>
-						</div>
-
-
-					</div>
-				</div>
-				<!-- /.col-md-4 -->
-				<div class="col-md-4 mb-4">
-					<div class="card h-100">
-						<div class="card-body">
-							<img src="images/tray1.png" class="diamond" alt="Scan Function" width="100px" height="100px">
-							<h2 class="card-title font_size_p col_black">Food Database</h2>
-							<p class="card-text">Confused What the food on the menu means well hold on we are building and adding all
-								food s to our database. So that when you order your food you don't regret that you ordered the food
-								without
-								knowing it. </p>
-						</div>
-					</div>
-				</div>
-				<!-- /.col-md-4 -->
-				<div class="col-md-4 mb-4">
-					<div class="card h-100">
-						<div class="card-body">
-							<div class="diamond1">
-								<img src="images/share1.png" class="diamond" alt="Scan Function" width="100px" height="100px">
-							</div>
-							<h2 class="card-title font_size_p col_black">Social Network</h2>
-							<p class="card-text">Food! we not only eat but cherish about, read and share about.
-								Download Mili to read about, create and share your stories about food and also know about social events
-								around
-								you related to food.
-							</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- ---------------------GLIMPSE OF WHAT WE DO!------------------------------------ -->
-	<div class="container-fluid">
-		<div class=" container" ">
-	<div class=" why_choose_us">
-			<div class="container" ">
-			<div class=" sec-title margbt40">
-				<h2 class="col_black_inv text-center">Glimpse of what we do!</h2>
-				<p class="col_black_inv text-center">Mili turns your restaurant's standard to an international scale with
-					outstanding
-					features in mobile app for Restaurant</p>
-
-			</div>
-			<div class="col-md-4 text-center"><img src="images/scan.png" alt="" class="margbt10">
-				<h3 class="font_size_p col_black">Waiter Less Ordering</h3>
-				<p class="col_blue">Don't make your customers wait for the waiter to place the order.
-					Let them place the order by just scanning the QR code </p>
-			</div>
-			<div class="col-md-4 text-center"><img src="images/delivery.png" alt="" class="margbt10">
-				<h3 class="font_size_p col_black">Home Delivery &amp; Take Away</h3>
-				<p class="col_blue">Give
-					your customers the delight of placing their take away
-					orders online via the app or book their home delivery orders directly from their mobile phone</p>
-			</div>
-			<div class="col-md-4 text-center"><img src="images/online-payment.png" alt="" class="margbt10">
-				<h3 class="font_size_p col_black">MOBILE PAYMENTS
-				</h3>
-				<p class="col_blue">Avoid fees on transactions on payments from customers with our UPI based payment
-					integration
-					which lets cutomers enjoy the offers and make payment from variety</p>
-			</div>
+            <!-- Process steps -->
+            <div class="content-wrapper">
+                <div class="columns is-vcentered">
+                    <!-- Process step -->
+                    <div class="column is-4">
+                        <div class="process-block has-line">
+                            <div class="process-icon is-icon-reveal">
+                                <div class="icon-wrapper">
+                                    <i class="im im-icon-Arrow-Over"></i>
+                                    <div class="process-number">1</div>
+                                </div>
+                            </div>
+                            <div class="process-info">
+                                <div class="step-number">1</div>
+                                <div class="details">
+                                    <div class="motto">Scan</div>
+                                    <p class="description">Scan QR code to order food more efficiently without the
+                                        need
+                                        of
+                                        waiter.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Process step -->
+                    <div class="column is-4">
+                        <div class="process-block has-line">
+                            <div class="process-icon is-icon-reveal">
+                                <div class="icon-wrapper">
+                                    <i class="im im-icon-Arrow-Around"></i>
+                                    <div class="process-number">2</div>
+                                </div>
+                            </div>
+                            <div class="process-info">
+                                <div class="step-number">2</div>
+                                <div class="details">
+                                    <div class="motto">Order</div>
+                                    <p class="description">Order will be placed in seconds to a kitchen with your
+                                        customized food requirement.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Process step -->
+                    <div class="column is-4">
+                        <div class="process-block">
+                            <div class="process-icon is-icon-reveal">
+                                <div class="icon-wrapper">
+                                    <i class="im im-icon-Arrow-Refresh"></i>
+                                    <div class="process-number">3</div>
+                                </div>
+                            </div>
+                            <div class="process-info">
+                                <div class="step-number">3</div>
+                                <div class="details">
+                                    <div class="motto">Eat</div>
+                                    <p class="description">No need to make assumption that when food will serve to
+                                        you.
+                                        Food will delivered on accurate time.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Process steps -->
+        </div>
+    </section>
+    <!-- /Process section -->
 
 
-			<div class="col-md-4 text-center"><img src="images/menu.png" alt="" class="margbt10">
-				<h3 class="font_size_p col_black">Digital Menu Card</h3>
-				<p class="col_blue">Let your customers know what you have to
-					offer with a digital menu card to display all
-					cuisines, foods and everything </p>
-			</div>
+    <!-- Feature Matrix -->
+    <section id="feature-matrix" class="section is-medium is-skewed-sm">
+        <div class="container has-text-centered is-reverse-skewed-sm">
+            <div class="section-title-wrapper has-text-centered">
+                <div class="clean-bg-symbol"><i class="fa fa-gg"></i></div>
+                <div>
+                    <h2 class="clean-section-title">Also look at these.</h2>
+                    <h3 class="subtitle is-5 pt-10 pb-10">
+                        Mili turns your restaurant's standard to an international scale with outstanding features
+                        in
+                        mobile app for Restaurant
+                    </h3>
+                </div>
+            </div>
 
-			<div class="col-md-4 text-center"><img src="images/table-reservation.png" alt="" class="margbt10">
-				<h3 class="font_size_p col_black">TABLE RESERVATION
-				</h3>
-				<p class="col_blue">Don’t let your customers wait in queue or be
-					unsure about wasting their time. Get real-time
-					table reservation directly from your app</p>
-			</div>
-			<div class="col-md-4 text-center"><img src="images/discount.png" alt="" class="margbt10">
-				<h3 class="font_size_p col_black">LOYALTY PROGRAMS &amp; OFFERS</h3>
-				<p class="col_blue">There is no better way to increase your
-					retention than to offer a loyalty program via in
-					app discounts and offers on orders</p>
-			</div>
-			<div class="col-md-4 text-center"><img src="images/calendar.png" alt="" class="margbt10">
-				<h3 class="font_size_p col_black">EVENTS</h3>
-				<p class="col_blue">Planning an event and want every foodie
-					to know about it? Now do that with just a push of the button from the awesome admin panel</p>
-			</div>
-			<div class="col-md-4 text-center"><img src="images/review.png" alt="" class="margbt10">
-				<h3 class="font_size_p col_black">IN-APP REVIEWS
-				</h3>
-				<p class="col_blue">Review system which actually makes sense and that doesn't irritate.
-					Let your customers review your food, service, hygeine and ambience and you make it a better
-				</p>
-			</div>
-			<div class="col-md-4 text-center"><img src="images/social-media.png" alt="" class="margbt10">
-				<h3 class="font_size_p col_black">SOCIAL FEEDS</h3>
-				<p class="col_blue">Integrate your social media accounts directly
-					into your mobile app and let your customers
-					receive your social updates</p>
-			</div>
-		</div>
-	</div>
-	</div>
-	</div>
+            <div class="content-wrapper">
+                <div class="columns is-flex-mobile is-vcentered is-multiline has-text-centered">
+                    <!-- Icon box -->
+                    <div class="column is-4 is-half-mobile">
+                        <div class="icon-box">
+                            <div class="box-icon is-icon-reveal">
+                                <!-- <i class="im im-icon-Cloud-Lock"></i> -->
+                                <img src="assets/images/feature-img/qr-code.svg" class="feature-logo">
+                            </div>
+                            <div class="box-title clean-text">
+                                Secured storages
+                            </div>
+                            <div class="box-text is-tablet-padded">
+                                Don't make your customers wait for the waiter to place the order. Let them place
+                                the
+                                order by just scanning the QR code
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4 is-half-mobile">
+                        <div class="icon-box primary">
+                            <div class="box-icon is-icon-reveal">
+                                <!-- <i class="im im-icon-Credit-Card2"></i> -->
+                                <img src="assets/images/feature-img/payment-method.svg" class="feature-logo">
+                            </div>
+                            <div class="box-title clean-text">
+                                Secured payments
+                            </div>
+                            <div class="box-text is-tablet-padded">
+                                Avoid fees on transactions on payments from customers with our UPI based payment
+                                integration which lets cutomers enjoy
+                                the offers and make payment from variety
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Icon box -->
+                    <!-- Icon box -->
+                    <div class="column is-4 is-half-mobile">
+                        <div class="icon-box">
+                            <div class="box-icon is-icon-reveal">
+                                <!-- <i class="im im-icon-Calendar-4"></i> -->
+                                <img src="assets/images/feature-img/calendar.svg" class="feature-logo">
+                            </div>
+                            <div class="box-title clean-text">
+                                Scheduled payments
+                            </div>
+                            <div class="box-text is-tablet-padded">
+                                Planning an event and want every foodie to know about it? Now do that with just a
+                                push
+                                of the button from the awesome
+                                admin panel
 
-	<!-- ----------------------------------------------------------------------------------------------------------- -->
-	<div class="container-fluid div4" ">
-<div class=" container">
-		<div class="form-horizontal" id="restaurant_register">
-			<div class="form-msg">
-				<div class="cols-sm-10">
-					<div class="input-group">
-						<!-- <span class="input-group-addon"><i class="fa fa-user fa" aria-hidden="true"></i></span> -->
-						<input type="text" style="width: 50%" class="form-rounded form-control name-size inp-margin" name="Name" id="your_name"
-						 placeholder="Your Name" />
-						<input type="text" style="width: 50%" class="form-rounded form-control name-size inp-margin" name="lastname" id="your_email"
-						 placeholder="Your Email" />
-					</div>
-				</div>
-				<!-- <div class="form-group"> -->
-				<div class="cols-sm-10">
-					<div class="input-group">
-						<!-- <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span> -->
-						<input class="form-control inp-margin" name="email" id="your_contact" placeholder="Contact Number" required />
-					</div>
-				</div>
-				<!-- </div> -->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Icon box -->
+                    <!-- Icon box -->
+                    <div class="column is-4 is-half-mobile">
+                        <div class="icon-box secondary">
+                            <div class="box-icon is-icon-reveal">
+                                <!-- <i class="im im-icon-Watch"></i> -->
+                                <img src="assets/images/feature-img/menu.svg" class="feature-logo">
+                            </div>
+                            <div class="box-title clean-text">
+                                Retaurant Menu
+                            </div>
+                            <div class="box-text is-tablet-padded">
+                                Let your customers know what you have to offer with a digital menu card to display
+                                all
+                                cuisines, foods and everything
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Icon box -->
+                    <!-- Icon box -->
+                    <div class="column is-4 is-half-mobile">
+                        <div class="icon-box">
+                            <div class="box-icon is-icon-reveal">
+                                <!-- <i class="im im-icon-Speach-Bubble2"></i> -->
+                                <img src="assets/images/feature-img/review.svg" class="feature-logo">
+                            </div>
+                            <div class="box-title clean-text">
+                                Social Review
+                            </div>
+                            <div class="box-text is-tablet-padded">
+                                Review system which actually makes sense and that doesn't irritate. Let your
+                                customers
+                                review your food, service,
+                                hygeine and ambience and you make it a better
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Icon box -->
+                    <!-- Icon box -->
+                    <div class="column is-4 is-half-mobile">
+                        <div class="icon-box secondary">
+                            <div class="box-icon is-icon-reveal">
+                                <!-- <i class="im im-icon-Conference"></i> -->
+                                <img src="assets/images/feature-img/social-media.svg" class="feature-logo">
+                            </div>
+                            <div class="box-title clean-text">
+                                Social Media
+                            </div>
+                            <div class="box-text is-tablet-padded">
+                                Integrate your social media accounts directly into your mobile app and let your
+                                customers receive your social updates
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Icon box -->
+                    <!-- Icon box -->
+                    <div class="column is-4 is-half-mobile">
+                        <div class="icon-box secondary">
+                            <div class="box-icon is-icon-reveal">
+                                <!-- <i class="im im-icon-Testimonal"></i> -->
+                                <img src="assets/images/feature-img/review.svg" class="feature-logo">
+                            </div>
+                            <div class="box-title clean-text">
+                                Invoice templates
+                            </div>
+                            <div class="box-text is-tablet-padded">
+                                Don’t let your customers wait in queue or be unsure about wasting their time. Get
+                                real-time table reservation directly
+                                from your app
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Icon box -->
+                    <!-- Icon box -->
+                    <div class="column is-4 is-half-mobile">
+                        <div class="icon-box">
+                            <div class="box-icon is-icon-reveal">
+                                <!-- <i class="im im-icon-Synchronize-2"></i> -->
+                                <img src="assets/images/feature-img/discount.svg" class="feature-logo">
+                            </div>
+                            <div class="box-title clean-text">
+                                Discounts
+                            </div>
+                            <div class="box-text is-tablet-padded">
+                                There is no better way to increase your retention than to offer a loyalty program
+                                via
+                                in app discounts and offers on
+                                orders
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column is-4 is-half-mobile">
+                        <div class="icon-box">
+                            <div class="box-icon is-icon-reveal">
+                                <!-- <i class="im im-icon-Statistic"></i> -->
+                                <img src="assets/images/feature-img/bag.svg" class="feature-logo">
+                            </div>
+                            <div class="box-title clean-text">
+                                Custom reports
+                            </div>
+                            <div class="box-text is-tablet-padded">
+                                Give your customers the delight of placing their take away orders online via the
+                                app or
+                                book their home delivery orders
+                                directly from their mobile phone
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /Icon box -->
+                </div>
+                <!-- <div class="is-title-reveal pt-40 pb-40">
+                    <a href="landing-v1-signup.html" class="button button-cta btn-align primary-btn raised">Start
+                        your
+                        Free
+                        trial</a>
+                </div> -->
+            </div>
+        </div>
+    </section>
+    <!-- /Feature Matrix -->
 
-				<!-- <div class="form-group"> -->
-				<div class="cols-sm-10">
-					<div class="input-group">
-						<!-- <span class="input-group-addon"><i class="fa fa-users fa" aria-hidden="true"></i></span> -->
-						<textarea type="text" rows="5" class="form-control place_color inp-margin" placeholder="Messege" name="restaurantname"
-						 id="your_msg" /></textarea>
-					</div>
-				</div>
-				<div class="col-sm-4"></div>
-				<div class="col-sm-4"><input type="button" class="sub_button" data-toggle="modal" data-target="#myMessegeModal"
-					 value="Submit"></div>
-				<div class="col-sm-4"></div>
-				<!-- </div> -->
-			</div>
-		</div>
-	</div>
-	</div>
+    <!-- Dark footer -->
+    <footer id="dark-footer" class="footer footer-dark">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <div class="footer-column">
+                        <div class="footer-header">
+                            <h3>Customer Service</h3>
+                        </div>
+                        <ul class="link-list">
+                            <li><a href="#">WhatsApp +91 – 81691 40042</a></li>
+                            <li><a href="#">Inquiries: info@mili.com </a></li>
+                            <li><a href="#">Customers</a></li>
+                            <!-- <li><a href="#">Weekly sessions</a></li> -->
+                            <li><a href="#">Free trials and demo</a></li>
+                            <!-- <li><a href="#">What's next ?</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="footer-column">
+                        <div class="footer-header">
+                            <h3>Company</h3>
+                        </div>
+                        <ul class="link-list">
+                            <li><a href="#">About us</a></li>
+                            <!-- <li><a href="#">About security</a></li> -->
+                            <!-- <li><a href="#">User guide</a></li> -->
+                            <li><a href="#">Terms of service</a></li>
+                            <!-- <li><a href="#">Terms of website use</a></li> -->
+                            <li><a href="#">Privacy policy</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="footer-column">
+                        <div class="footer-header">
+                            <h3>Learning</h3>
+                        </div>
+                        <ul class="link-list">
+                            <!-- <li><a href="#">Resources</a></li> -->
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">FAQ</a></li>
+                            <!-- <li><a href="#">API documentation</a></li> -->
+                            <!-- <li><a href="#">Admin guide</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+                <div class="column">
+                    <div class="footer-column">
+                        <div class="footer-logo">
+                            <img src="assets/images/logos/brands/milithelogo-2.png" alt="">
+                        </div>
+                        <div class="footer-header">
+                            <nav class="level is-mobile">
+                                <div class="level-left level-social">
+                                    <a href="#" class="level-item">
+                                        <span class="icon"><i class="fa fa-facebook"></i></span>
+                                    </a>
+                                    <a href="#" class="level-item">
+                                        <span class="icon"><i class="fa fa-twitter"></i></span>
+                                    </a>
+                                    <a href="#" class="level-item">
+                                        <span class="icon"><i class="fa fa-linkedin"></i></span>
+                                    </a>
+                                    <a href="#" class="level-item">
+                                        <span class="icon"><i class="fa fa-dribbble"></i></span>
+                                    </a>
+                                    <a href="#" class="level-item">
+                                        <span class="icon"><i class="fa fa-github"></i></span>
+                                    </a>
+                                </div>
+                            </nav>
+                        </div>
+                        <div class="copyright">
+                            <span class="moto light-text">Good time, Great taste. Food is <i class="fa fa-heart color-red"></i>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- /Dark footer -->
 
-	<!-- Model for submit message -->
-	<div class="form-group modal fade" id="myMessegeModal" role="dialog">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-body">
-					<div class="error_msg">Thanks!!!</div>
-				</div>
-			</div>
-		</div>
-	</div>
+    <!-- <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js');
+            });
+        }
+    </script> -->
 
-	<!-- ------------------------------------------------------------------------------------------------------ -->
-	<div class="container-fluid" ">
-	<footer>
-		<div class=" foot_back">
-		<div class="follow_us">
-			<div class="li_align">
-				<a href="https://www.facebook.com/Mili-716847228672366"><i class="fab fa-facebook-f FB1"></i></a>
-				<a href="https://twitter.com/themiliapp"><i class="fab fa-twitter FB2"></i></a>
-			</div>
-		</div>
-		<ul class="list_marg">
-			<li class="foot_list"><a href="/" class="logo2">MILI</a></li>
-			<div class="col-sm-3 footer_list"><a href="/aboutus" class="footer_text">About Us</a></div>
-			<div class="col-sm-3 footer_list"><a href="mailto:admin@militheapp.com" class="footer_text">Email :
-					admin@militheapp.com</a></div>
-			<div class="col-sm-3 footer_list"><a href="tel:+918886780265" class="footer_text">Call : +91 (888) 678-0265</a></div>
-			<div class="col-sm-3 footer_list" style="border-right:none;"><a href="" class="footer_text">© 2018 Mili Inc. All
-					rights reserved.</a></div>
-		</ul>
-	</div>
-	</footer>
-	</div>
-	<style type="text/css">
-		/*.footer_li{
-					list-style-type: none;
-					margin: 0;
-					padding: 10px 10px 10px 10px;
-					overflow: hidden;
-					float: left;
-					border: white solid 1px;
-					/*background: white;*/
+    <!-- Core js -->
+    <!-- Plugins js -->
+    <!-- Core js -->
+    <script src="assets/js/core/jquery.min.js"></script>
+    <script src="assets/js/core/modernizr.min.js"></script>
+    <!-- Plugins js -->
+    <script src="assets/js/scrollspy/scrollspy.min.js"></script>
+    <script src="assets/js/waypoints/jquery.waypoints.min.js"></script>
+    <script src="assets/js/waypoints/sticky.min.js"></script>
+    <script src="assets/js/slick-carousel/slick.min.js"></script>
+    <script src="assets/js/chosen/chosen.jquery.min.js"></script>
+    <script src="assets/js/vivus/vivus.min.js"></script>
+    <script src="assets/js/ggpopover/ggtooltip.js"></script>
+    <script src="assets/js/highlightjs/highlight.pack.js"></script>
+    <!-- Bulkit js -->
+    <script src="assets/js/main.js"></script>
+    <!-- Bulkit js -->
+    <!-- Page specific js -->
+    <script src="assets/js/pages/components-modals.js"></script>
+    <div id="backtotop"><a href="#"></a></div>
+    <script src="assets/js/pages/demo.js"></script>
 
-		.navbar-inverse {
-			background: rgba(255, 255, 255, 0);
-		}
-
-		.navbar-fixed-bottom,
-		.navbar-fixed-top {
-			position: relative;
-			right: 0;
-			left: 0;
-			z-index: 1030;
-		}
-
-		.inp-margin::-webkit-input-placeholder {
-			/* WebKit, Blink, Edge */
-			color: white;
-		}
-
-		.container {
-			padding-right: 0px;
-			padding-left: 0px;
-		}
-
-		.row {
-			margin-left: 0px;
-			margin-right: 0px;
-		}
-
-		.container-fluid {
-			padding-right: 0px;
-		}
-
-		.foot_back {
-			/*background-image: url("../images/footback.jpg");*/
-			background: white;
-			/* border-top: 2px solid black; */
-			height: 166px;
-			width: 100%;
-			/* margin-top: 4%; */
-			background-size: cover;
-			box-shadow: 0px 0px 5px grey;
-		}
-
-		.foot_img {
-			background: black;
-			width: 100%;
-			opacity: 0.6;
-			height: 70px;
-		}
-
-		input:focus {
-			/*outline: none !important;*/
-			border: 1px solid red;
-			box-shadow: 0 0 10px #719ECE;
-		}
-
-		@media screen and (max-width: 600px) {
-			.container-fluid {
-				/* padding-left: 4%; */
-			}
-
-			.breadcrumb>li,
-			.breadcrumb>li>a,
-			.list--horizontal>li,
-			.list--horizontal>li>a,
-			.nav>li,
-			.nav>li>a,
-			.secondary-nav>li,
-			.secondary-nav>li>a,
-			.top-bar>li,
-			.top-bar>li>a {
-				display: block;
-				text-align: center;
-				zoom: 1;
-			}
-
-			.no-account {
-				text-align: center;
-				padding: 15px 36px 10px 10px;
-				display: -webkit-inline-box;
-				margin-left: 13%;
-			}
-
-			.form-size {
-				width: 50%;
-			}
-
-			.navbar-toggle {
-				margin-top: 8px;
-			}
-
-			.foot_back {
-				/* background-image: url(../images/footback.jpg); */
-				/* background-image: url(../images/footback.jpg); */
-				background: white;
-				border-top: 2px solid black;
-				height: 230px;
-				width: 100%;
-				padding-top: 5px;
-				/* margin-top: 4%; */
-				background-size: cover;
-				box-shadow: 0px 0px 5px grey;
-			}
-		}
-	</style>
-	<!-- JAVASCRIPT JS FILES -->
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/custom.js"></script>
 
 </body>
 

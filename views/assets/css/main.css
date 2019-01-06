@@ -1,0 +1,207 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body {
+    margin:0;
+    padding:0;
+    font-family:sans-serif;
+    background:#fbfbfb;
+}
+.box {
+    transform:translateY(-50%);
+    text-align:center;
+    box-sizing:border-box;
+    width:25%;
+    position: relative;
+    float: left;
+    min-width: 300px;
+    min-height: 350px;
+    margin:3rem 0rem 1rem 3rem;
+}
+.box:hover {
+        box-shadow:0 30px 70px rgba(0,0,0,.2);
+        transition-duration: 0.5s;
+}
+
+.box .img {
+    width:120px;
+    height:120px;
+    margin:0 auto;
+    border-radius:50%;
+    overflow:hidden;
+}
+.box .img img {
+    width:100%;
+    height:100%;
+}
+box h2 {
+    font-size:20px;
+    color:#262626;
+    margin:20px auto;
+}
+.box p {
+    color:#262626;
+}
+.box span {
+    display:inline-flex;
+}
+.box ul {
+    margin:0;
+    padding:0;
+}
+.box ul li {
+    list-style:none;
+    float:left;
+}
+.box ul li a {
+    display:block;
+    color:#aaa;
+    margin:0 10px;
+    font-size:20px;
+    text-align:center;
+}
+.box ul li:hover a {
+    color:#e91e63;
+    transform:rotateY(360deg);
+}
+.staff_member_cards{
+    margin-right: 0%;
+    margin-left: 10%;
+    margin-top: 22%;
+    height:100%;
+    width:100%;
+}
+
+.search_menu{
+    position:absolute;
+    border-radius:30px;
+    top:15%;
+    align-content: center;
+    align-items: center;
+    width:300px;
+    min-height:30px;
+    left:40.2%;
+}
+.container_add  input,select{
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+
+.container_add input{
+  background-color: #ddd;
+  outline: none;
+}
+
+.container_add button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  transition-duration: 0.5s;
+}
+
+.clearfix button:hover {
+  opacity:1;
+}
+.clearfix .cancelbtn{
+    background-color: #b90000;
+}
+
+
+.cancelbtn, .addbtn{
+  float: left;
+  width: 50%;
+}
+.cancelbtn:hover, .addbtn:hover
+{}
+
+.container_add {
+  padding: 16px;
+}
+
+.modal_add {
+  display: none; 
+  position: fixed;
+  z-index: 1; 
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%; 
+  overflow: auto; 
+  background-color: #474e5d;
+  padding-top: 50px;
+  animation-name: pop-up;
+  animation-duration: 0.6s;
+
+}
+@keyframes pop-up {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+@-webkit-keyframes pop-up {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.modal-content_add {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; 
+  border: 1px solid #888;
+  width: 40%; 
+}
+
+.close_sym {
+  position: absolute;
+  right: 10%;
+  top: 15%;
+  font-size: 40px;
+  font-weight: bold;
+  color: #f1f1f1;
+  motion-rotation: 180deg;
+}
+
+.close_sym:hover,.close_sym:focus {
+  color: #f44336;
+  cursor: pointer;
+  motion-rotation: 100deg;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.container_add {
+    align-content: center;
+}
+
+@media screen and (max-width: 300px) {
+  .cancelbtn, .addbtn{
+    width: 100%;
+  }
+}
+
