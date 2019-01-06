@@ -375,7 +375,7 @@ app.get("/updateOrderStatus", function (request, response) {
 app.get("/insertFoodInMenu", function (request, response) {
     console.log(request.query);
 
-    var restaurantId = request.query.restaurantId;
+    var restaurantId = 1000000000;
     var food_name = request.query.food_name;
     var food_price = request.query.food_price;
     var food_quantity = request.query.food_quantity;
@@ -389,10 +389,12 @@ app.get("/insertFoodInMenu", function (request, response) {
 
     var query_select = 'select restaurant_schema_name from mili_global_schema.global_restaurants where restaurant_id = ?';
 
-    connection.query(query_select, restaurantId, function (err, result) {
+    var query_select2= 'select food_global_id from mili_global_schema.global_food_items where food_name = ?';
+
+    connection.query(query_select + ';' + query_select2, [restaurantId,food_name], function (err, result) {
         if (err) { throw err; }
         else {
-            console.log(result);
+            console.log(result[0]);
             var restaurantSchemaName = result[0].restaurant_schema_name;
             var sql_query_1 = 'INSERT INTO ' + restaurantSchemaName + '.restaurant_food_menu ( food_name, food_price, food_quantity, is_veg, menu_category, is_customizable, food_description, ready_in) VALUES (?, ?, ?, ?,  ?, ?, ?, ? )';
             // var sql_query_2 = "select * from " + restaurantSchemaName + ".restaurant_offer";

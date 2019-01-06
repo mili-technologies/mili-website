@@ -1499,6 +1499,7 @@
                <input type="text" class="search_food">
                <button class="delete is-medium modal-dismiss" aria-label="close"></button>
             </header>
+            <form method="GET" action="http://localhost:8080/insertFoodInMenu">
             <table class="table hire-table">
                <!-- <thead>
                   <tr>
@@ -1523,30 +1524,47 @@
                   </tr>
                </tbody> -->
                <tr>
-                  <td></td>
-                  <td> <input type='text' name='food_name' id="food_name"> </td>
-                  <td></td>
-                  <td> <input type='text' name='food_price' id="food_price"> </td>
+                  <td>Food Name</td>
+                  <td> <input type='text' name='food_name' id="food_name" required> </td>
+                  <td>Food Price</td>
+                  <td> <input type='text' name='food_price' id="food_price" required> </td>
                </tr>
                <tr>
-                  <td></td>
-                  <td> <input type='text' name='food_quantity' id="food_quantity"> </td>
-                  <td></td>
-                  <td> <input type='text' name='is_veg' id="is_veg"> </td>
+                  <td>Food Quantity</td>
+                  <td>
+                     <select name="food_quantity">
+                        <option>Select a quantity</option>
+                        <option name="food_quantity" value="Full">Full</option>
+                        <option name="food_quantity" value="Half">Half</option>
+                        <option name="food_quantity" value="Single">Single</option>
+                        <option name="food_quantity" value="Family Pack">Family Pack</option>
+                        <option name="food_quantity" value="Double">Double</option>
+                     </select>
+                  </td>
+                  <td>Is Veg?</td>
+                  <td> 
+                     <input type='radio' value='0' name='is_veg' id="is_veg" required>No
+                     <input type='radio' value='1' name='is_veg' id="is_veg" required>Yes
+                   </td>
                </tr>
                <tr>
-                  <td></td>
-                  <td> <input type='text' name='menu_category' id="menu_category"> </td>
-                  <td></td>
-                  <td> <input type='text' name='is_customizable' id="is_customizable"> </td>
+                  <td>Menu Category</td>
+                  <td> <input type='text' name='menu_category' id="menu_category" required> </td>
+                  <td>Is Customizable</td>
+                  <td> 
+                     <input type='radio' value='0' name='is_customizable' id="is_customizable" required>No
+                     <input type='radio' value='1' name='is_customizable' id="is_customizable" required>Yes
+                  </td>
                </tr>
                <tr>
-                  <td></td>
-                  <td> <input type='text' name='food_description' id="food_description"> </td>
-                  <td></td>
-                  <td> <input type='text' name='ready_in' id="ready_in"> </td>
+                  <td>Food Description</td>
+                  <td> <input type='text' name='food_description' id="food_description" required> </td>
+                  <td>Ready in?</td>
+                  <td> <input type='text' name='ready_in' id="ready_in" required> </td>
                </tr>
+               <tr><td><input type='submit' name='save' value="save"></td></tr>
             </table>
+         </form>
             <!-- /User table widget -->
          </div>
       </div>
