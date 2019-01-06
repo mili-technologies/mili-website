@@ -13,6 +13,13 @@ var routes = require("./controllers/admin/admin.js");
 const bodyParser = require("body-parser");
 const log = require('node-file-logger');
 
+
+// routes for kitchen
+var kitchenController = require("./controllers/kitchen/kitchenController");
+
+
+
+
 // admin.initializeApp({
 //   credential: admin.credential.cert(serviceAccount),
 //   databaseURL: "https://mili-b2581.firebaseio.com"
@@ -61,6 +68,10 @@ connection.connect(function (error) {
     else
         log.Info("connected");
 });
+
+
+app.get('/getKitchenOrders', kitchenController.index);
+
 
 //Get All Restaurant based on particular restaurant type
 app.get("/getAllRestaurants", function (request, response) {
@@ -336,7 +347,7 @@ app.get("/getGlobalRestaurantMenu", function (request, response) {
 
 //get orderstatus
 app.get("/updateOrderStatus", function (request, response) {
-    console.log("@@@@@@@@@@@ ");
+
     var restaurantId = request.query.restaurantId;
     var orderID = request.query.order_id;
     var orderStatus = request.query.order_status;
