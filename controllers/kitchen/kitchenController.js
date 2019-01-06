@@ -2,28 +2,18 @@ var database = require('../../Database/config')
 
 exports.index = function (req, res) {
 
-
-    // console.log(connection.connect());
     var connection = database.connect();
     var restaurantId = req.query.restaurantId;
-    console.log("restaurent id ", restaurantId);
-
-    var responseJson = {};
-    var restaurant_schema_name;
-
     var query_select = 'select restaurant_schema_name from mili_global_schema.global_restaurants where restaurant_id = ?';
 
     connection.query(query_select, restaurantId, function (err, result) {
         if (err) { throw err; }
         else {
-            console.log(result);
             var restaurantSchemaName = result[0].restaurant_schema_name;
             var sql_query_1 = "select * from " + restaurantSchemaName + ".order_detail";
-
-
             connection.query(sql_query_1, function (err, result) {
                 if (!!err) {
-                    console.log("check query ", err);
+                    res.json(err)
 
                 } else {
                     res.json(result);

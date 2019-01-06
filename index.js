@@ -17,6 +17,9 @@ const log = require('node-file-logger');
 // routes for kitchen
 var kitchenController = require("./controllers/kitchen/kitchenController");
 
+// routes for order
+var orderController = require('./controllers/order/orderContriller');
+
 
 
 
@@ -71,6 +74,8 @@ connection.connect(function (error) {
 
 
 app.get('/getKitchenOrders', kitchenController.index);
+
+app.get('/getOrderDetials', orderController.index);
 
 
 //Get All Restaurant based on particular restaurant type
