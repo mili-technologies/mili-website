@@ -36,30 +36,49 @@
                 });
             });
 
-            var config = {
-                apiKey: "AIzaSyDqdpDVJ5cnTMcn0N_Jq4XXWYLpqVXEQJY",
-                authDomain: "test-6d54b.firebaseapp.com",
-                databaseURL: "https://test-6d54b.firebaseio.com",
-                projectId: "test-6d54b",
-                storageBucket: "test-6d54b.appspot.com",
-                messagingSenderId: "27004136578"
-            };
+            // var config = {
+            //     apiKey: "AIzaSyDqdpDVJ5cnTMcn0N_Jq4XXWYLpqVXEQJY",
+            //     authDomain: "test-6d54b.firebaseapp.com",
+            //     databaseURL: "https://test-6d54b.firebaseio.com",
+            //     projectId: "test-6d54b",
+            //     storageBucket: "test-6d54b.appspot.com",
+            //     messagingSenderId: "27004136578"
+            // };
 
-            firebase.initializeApp(config);
-            var dbrefobj = firebase.database().ref().child('101/customer');
-            dbrefobj.on('value', snap => console.log(snap.val()));
-            dbrefobj.on('value', function (snap) {
-                var val = snap.val();
+            // firebase.initializeApp(config);
+            // var dbrefobj = firebase.database().ref().child('101/customer');
+            // dbrefobj.on('value', snap => console.log(snap.val()));
+            // dbrefobj.on('value', function (snap) {
+            //     var val = snap.val();
 
-                $.each(val, function (i, obj) {
-                    if (!findElement(obj)) {
+            //     $.each(val, function (i, obj) {
+            //         if (!findElement(obj)) {
 
-                        addRow(obj.transaction_id, obj.user_name, obj.table_No, obj.total_Order_Cost, obj.order_Status, obj.order_Pay_Status);
-                    } else {
-                        updateRow(obj.transaction_id, obj.user_name, obj.table_No, obj.total_Order_Cost, obj.order_Status, obj.order_Pay_Status);
-                    }
+            //             addRow(obj.transaction_id, obj.user_name, obj.table_No, obj.total_Order_Cost, obj.order_Status, obj.order_Pay_Status);
+            //         } else {
+            //             updateRow(obj.transaction_id, obj.user_name, obj.table_No, obj.total_Order_Cost, obj.order_Status, obj.order_Pay_Status);
+            //         }
+            //     });
+            // });
+            var ajaxFn = function () {
+                $.ajax({
+                url: "http://localhost:8080/getKitchenOrders?restaurantId=1000000000",
+                success: function (result, state, xhr) {
+                    console.log(result, state, xhr);
+                    setTimeout(ajaxFn, 2000);
+                    $.each(result, function (i, obj) {
+
+                        if (!findElement(obj)) {
+                            addRow(obj.order_id, obj.order_time, obj.total_order_cost, obj.order_item_count, obj.food_price, 'food_table_body');
+                        } else {
+                            updateRow(obj.food_global_id, obj.food_name, obj.menu_category, obj.food_quantity, obj.food_price);
+                        }
+
+                    });
+                }
                 });
-            });
+            }
+            ajaxFn();
         });
 
         function addRow(transaction_id, user_name, table_no, total_order_cost, order_status, order_pay_status) {
@@ -71,7 +90,7 @@
             var order_Pay_Status = order_pay_status;
 
             var row = "<tr class='" + transaction_Id + "'><td><img src='https://place-hold.it/250x250' alt=''></td><td>" + user_Name + "</td><td>" + table_No + "</td><td>" + total_Order_Cost + "</td><td>" + order_Status + "</td><td>" + order_Pay_Status + "</td></tr>";
-
+            $('tr').remove();
             $('.table').append(row);
         }
 

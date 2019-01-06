@@ -10,7 +10,7 @@ exports.index = function (req, res) {
         if (err) { throw err; }
         else {
             var restaurantSchemaName = result[0].restaurant_schema_name;
-            var sql_query_1 = "select fod.order_id, fod.order_food_cost, fod.table_id, fod.order_status from " + restaurantSchemaName + ".food_order_detail fod INNER JOIN " + restaurantSchemaName + ".restaurant_food_menu rfm ON " + restaurantSchemaName + ".fod.food_id=" + restaurantSchemaName + ".rfm.food_id";
+            var sql_query_1 = "select DISTINCT fod.order_id, fod.order_food_cost, fod.table_id, fod.order_status, rfm.food_name from " + restaurantSchemaName + ".food_order_detail fod INNER JOIN " + restaurantSchemaName + ".restaurant_food_menu rfm ON " + restaurantSchemaName + ".fod.food_id=" + restaurantSchemaName + ".rfm.food_id";
             connection.query(sql_query_1, function (err, result) {
                 if (!!err) {
                     res.json(err)

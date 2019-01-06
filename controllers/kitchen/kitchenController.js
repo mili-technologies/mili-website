@@ -12,6 +12,8 @@ exports.index = function (req, res) {
             var restaurantSchemaName = result[0].restaurant_schema_name;
             var sql_query_1 = "select * from " + restaurantSchemaName + ".order_detail";
             connection.query(sql_query_1, function (err, result) {
+                console.log(err,result);
+                
                 if (!!err) {
                     res.json(err)
 
