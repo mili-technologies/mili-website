@@ -1,0 +1,379 @@
+.control-material {
+    position: relative;
+    margin-bottom: 2em!important;
+}
+.pt-20{
+    padding-top: 0px;
+}
+.txtbox-size {
+    width: 49%;
+}
+.left-align {
+    float: right;
+}
+
+.button.primary-btn{
+  border-color: #07b363;
+  background-color: #07b363;
+}
+
+.button.primary-btn.btn-outlined {
+  border-color: #07b363;
+  color: #07b363;
+  background-color: transparent;
+}
+/* select starting stylings ------------------------------*/
+
+  
+  .select-text {
+      position: relative;
+      font-family: inherit;
+      background-color: transparent;
+      width: 100%;
+      padding: 10px 10px 10px 0;
+      font-size: 18px;
+      border-radius: 0;
+      border: none;
+      border-bottom: 1px solid rgba(0,0,0, 0.12);
+  }
+  
+  /* Remove focus */
+  .select-text:focus {
+      outline: none;
+      border-bottom: 1px solid rgba(0,0,0, 0);
+  }
+  
+      /* Use custom arrow */
+  .select .select-text {
+      appearance: none;
+      -webkit-appearance:none
+  }
+  
+  .select:after {
+      position: absolute;
+      top: 18px;
+      right: 10px;
+      /* Styling the down arrow */
+      width: 0;
+      height: 0;
+      padding: 0;
+      content: '';
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid rgba(0, 0, 0, 0.12);
+      pointer-events: none;
+  }
+  
+  
+  /* LABEL ======================================= */
+  .select-label {
+      color: rgba(0,0,0, 0.26);
+      font-size: 18px;
+      font-weight: normal;
+      position: absolute;
+      pointer-events: none;
+      left: 0;
+      top: 10px;
+      transition: 0.2s ease all;
+  }
+  
+  /* active state */
+  .select-text:focus ~ .select-label, .select-text:valid ~ .select-label {
+      color: #2F80ED;
+      top: -20px;
+      transition: 0.2s ease all;
+      font-size: 14px;
+  }
+  
+  /* BOTTOM BARS ================================= */
+  .select-bar {
+      position: relative;
+      display: block;
+      width: 100%;
+  }
+  
+  .select-bar:before, .select-bar:after {
+      content: '';
+      height: 2px;
+      width: 0;
+      bottom: 1px;
+      position: absolute;
+      background: #2F80ED;
+      transition: 0.2s ease all;
+  }
+  
+  .select-bar:before {
+      left: 50%;
+  }
+  
+  .select-bar:after {
+      right: 50%;
+  }
+  
+  /* active state */
+  .select-text:focus ~ .select-bar:before, .select-text:focus ~ .select-bar:after {
+      width: 50%;
+  }
+  
+  /* HIGHLIGHTER ================================== */
+  .select-highlight {
+      position: absolute;
+      height: 60%;
+      width: 100px;
+      top: 25%;
+      left: 0;
+      pointer-events: none;
+      opacity: 0.5;
+  }
+
+  .select select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    border: none;
+    border-radius: 0px;
+    box-shadow: none;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    font-size: 1rem;
+    height: 44px;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: flex-start;
+    line-height: 1.5;
+    padding-left: .75em;
+    padding-right: .75em;
+    position: relative;
+    vertical-align: top;
+    background-color: #fff;
+    width: 100%;
+    border-bottom: 1px solid;
+    /* border: 1px solid #dbdbdb; */
+    color: #a9abac;
+    cursor: pointer;
+    display: block;
+    font-size: 1em;
+    outline: 0;
+    padding-right: 2.5em;
+}
+
+.select{
+    width:49%;
+}
+.txtbox-margin-top{
+    margin-top: 28px;
+}
+.select:after{
+    display: none;
+}
+
+/* select starting stylings finish ------------------------------*/
+.hero-body{
+    padding: 1rem 1.5rem;
+}
+
+
+.floating-form {
+    width:320px;
+  }
+  
+  /****  floating-Lable style start ****/
+  .floating-label { 
+    position:relative; 
+    margin-bottom:20px; 
+  }
+  .floating-input , .floating-select {
+    font-size:14px;
+    padding:4px 4px;
+    display:block;
+    width:100%;
+    height:30px;
+    background-color: transparent;
+    border:none;
+    border-bottom:1px solid #bbbfc1;
+  }
+  
+  .floating-input:focus , .floating-select:focus {
+       outline:none;
+       border-bottom:2px solid #07b363; 
+  }
+  
+  label {
+    color:#999; 
+    font-size:14px;
+    font-weight:normal;
+    position:absolute;
+    pointer-events:none;
+    left:5px;
+    top:5px;
+    transition:0.2s ease all; 
+    -moz-transition:0.2s ease all; 
+    -webkit-transition:0.2s ease all;
+  }
+  
+  .floating-input:focus ~ label, .floating-input:not(:placeholder-shown) ~ label {
+    top:-18px;
+    font-size:14px;
+    color:#07b363;
+  }
+  
+  .floating-select:focus ~ label , .floating-select:not([value=""]):valid ~ label {
+    top:-18px;
+    font-size:14px;
+    color:#07b363;
+  }
+  
+  /* active state */
+  .floating-input:focus ~ .bar:before, .floating-input:focus ~ .bar:after, .floating-select:focus ~ .bar:before, .floating-select:focus ~ .bar:after {
+    width:50%;
+  }
+  
+  *, *:before, *:after {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+  }
+  
+  .floating-textarea {
+     min-height: 30px;
+     max-height: 260px; 
+     overflow:hidden;
+    overflow-x: hidden; 
+  }
+  
+  /* highlighter */
+  .highlight {
+    position:absolute;
+    height:50%; 
+    width:100%; 
+    top:15%; 
+    left:0;
+    pointer-events:none;
+    opacity:0.5;
+  }
+  
+  /* active state */
+  .floating-input:focus ~ .highlight , .floating-select:focus ~ .highlight {
+    -webkit-animation:inputHighlighter 0.3s ease;
+    -moz-animation:inputHighlighter 0.3s ease;
+    animation:inputHighlighter 0.3s ease;
+  }
+  
+  /* animation */
+  @-webkit-keyframes inputHighlighter {
+      from { background:#07b363; }
+    to 	{ width:0; background:transparent; }
+  }
+  @-moz-keyframes inputHighlighter {
+      from { background:#07b363; }
+    to 	{ width:0; background:transparent; }
+  }
+  @keyframes inputHighlighter {
+      from { background:#07b363; }
+    to 	{ width:0; background:transparent; }
+  }
+  
+  /****  floating-Lable style end ****/
+  
+  
+  /***   daniel - Fork me friend - style   ***/
+  .floating-credit { position:fixed; bottom:10px;right:10px; color:#aaa; font-size:13px;font-family:arial,sans-serif; }
+  .floating-credit a { text-decoration:none; color:#000000; font-weight:bold; }
+  .floating-credit a:hover { border-bottom:1px dotted #f8f8f8; }
+  .floating-heading { position:fixed; color:#aaa; font-size:20px; font-family:arial,sans-serif; }
+  /***  daniel - Fork me friend - style  ***/
+
+
+
+
+  .form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    border: 0!important;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border-bottom: 1px solid #ccc!important;
+    border-radius: 0px!important;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+    -webkit-transition: none!important;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.input-group{
+  width: 100%;
+}
+.control-label{
+  font-family: 'Arial';
+  color: #04b261;
+  font-size: 12px;
+}
+legend{
+  font-family: 'Nexa Bold', sans-serif;
+}
+.has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline{
+  color: #07b363!important;
+}
+.has-success .form-control-feedback{
+  color: #07b363!important;
+}
+.form-horizontal .control-label{
+  text-align: left!important;
+}
+.col-md-6 {
+  width: 100%!important;
+}
+.register_form{
+  float: right;
+}
+.container-fluid{
+    padding-right: 0px!important;
+    padding-left: 0px!important;
+}
+form#contact_form{
+  background-image: linear-gradient(141deg, #d0e0ec 0%, #f5f7fa 71%, #fff 100%)!important;
+}
+.register_form {
+  width: 40%;
+  background: white;
+  padding: 25px;
+  border: 1px solid #ecf0f1;
+  border-radius: 7px;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+}
+.form-group {
+  margin-bottom: 0px!important;
+}
+.form-horizontal .control-label{
+  margin-bottom: 1px!important;
+}
+.flex-card{
+  width: 40%!important;
+  margin: 5% 0% 0% 8%!important;
+}
+fieldset{
+  padding-right: 9%!important;
+}
+@media only screen and (max-width: 992px) {
+  body {
+    background-color: lightblue;
+  }
+  .flex-card.clean-signup-info.padding-20{
+    display: none;
+  }
+  .register_form{
+    width: 100%;
+    float: unset;
+  }
+  fieldset{
+    padding-right: 0%!important;
+  }
+}

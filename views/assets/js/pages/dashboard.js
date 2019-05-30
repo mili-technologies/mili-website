@@ -129,9 +129,6 @@ $(document).ready(function($){
         })
     }
 
-    //datepicker initialization
-    $('[data-toggle="datepicker"]').datepicker();
-
     //wickedpicker 24 hours initialization
     $('.timepicker-24').wickedpicker({
         twentyFour: true,

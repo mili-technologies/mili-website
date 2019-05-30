@@ -1,0 +1,19 @@
+@media only screen and (max-width: 480px) {
+    .columns.dashboard-columns{
+        margin-top: 50px;
+    }
+    .breadcrumbs {
+        margin-top: 10px;
+    }
+    .flex-card {
+        margin-left: 4%;
+    }
+    .form-control {
+        margin-top: 0px!important;
+        width: 100%!important;
+    }
+    .restaurant-name {
+        margin: 4% 0% 0% 8%!important;
+        font-size: 11px!important;
+    }
+}

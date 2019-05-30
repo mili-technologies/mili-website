@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Mili</title>
+    <title>YWait-Registration From</title>
     <link rel="icon" type="image/png" href="assets/images/favicon.png" />
     <!-- Core css -->
     <!-- <link rel="stylesheet" href="style.css"> -->
@@ -13,11 +13,14 @@
     <script src="js/jquery.js"></script>
     <script src="js/firebase.js"></script>
     <script src="js/authentication.min.js"></script>
+    <script src="js/cities.js"></script>
     <script src="js/bulkit.js"></script>
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
     <link rel="stylesheet" type="text/css" href="assets/css/core_lemonade.css">
     <link rel="stylesheet" type="text/css" href="assets/css/core_green.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/registration.css">
+
     <!-- Core css -->
     <link rel="stylesheet" type="text/css" href="assets/css/core_demo.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
@@ -29,6 +32,8 @@
     <link rel="stylesheet" type="text/css" href="assets/js/slick-carousel/slick.css">
     <link rel="stylesheet" type="text/css" href="assets/js/slick-carousel/slick-theme.css">
     <link rel="stylesheet" type="text/css" href="assets/js/chosen/chosen.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/tagsinput/jquery.tags.input.css">
+    <link rel="stylesheet" type="text/css" href="assets/js/easyAutocomplete/easy-autocomplete.css">
     <link rel="stylesheet" type="text/css" href="assets/js/highlightjs/style.css">
     <!-- Icons -->
     <link rel="stylesheet" type="text/css" href="assets/css/icons.min.css">
@@ -36,18 +41,27 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
     <!-- Plugins css -->
     <link rel="stylesheet" type="text/css" href="assets/css/core_flashy.css">
+    <link rel='stylesheet'
+        href='http://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css'>
+    <script src="assets/js/restaurant_form.js"></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/restaurant_form.css">
+    <style>
+        div#main-hero {
+            padding: 0%;
+        }
+    </style>
     <!-- Plugins css -->
 </head>
 
 <body>
     <!-- Pageloader -->
-    <div class="pageloader"></div>
-    <div class="infraloader is-active"></div>
+    <!-- <div class="pageloader"></div>
+    <div class="infraloader is-active"></div> -->
 
     <!-- Hero and nav -->
-    <% include header.ejs %>
+    <% var title = 'Fill Restaurant Form'; %>
+    <% include Ex-header.ejs %>
     <!-- /Hero and nav -->
-
     <!-- Help category -->
     <div class="section help-section is-relative">
         <div class="container">
@@ -55,399 +69,575 @@
                 <div class="column"></div>
                 <div class="column is-9 help-container">
                     <!-- Breadcrumbs -->
-                    <nav class="breadcrumbs">
-                        <ul>
-                            <!-- <li><a href="landing-v3-help.html">All sections</a></li> -->
-                            <li>Welcome to Mili</li>
-                        </ul>
-                    </nav>
                     <!-- /Breadcrumbs -->
                     <!-- Tabs block -->
-                    <form method="GET" action="http://localhost:8080/addRestaurantDetails">
+                    <form method="POST" action="/addRestaurantDetails" id="restaurant_form" style="margin-top: -3%;">
                         <div class="flex-card raised">
+                            <div id="toast" class="">
+                                <div id="desc"></div>
+                            </div>
                             <div class="navigation-tabs outlined-pills rounded-pills animated-tabs">
                                 <div class="tabs is-centered">
                                     <ul>
-                                        <li class="tab-link is-active" data-tab="tab-m1"><a>Basic</a></li>
-                                        <li class="tab-link btn_address" data-tab="tab-m2"><a>Address</a></li>
-                                        <li class="tab-link btn_payment" data-tab="tab-m3"><a>Payment</a></li>
-                                        <li class="tab-link btn_other" data-tab="tab-m4"><a>Other</a></li>
+                                        <li class="tab-link is-active basic-tab" data-tab="tab-m1"><a>Basic</a></li>
+                                        <li class="tab-link btn_address address-tab" data-tab="tab-m2"><a>Address</a>
+                                        </li>
+                                        <li class="tab-link btn_payment payment-tab" data-tab="tab-m3"><a>Payment</a>
+                                        </li>
+                                        <li class="tab-link btn_other other-tab" data-tab="tab-m4"><a>Other</a></li>
                                     </ul>
                                 </div>
-                                <style></style>
-
                                 <div id="tab-m1" class="navtab-content is-active container">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <div class="field">
-                                                <label class="inp_title">Restaurant Name</label>
-                                                <div class="control">
-                                                    <input class="input is-secondary-focus rest_form" type="text"
-                                                        placeholder="Restaurant Name" name="restaurant_name">
+                                            <div class="field form-group">
+                                                <div class="control-material is-primary">
+                                                    <input class="material-input " type="text" name='restaurant_name'
+                                                        id="restaurant_name" autocomplete="on" readonly>
+                                                </div>
+                                            </div>
+                                            <div class="field form-group">
+                                                <div class="control-material is-primary">
+                                                    <input class="material-input " type="text"
+                                                        name='restaurant_email_id' id="restaurant_email_id"
+                                                        autocomplete="on" readonly>
                                                 </div>
                                             </div>
                                             <div class="field">
-                                                <label class="inp_title">Restaurant Email ID</label>
-                                                <div class="control">
-                                                    <input class="input is-secondary-focuss rest_form" type="text"
-                                                        placeholder="Restaurant Email ID" name="restaurant_email_id">
+                                                <div class="control-material is-primary">
+                                                    <input class="material-input " type="time"
+                                                        name='restaurant_start_time' id="restaurant_start_time"
+                                                        autocomplete="on" value="08:00">
+                                                    <span class="material-highlight"></span>
+                                                    <span class="bar"></span>
+                                                    <label>Restaurant Start Time</label>
                                                 </div>
                                             </div>
-                                            <label class="inp_title">Restaurant Start Time</label>
                                             <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-secondary-focuss rest_form" type="text"
-                                                        placeholder="Restaurant Start Time" name="restaurant_start_time">
+                                                <div class="control-material is-primary">
+                                                    <input class="material-input " type="time"
+                                                        name='restaurant_end_time' id="restaurant_end_time"
+                                                        autocomplete="on" value="23:00">
+                                                    <span class="material-highlight"></span>
+                                                    <span class="bar"></span>
+                                                    <label>Restaurant End Time</label>
+                                                </div>
+                                                <div class="field" style="margin-top: 30px;">
+                                                    <div class="control-material is-primary">
+                                                        <input class="material-input " type="text"
+                                                            name='restaurant_description' id="restaurant_description"
+                                                            autocomplete="on">
+                                                        <span class="material-highlight"></span>
+                                                        <span class="bar"></span>
+                                                        <label>Restaurant Description</label>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <label class="inp_title">Restaurant End Time</label>
-                                            <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-secondary-focuss rest_form" type="text"
-                                                        placeholder="Restaurant End Time" name="restaurant_end_time">
-                                                </div>
-                                            </div>
-
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="field">
-                                                <label class="inp_title">Cost of Two</label>
-                                                <div class="control">
-                                                    <input class="input is-secondary-focus rest_form" type="text"
-                                                        placeholder="Cost of Two" name="restaurant_cost_two">
+                                                <div class="control-material is-primary">
+                                                    <input class="material-input " type="text"
+                                                        name='restaurant_cost_two' id="restaurant_cost_two"
+                                                        autocomplete="on">
+                                                    <span class="material-highlight"></span>
+                                                    <span class="bar"></span>
+                                                    <label>Cost of Two</label>
+                                                </div>
+                                            </div>
+                                            <div class="field" style="margin-top: -1px;">
+                                                <div class="control is-primary">
+                                                    <select id="cuisines" class="form-control decorated chosen-multiple"
+                                                        name="cuisines" data-placeholder="Select Cuisines" multiple>
+                                                        <option value="Ainu">Ainu</option>
+                                                        <option value="Albanian">Albanian</option>
+                                                        <option value="Argentina">Argentina</option>
+                                                        <option value="Andhra">Andhra</option>
+                                                        <option value="Anglo-Indian">Anglo-Indian</option>
+                                                        <option value="Arab">Arab</option>
+                                                        <option value="Armenian">Armenian</option>
+                                                        <option value="Assyrian">Assyrian</option>
+                                                        <option value="Awadhi">Awadhi</option>
+                                                        <option value="Azerbaijani">Azerbaijani</option>
+                                                        <option value="Balochi">Balochi</option>
+                                                        <option value="Belarusian">Belarusian</option>
+                                                        <option value="Bangladeshi">Bangladeshi</option>
+                                                        <option value="Bengali">Bengali</option>
+                                                        <option value="Berber">Berber</option>
+                                                        <option value="Buddhist">Buddhist</option>
+                                                        <option value="Bulgarian">Bulgarian</option>
+                                                        <option value="Cajun">Cajun</option>
+                                                        <option value="Chechen">Chechen</option>
+                                                        <option value="Chinese cuisine">Chinese cuisine</option>
+                                                        <option value="Chinese Islamic">Chinese Islamic</option>
+                                                        <option value="Circassian">Circassian</option>
+                                                        <option value="Crimean Tatar">Crimean Tatar</option>
+                                                        <option value="Cypriot">Cypriot</option>
+                                                        <option value="Danish">Danish</option>
+                                                        <option value="Estonian">Estonian</option>
+                                                        <option value="French">French</option>
+                                                        <option value="Filipino">Filipino</option>
+                                                        <option value="Georgian">Georgian</option>
+                                                        <option value="Goan">Goan</option>
+                                                        <option value="Goan Catholic">Goan Catholic</option>
+                                                        <option value="Greek">Greek</option>
+                                                        <option value="Gujarati">Gujarati</option>
+                                                        <option value="Hyderabad">Hyderabad</option>
+                                                        <option value="Indian cuisine">Indian cuisine</option>
+                                                        <option value="Indian Chinese">Indian Chinese</option>
+                                                        <option value="Indian Singaporean cuisine">Indian Singaporean
+                                                            cuisine</option>
+                                                        <option value="Indonesian">Indonesian</option>
+                                                        <option value="Inuit">Inuit</option>
+                                                        <option value="Italian American">Italian American</option>
+                                                        <option value="Italian cuisine">Italian cuisine</option>
+                                                        <option value="Japanese">Japanese</option>
+                                                        <option value="Jewish">Jewish</option>
+                                                        <option value="Karnataka">Karnataka</option>
+                                                        <option value="Kazakh">Kazakh</option>
+                                                        <option value="Keralite">Keralite</option>
+                                                        <option value="Korean">Korean</option>
+                                                        <option value="Kurdish">Kurdish</option>
+                                                        <option value="Laotian">Laotian</option>
+                                                        <option value="Latvian">Latvian</option>
+                                                        <option value="Lithuanian">Lithuanian</option>
+                                                        <option value="Louisiana Creole">Louisiana Creole</option>
+                                                        <option value="Maharashtrian">Maharashtrian</option>
+                                                        <option value="Mangalorean">Mangalorean</option>
+                                                        <option value="Malay">Malay</option>
+                                                        <option value="Malaysian Chinese cuisine">Malaysian Chinese
+                                                            cuisine</option>
+                                                        <option value="Malaysian Indian cuisine">Malaysian Indian
+                                                            cuisine</option>
+                                                        <option value="Mediterranean cuisine">Mediterranean cuisine
+                                                        </option>
+                                                        <option value="Mexican">Mexican</option>
+                                                        <option value="Mordovian">Mordovian</option>
+                                                        <option value="Mughal">Mughal</option>
+                                                        <option value="Native American">Native American</option>
+                                                        <option value="Nepalese">Nepalese</option>
+                                                        <option value="New Mexican">New Mexican</option>
+                                                        <option value="Odia">Odia</option>
+                                                        <option value="Parsi">Parsi</option>
+                                                        <option value="Pashtun">Pashtun</option>
+                                                        <option value="Polish">Polish</option>
+                                                        <option value="Pennsylvania Dutch">Pennsylvania Dutch</option>
+                                                        <option value="Pakistani">Pakistani</option>
+                                                        <option value="Peranakan">Peranakan</option>
+                                                        <option value="Persian">Persian</option>
+                                                        <option value="Peruvian">Peruvian</option>
+                                                        <option value="Portuguese">Portuguese</option>
+                                                        <option value="Punjabi">Punjabi</option>
+                                                        <option value="Rajasthani">Rajasthani</option>
+                                                        <option value="Romanian">Romanian</option>
+                                                        <option value="Russian">Russian</option>
+                                                        <option value="Sami">Sami</option>
+                                                        <option value="Serbian">Serbian</option>
+                                                        <option value="Sindhi">Sindhi</option>
+                                                        <option value="Slovak">Slovak</option>
+                                                        <option value="Slovenian">Slovenian</option>
+                                                        <option value="Somali">Somali</option>
+                                                        <option value="South Indian">South Indian</option>
+                                                        <option value="Soviet">Soviet</option>
+                                                        <option value="Sri Lankan">Sri Lankan</option>
+                                                        <option value="Taiwanese">Taiwanese</option>
+                                                        <option value="Tatar">Tatar</option>
+                                                        <option value="Thai">Thai</option>
+                                                        <option value="Turkish">Turkish</option>
+                                                        <option value="Tamil">Tamil</option>
+                                                        <option value="Udupi">Udupi</option>
+                                                        <option value="Ukrainian">Ukrainian</option>
+                                                        <option value="Yamal">Yamal</option>
+                                                        <option value="Zambian">Zambian</option>
+                                                        <option value="Zanzibari">Zanzibari</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             <div class="field">
-                                                <label class="inp_title">Restaurant is pure veg?</label>
-                                                <div class="control">
-                                                    <input class="input is-secondary-focuss rest_form" placeholder="Restaurant is pure veg?"
-                                                        type="text" name="restaurant_is_pure_veg">
+                                                <div class="control is-primary" style="
+                                                                margin-top: 24px;">
+                                                    <select id="restaurant_type"
+                                                        class="form-control decorated chosen-multiple"
+                                                        name="restaurant_type" data-placeholder="Select Restaurant Type"
+                                                        multiple>
+                                                        <option label="App category"></option>
+                                                        <option value="Fine Dining">Fine Dining</option>
+                                                        <option value="Casual Dining">Casual Dining</option>
+                                                        <option value="Family Style">Family Style</option>
+                                                        <option value="Fast Casual">Fast Casual</option>
+                                                        <option value="Fast Food">Fast Food</option>
+                                                        <option value="Cafe">Cafe</option>
+                                                        <option value="Food Trucks and Concession Stands">Food Trucks
+                                                            and Concession Stands</option>
+                                                        <option value="Ghost Restaurant">Ghost Restaurant</option>
+                                                        <option value="Canteen">Canteen</option>
+                                                        <option value="Cafeteria">Cafeteria</option>
+                                                        <option value="Bistro">Bistro</option>
+                                                        <option value="Other">Other</option>
+                                                    </select>
                                                 </div>
                                             </div>
-                                            <label class="inp_title">Restaurant Description</label>
-                                            <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-secondary-focuss rest_form" type="text"
-                                                        placeholder="Restaurant Description" name="restaurant_description">
+                                            <div class="field" style="margin-top:39px;">
+                                                <div class="control-material is-primary">
+                                                    <select id="restaurant_is_pure_veg"
+                                                        class="form-control chosen-select decorated"
+                                                        name="restaurant_is_pure_veg">
+                                                        <option>Restaurant is pure veg?
+                                                        </option>
+                                                        <option value="1">Yes
+                                                        </option>
+                                                        <option value="0">No
+                                                        </option>
+                                                    </select>
                                                 </div>
                                             </div>
-                                            <label class="inp_title">Restaurant Type</label>
-                                            <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-secondary-focuss rest_form" type="text"
-                                                        placeholder="Restaurant Type" name="restaurant_type">
+                                            <div class="field" style="margin-top:37px;">
+                                                <div class="control-material is-primary">
+                                                    <select id="pay_first" class="chosen-select decorated"
+                                                        name="pay_first">
+                                                        <option>Pay First
+                                                        </option>
+                                                        <option value="1">Yes
+                                                        </option>
+                                                        <option value="0">No
+                                                        </option>
+                                                    </select>
                                                 </div>
                                             </div>
                                         </div>
-                                        <!-- <div id="onebutton" class="section-wrapper">
-                                        <div class="uploader-controls has-text-centered animated preFadeInUp fadeInUp">
-                                            <input type="file" name="onebutton">
-                                            <button type="submit" class="button btn-align btn-outlined info-btn">Upload</button>
-                                        </div>
-                                    </div>
-                                    <div class="tabs is-centered">
                                         <ul>
-                                            <li class="sub_basic tab-link tabm2" name="sub_basic" data-tab="tab-m2"><a>Next</a></li>
+                                            <li class="tab-link btn_address mv-address is-active" data-tab="tab-m2"
+                                                style="float: right;">
+                                                <a class='next-btn'>Next</a>
+                                            </li>
                                         </ul>
-                                    </div> -->
                                     </div>
-
-                                    <script>
-                                        $(document).ready(function () {
-                                            $('.tabm2').click(function () {
-                                                // $('li a').removeClass("active");
-                                                $('.btn_address').addClass("tab-link");
-                                            });
-                                        });
-                                    </script>
                                 </div>
                                 <div id="tab-m2" class="navtab-content">
                                     <div class="row">
                                         <div class="col-sm-6">
-                                            <div class="field">
-                                                <label class="inp_title">Restaurant Address</label>
-                                                <div class="control">
-                                                    <input class="input is-secondary-focus rest_form" type="text"
-                                                        placeholder="Restaurant Address" name="restaurant_address">
+                                            <div class="field form-group">
+                                                <div class="control-material is-primary">
+                                                    <input class="material-input " type="text" name='restaurant_address'
+                                                        id="restaurant_address" autocomplete="on">
+                                                    <span class="material-highlight"></span>
+                                                    <span class="bar"></span>
+                                                    <label class="control-label">Restaurant Address</label>
                                                 </div>
                                             </div>
-                                            <div class="field">
-                                                <label class="inp_title">Restaurant Sublocality</label>
-                                                <div class="control">
-                                                    <input class="input is-secondary-focuss rest_form" type="text"
-                                                        placeholder="Restaurant Sublocality" name="restaurant_sublocality">
+                                            <div class="field form-group">
+                                                <div class="control-material is-primary">
+                                                    <input class="material-input " type="text"
+                                                        name='restaurant_sublocality' id="restaurant_sublocality"
+                                                        autocomplete="on">
+                                                    <span class="material-highlight"></span>
+                                                    <span class="bar"></span>
+                                                    <label class="control-label">Restaurant Sublocality</label>
                                                 </div>
                                             </div>
-                                            <label class="inp_title">Restaurant Locality</label>
-                                            <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-secondary-focuss rest_form" type="text"
-                                                        placeholder="Restaurant Locality" name="restaurant_locality">
+                                            <div class="field form-group">
+                                                <div class="control-material is-primary">
+                                                    <input class="material-input " type="text"
+                                                        name='restaurant_locality' id="restaurant_locality"
+                                                        autocomplete="on">
+                                                    <span class="material-highlight"></span>
+                                                    <span class="bar"></span>
+                                                    <label class="control-label">Restaurant Locality</label>
                                                 </div>
                                             </div>
-                                            <label class="inp_title">Landmark</label>
-                                            <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-secondary-focuss rest_form" type="text"
-                                                        placeholder="Landmark" name="restaurant_landmark">
+                                            <div class="field form-group">
+                                                <div class="control-material is-primary">
+                                                    <input class="material-input " type="text"
+                                                        name='restaurant_landmark' id="restaurant_landmark"
+                                                        autocomplete="on">
+                                                    <span class="material-highlight"></span>
+                                                    <span class="bar"></span>
+                                                    <label class="control-label">Landmark</label>
                                                 </div>
                                             </div>
-
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="field">
-                                                <label class="inp_title">City</label>
-                                                <div class="control">
-                                                    <input class="input is-secondary-focus rest_form" type="text"
-                                                        placeholder="City" name="restaurant_city">
+                                                <div class="control-material is-primary">
+                                                    <select onchange="print_city('state', this.selectedIndex);" id="sts"
+                                                        name="stt" class="form-control"></select>
+                                                    <script language="javascript">print_state("sts");</script>
                                                 </div>
                                             </div>
                                             <div class="field">
-                                                <label class="inp_title">State</label>
-                                                <div class="control">
-                                                    <input class="input is-secondary-focuss rest_form" placeholder="State"
-                                                        type="text" name="restaurant_State">
-                                                </div>
+                                                <div class="control-material is-primary">
+                                                    <select id="state" class="form-control decorated" name="city">
+                                                        <option>Select City</div>
+                                                </option>
+                                                </select>
                                             </div>
-                                            <label class="inp_title">Contact</label>
-                                            <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-secondary-focuss rest_form" type="text"
-                                                        placeholder="Contact" name="restaurant_contact">
-                                                </div>
+                                        </div>
+                                        <div class="field form-group">
+                                            <div class="control-material is-primary">
+                                                <input class="material-input " type="text" name='restaurant_contact'
+                                                    id="restaurant_contact" autocomplete="on">
+                                                <span class="material-highlight"></span>
+                                                <span class="bar"></span>
+                                                <label class="control-label">Contact Number</label>
                                             </div>
-                                            <label class="inp_title">Zip Code</label>
-                                            <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-secondary-focuss rest_form" type="text"
-                                                        placeholder="Zip Code" name="restaurant_zip_code">
-                                                </div>
+                                        </div>
+                                        <div class="field form-group">
+                                            <div class="control-material is-primary">
+                                                <input class="material-input " type="text" name='restaurant_zip_code'
+                                                    id="restaurant_zip_code" autocomplete="on">
+                                                <span class="material-highlight"></span>
+                                                <span class="bar"></span>
+                                                <label class="control-label">Zip Code</label>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div class="tabs is-centered">
-                                        <ul>
-                                            <li class="sub_basic tab-link" name="sub_basic" data-tab="tab-m3"><a>Next</a></li>
-                                        </ul>
+                                </div>
+                                <ul>
+                                    <li class="tab-link btn_payment mv-payment is-active" data-tab="tab-m3"
+                                        style="float: right;">
+                                        <a class='next-btn'>Next</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="tab-m3" class="navtab-content">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="field form-group">
+                                            <div class="control-material is-primary">
+                                                <input class="material-input " type="text"
+                                                    name='restaurant_acc_holder_name' id="restaurant_acc_holder_name"
+                                                    autocomplete="on">
+                                                <span class="material-highlight"></span>
+                                                <span class="bar"></span>
+                                                <label class="control-label">Account Holder Name</label>
+                                            </div>
+                                        </div>
+                                        <div class="field form-group">
+                                            <div class="control-material is-primary">
+                                                <input class="material-input " type="text" name='restaurant_acc_number'
+                                                    id="restaurant_acc_number" autocomplete="on">
+                                                <span class="material-highlight"></span>
+                                                <span class="bar"></span>
+                                                <label class="control-label">Account Number</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="field form-group">
+                                            <div class="control-material is-primary">
+                                                <input class="material-input " type="text" name='restaurant_IFSC_code'
+                                                    id="restaurant_IFSC_code" autocomplete="on">
+                                                <span class="material-highlight"></span>
+                                                <span class="bar"></span>
+                                                <label class="control-label">IFSC Code</label>
+                                            </div>
+                                        </div>
+                                        <div class="field form-group">
+                                            <div class="control-material is-primary">
+                                                <input class="material-input " type="text" name='restaurant_pay_upi'
+                                                    id="restaurant_pay_upi" autocomplete="on">
+                                                <span class="material-highlight"></span>
+                                                <span class="bar"></span>
+                                                <label class="control-label">UPI Payment</label>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                                <div id="tab-m3" class="navtab-content">
-                                    <div class="row">
-                                        <div class="col-sm-6">
-                                            <div class="field">
-                                                <label class="inp_title">GooglePay UPI</label>
-                                                <div class="control">
-                                                    <input class="input is-secondary-focus rest_form" type="text"
-                                                        placeholder="GooglePay UPI" name="restaurant_address1">
-                                                </div>
-                                            </div>
-                                            <div class="field">
-                                                <label class="inp_title">PhonePay UPI</label>
-                                                <div class="control">
-                                                    <input class="input is-secondary-focuss rest_form" type="text"
-                                                        placeholder="PhonePay UPI" name="restaurant_sublocality1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <label class="inp_title">BhimPay UPI</label>
-                                            <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-secondary-focuss rest_form" type="text"
-                                                        placeholder="BhimPay UPI" name="restaurant_locality1">
-                                                </div>
-                                            </div>
-                                            <label class="inp_title">Account Number</label>
-                                            <div class="field">
-                                                <div class="control">
-                                                    <input class="input is-secondary-focuss rest_form" type="text"
-                                                        placeholder="Account Number" name="restaurant_landmark1">
-                                                </div>
-                                            </div>
-                                            <div class="field">
-                                                <label class="inp_title">IFSC Code</label>
-                                                <div class="control">
-                                                    <input class="input is-secondary-focus rest_form" type="text"
-                                                        placeholder="IFSC Code" name="restaurant_city1">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="tabs is-centered">
-                                        <ul>
-                                            <li class="sub_basic tab-link" name="sub_basic" data-tab="tab-m4"><a>Next</a></li>
-                                        </ul>
-                                    </div>
+                                <div class="tabs is-centered" style="float: right;">
+                                    <ul>
+                                        <li class="tab-link btn_other mv-other is-active" data-tab="tab-m4">
+                                            <a class='next-btn'>Next</a>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <style>
-                                    tr {
-                                    /* border: 1px solid; */
-                                }
-
+                            </div>
+                            <style>
                                 td {
-                                    /* border: 1px solid; */
                                     padding: 10px 0px 10px 15px;
                                 }
                             </style>
-                                <div id="tab-m4" class="navtab-content">
-                                    <table>
-                                        <tr>
-                                            <td><label for="home_delvry" class="inp_title">Home
-                                                    Delivery?</td>
-                                            <td style="float:right">
-                                                <div class="control float-right">
-                                                    <input type="radio" name="home_delivery" value="1" id="home_delivery"
-                                                        class="form-radio">
-                                                    <label for="radio-one">Yes</label>
-                                                    <input type="radio" name="home_delivery" value="0" id="home_delivery"
-                                                        class="form-radio">
-                                                    <label for="radio-one">No</label>
-                                                </div>
-                                            </td>
-                                            <td><label for="home_delvry" class="inp_title">Take
-                                                    away?</td>
-                                            <td style="float:right">
-                                                <div class="control float-right">
-                                                    <input type="radio" name="take_away" value="1" id="take_away" class="form-radio">
-                                                    <label for="radio-one">Yes</label>
-                                                    <input type="radio" name="take_away" value="0" id="take_away" class="form-radio">
-                                                    <label for="radio-one">No</label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><label for="home_delvry" class="inp_title">FSSAI approved?</td>
-                                            <td style="float:right">
-                                                <div class="control float-right">
-                                                    <input type="radio" name="fssai_approved" value="1" id="fssai_approved"
-                                                        class="form-radio">
-                                                    <label for="radio-one">Yes</label>
-                                                    <input type="radio" name="fssai_approved" value="0" id="fssai_approved"
-                                                        class="form-radio">
-                                                    <label for="radio-one">No</label>
-                                                </div>
-                                            </td>
-                                            <td><label for="home_delvry" class="inp_title">Alcohal in?</td>
-                                            <td style="float:right">
-                                                <div class="control float-right">
-                                                    <input type="radio" name="alcohol_in" value="1" id="alcohol_in"
-                                                        class="form-radio">
-                                                    <label for="radio-one">Yes</label>
-                                                    <input type="radio" name="alcohol_in" value="0" id="alcohol_in"
-                                                        class="form-radio">
-                                                    <label for="radio-one">No</label>
-                                                </div>
-                                            </td>
-                                        <tr>
-                                            <td><label for="home_delvry" class="inp_title">Live music?</td>
-                                            <td style="float:right">
-                                                <div class="control float-right">
-                                                    <input type="radio" name="live_music" value="1" id="live_music"
-                                                        class="form-radio">
-                                                    <label for="radio-one">Yes</label>
-                                                    <input type="radio" name="live_music" value="0" id="live_music"
-                                                        class="form-radio">
-                                                    <label for="radio-one">No</label>
-                                                </div>
-                                            </td>
+                            <div id="tab-m4" class="navtab-content">
+                                <table>
+                                    <tr>
+                                        <td><label for="home_delvry" class="inp_title">Home
+                                                Delivery?</td>
+                                        <td style="float:right">
+                                            <div class="control float-right">
+                                                <input type="radio" name="home_delivery" value="1"
+                                                    id="home_delivery_yes" class="form-radio">
+                                                <label for="radio-one">Yes</label>
+                                                <input type="radio" name="home_delivery" value="0" id="home_delivery_no"
+                                                    class="form-radio" checked>
+                                                <label for="radio-one">No</label>
+                                            </div>
+                                        </td>
+                                        <td><label for="home_delvry" class="inp_title">Take
+                                                away?</td>
+                                        <td style="float:right">
+                                            <div class="control float-right">
+                                                <input type="radio" name="take_away" value="1" id="take_away_yes"
+                                                    class="form-radio">
+                                                <label for="radio-one">Yes</label>
+                                                <input type="radio" name="take_away" value="0" id="take_away_no"
+                                                    class="form-radio" checked>
+                                                <label for="radio-one">No</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="home_delvry" class="inp_title">FSSAI approved?</td>
+                                        <td style="float:right">
+                                            <div class="control float-right">
+                                                <input type="radio" name="fssai_approved" value="1"
+                                                    id="fssai_approved_yes" class="form-radio">
+                                                <label for="radio-one">Yes</label>
+                                                <input type="radio" name="fssai_approved" value="0"
+                                                    id="fssai_approved_no" class="form-radio" checked>
+                                                <label for="radio-one">No</label>
+                                            </div>
+                                        </td>
+                                        <td><label for="home_delvry" class="inp_title">Alcohal in?</td>
+                                        <td style="float:right">
+                                            <div class="control float-right">
+                                                <input type="radio" name="alcohol_in" value="1" id="alcohol_in_yes"
+                                                    class="form-radio">
+                                                <label for="radio-one">Yes</label>
+                                                <input type="radio" name="alcohol_in" value="0" id="alcohol_in_no"
+                                                    class="form-radio" checked>
+                                                <label for="radio-one">No</label>
+                                            </div>
+                                        </td>
+                                    <tr>
+                                        <td><label for="home_delvry" class="inp_title">Live music?</td>
+                                        <td style="float:right">
+                                            <div class="control float-right">
+                                                <input type="radio" name="live_music" value="1" id="live_music_yes"
+                                                    class="form-radio">
+                                                <label for="radio-one">Yes</label>
+                                                <input type="radio" name="live_music" value="0" id="live_music_no"
+                                                    class="form-radio" checked>
+                                                <label for="radio-one">No</label>
+                                            </div>
+                                        </td>
 
-                                            <td><label for="home_delvry" class="inp_title">Valet parking?</td>
-                                            <td style="float:right">
-                                                <div class="control float-right">
-                                                    <input type="radio" name="valet_parking" value="1" id="valet_parking"
-                                                        class="form-radio">
-                                                    <label for="radio-one">Yes</label>
-                                                    <input type="radio" name="valet_parking" value="0" id="valet_parking"
-                                                        class="form-radio">
-                                                    <label for="radio-one">No</label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><label for="home_delvry" class="inp_title">karaoke?</td>
-                                            <td style="float:right">
-                                                <div class="control float-right">
-                                                    <input type="radio" name="karaoke" value="1" id="karaoke" class="form-radio">
-                                                    <label for="radio-one">Yes</label>
-                                                    <input type="radio" name="karaoke" value="0" id="karaoke" class="form-radio">
-                                                    <label for="radio-one">No</label>
-                                                </div>
-                                            </td>
-                                            <td><label for="home_delvry" class="inp_title">Free wifi?</td>
-                                            <td style="float:right">
-                                                <div class="control float-right">
-                                                    <input type="radio" name="free_wifi" value="1" id="free_wifi" class="form-radio">
-                                                    <label for="radio-one">Yes</label>
-                                                    <input type="radio" name="free_wifi" value="0" id="free_wifi" class="form-radio">
-                                                    <label for="radio-one">No</label>
-                                                </div>
-                                            </td>
-                                        <tr>
-                                            <td><label for="home_delvry" class="inp_title">Live sports screening?</td>
-                                            <td style="float:right">
-                                                <div class="control float-right">
-                                                    <input type="radio" name="live_sports_screening" value="1" id="live_sports_screening"
-                                                        class="form-radio">
-                                                    <label for="radio-one">Yes</label>
-                                                    <input type="radio" name="live_sports_screening" value="0" id="live_sports_screening"
-                                                        class="form-radio">
-                                                    <label for="radio-one">No</label>
-                                                </div>
-                                            </td>
-                                            <td><label for="home_delvry" class="inp_title">Available for functions?</td>
-                                            <td style="float:right">
-                                                <div class="control float-right">
-                                                    <input type="radio" name="available_for_functions" value="1" id="available_for_functions"
-                                                        class="form-radio">
-                                                    <label for="radio-one">Yes</label>
-                                                    <input type="radio" name="available_for_functions" value="0" id="available_for_functions"
-                                                        class="form-radio">
-                                                    <label for="radio-one">No</label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><label for="home_delvry" class="inp_title">Full bar available?</td>
-                                            <td style="float:right">
-                                                <div class="control float-right">
-                                                    <input type="radio" name="full_bar_available" value=1 id="full_bar_available"
-                                                        class="form-radio">
-                                                    <label for="radio-one">Yes</label>
-                                                    <input type="radio" name="full_bar_available" value=0 id="full_bar_available"
-                                                        class="form-radio">
-                                                    <label for="radio-one">No</label>
-                                                </div>
-                                            </td>
-                                            <td><label for="home_delvry" class="inp_title">Open terrace?</td>
-                                            <td style="float:right">
-                                                <div class="control float-right">
-                                                    <input type="radio" name="open_terrace" value="1" id="open_terrace"
-                                                        class="form-radio">
-                                                    <label for="radio-one">Yes</label>
-                                                    <input type="radio" name="open_terrace" value="0" id="open_terrace"
-                                                        class="form-radio">
-                                                    <label for="radio-one">No</label>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <center>
-                                        <input type="submit" class="sub_btn" name="sub_btn">Submit
-                                    </center>
-                                </div>
+                                        <td><label for="home_delvry" class="inp_title">Valet parking?</td>
+                                        <td style="float:right">
+                                            <div class="control float-right">
+                                                <input type="radio" name="valet_parking" value="1"
+                                                    id="valet_parking_yes" class="form-radio">
+                                                <label for="radio-one">Yes</label>
+                                                <input type="radio" name="valet_parking" value="0" id="valet_parking_no"
+                                                    class="form-radio" checked>
+                                                <label for="radio-one">No</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="home_delvry" class="inp_title">karaoke?</td>
+                                        <td style="float:right">
+                                            <div class="control float-right">
+                                                <input type="radio" name="karaoke" value="1" id="karaoke_yes"
+                                                    class="form-radio">
+                                                <label for="radio-one">Yes</label>
+                                                <input type="radio" name="karaoke" value="0" id="karaoke_no"
+                                                    class="form-radio" checked>
+                                                <label for="radio-one">No</label>
+                                            </div>
+                                        </td>
+                                        <td><label for="home_delvry" class="inp_title">Free wifi?</td>
+                                        <td style="float:right">
+                                            <div class="control float-right">
+                                                <input type="radio" name="free_wifi" value="1" id="free_wifi_yes"
+                                                    class="form-radio">
+                                                <label for="radio-one">Yes</label>
+                                                <input type="radio" name="free_wifi" value="0" id="free_wifi_no"
+                                                    class="form-radio" checked>
+                                                <label for="radio-one">No</label>
+                                            </div>
+                                        </td>
+                                    <tr>
+                                        <td><label for="home_delvry" class="inp_title">Live sports screening?</td>
+                                        <td style="float:right">
+                                            <div class="control float-right">
+                                                <input type="radio" name="live_sports_screening" value="1"
+                                                    id="live_sports_screening_yes" class="form-radio">
+                                                <label for="radio-one">Yes</label>
+                                                <input type="radio" name="live_sports_screening" value="0"
+                                                    id="live_sports_screening_no" class="form-radio" checked>
+                                                <label for="radio-one">No</label>
+                                            </div>
+                                        </td>
+                                        <td><label for="home_delvry" class="inp_title">Available for functions?</td>
+                                        <td style="float:right">
+                                            <div class="control float-right">
+                                                <input type="radio" name="available_for_functions" value="1"
+                                                    id="available_for_functions_yes" class="form-radio">
+                                                <label for="radio-one">Yes</label>
+                                                <input type="radio" name="available_for_functions" value="0"
+                                                    id="available_for_functions_no" class="form-radio" checked>
+                                                <label for="radio-one">No</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><label for="home_delvry" class="inp_title">Full bar available?</td>
+                                        <td style="float:right">
+                                            <div class="control float-right">
+                                                <input type="radio" name="full_bar_available" value=1
+                                                    id="full_bar_available_yes" class="form-radio">
+                                                <label for="radio-one">Yes</label>
+                                                <input type="radio" name="full_bar_available" value=0
+                                                    id="full_bar_available_no" class="form-radio" checked>
+                                                <label for="radio-one">No</label>
+                                            </div>
+                                        </td>
+                                        <td><label for="home_delvry" class="inp_title">Open terrace?</td>
+                                        <td style="float:right">
+                                            <div class="control float-right">
+                                                <input type="radio" name="open_terrace" value="1" id="open_terrace_yes"
+                                                    class="form-radio">
+                                                <label for="radio-one">Yes</label>
+                                                <input type="radio" name="open_terrace" value="0" id="open_terrace_no"
+                                                    class="form-radio" checked>
+                                                <label for="radio-one">No</label>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <center>
+                                    <button class="btn btn-warning" id="form_save">Save</button>
+                                    <input type="submit" id="restaurant_form_submit" value="Submit"
+                                        style="display:none;">
+                                </center>
                             </div>
                         </div>
-                        <!-- /Tabs block -->
-
                 </div>
-                <div class="column tab-link" data-tab="tab-m2"></div>
+                <!-- /Tabs block -->
+
             </div>
+            <div class="column tab-link" data-tab="tab-m2"></div>
         </div>
+    </div>
     </div>
     </form>
     <!-- /Help category -->
 
+    <script>
+        $('.mv-address').click(function () {
+            $('.basic-tab').removeClass('is-active');
+            $('.address-tab').addClass('is-active');
+        });
+        $('.mv-payment').click(function () {
+            $('.address-tab').removeClass('is-active');
+            $('.payment-tab').addClass('is-active');
+        });
+        $('.mv-other').click(function () {
+            $('.payment-tab').removeClass('is-active');
+            $('.other-tab').addClass('is-active');
+        });
+
+    </script>
 
     <!-- Footer -->
     <% include footer.ejs %>
@@ -460,7 +650,8 @@
             <!-- Menu -->
             <ul class="categories">
                 <li class="square-logo"><img src="assets/images/logos/square-white.svg" alt=""></li>
-                <li class="category-link is-active" data-navigation-menu="demo-pages"><i class="sl sl-icon-layers"></i></li>
+                <li class="category-link is-active" data-navigation-menu="demo-pages"><i class="sl sl-icon-layers"></i>
+                </li>
                 <li class="category-link" data-navigation-menu="components"><i class="sl sl-icon-grid"></i></li>
                 <li class="category-link" data-navigation-menu="extras"><i class="sl sl-icon-present"></i></li>
             </ul>
@@ -496,7 +687,8 @@
             </div>
             <!-- Navigation Body -->
             <ul class="navigation-menu">
-                <li class="has-children"><a class="parent-link" href="#"><span class="material-icons">weekend</span>Agency
+                <li class="has-children"><a class="parent-link" href="#"><span
+                            class="material-icons">weekend</span>Agency
                         kit</a>
                     <ul>
                         <li><a class="is-submenu" href="agency.html">Homepage</a></li>
@@ -508,7 +700,8 @@
                         <li><a class="is-submenu" href="agency-post-nosidebar.html">Post no sidebar</a></li>
                     </ul>
                 </li>
-                <li class="has-children"><a class="parent-link" href="#"><span class="material-icons">wb_incandescent</span>Startup
+                <li class="has-children"><a class="parent-link" href="#"><span
+                            class="material-icons">wb_incandescent</span>Startup
                         kit</a>
                     <ul>
                         <li><a class="is-submenu" href="startup.html">Homepage</a></li>
@@ -519,7 +712,8 @@
                         <li><a class="is-submenu" href="startup-signup.html">Sign up</a></li>
                     </ul>
                 </li>
-                <li class="has-children"><a class="parent-link" href="#"><span class="material-icons">looks</span>Landing
+                <li class="has-children"><a class="parent-link" href="#"><span
+                            class="material-icons">looks</span>Landing
                         kit v1</a>
                     <ul>
                         <li><a class="is-submenu" href="landing.html">Landing page</a></li>
@@ -529,7 +723,8 @@
                         <li><a class="is-submenu" href="landing-signup.html">Signup page</a></li>
                     </ul>
                 </li>
-                <li class="has-children"><a class="parent-link" href="#"><span class="material-icons">invert_colors</span>Landing
+                <li class="has-children"><a class="parent-link" href="#"><span
+                            class="material-icons">invert_colors</span>Landing
                         kit v2</a>
                     <ul>
                         <li><a class="is-submenu" href="landing-v1.html">Landing page</a></li>
@@ -539,7 +734,8 @@
                         <li><a class="is-submenu" href="landing-v1-signup.html">Signup page</a></li>
                     </ul>
                 </li>
-                <li class="has-children"><a class="parent-link" href="#"><span class="material-icons">chat_bubble</span>Landing
+                <li class="has-children"><a class="parent-link" href="#"><span
+                            class="material-icons">chat_bubble</span>Landing
                         kit v3</a>
                     <ul>
                         <li><a class="is-submenu" href="landing-v2.html">Landing page</a></li>
@@ -549,7 +745,8 @@
                         <li><a class="is-submenu" href="landing-v2-signup.html">Signup page</a></li>
                     </ul>
                 </li>
-                <li class="has-children active-section"><a class="parent-link" href="#"><span class="material-icons">business</span>Landing
+                <li class="has-children active-section"><a class="parent-link" href="#"><span
+                            class="material-icons">business</span>Landing
                         kit v4</a>
                     <ul>
                         <li><a class="is-submenu" href="landing-v3.html">Landing page</a></li>
@@ -584,7 +781,8 @@
             </div>
             <!-- Navigation body -->
             <ul class="navigation-menu">
-                <li class="has-children"><a class="parent-link" href="#"><span class="material-icons">view_quilt</span>Layout</a>
+                <li class="has-children"><a class="parent-link" href="#"><span
+                            class="material-icons">view_quilt</span>Layout</a>
                     <ul>
                         <li><a class="is-submenu" href="_components-layout-grid.html">Grid system</a></li>
                         <li><a class="is-submenu" href="_components-layout-navbars.html">Navbars</a></li>
@@ -596,7 +794,8 @@
                         <li><a class="is-submenu" href="_components-layout-colors.html">Colors</a></li>
                     </ul>
                 </li>
-                <li class="has-children"><a class="parent-link" href="#"><span class="material-icons">view_stream</span>Sections</a>
+                <li class="has-children"><a class="parent-link" href="#"><span
+                            class="material-icons">view_stream</span>Sections</a>
                     <ul>
                         <li><a class="is-submenu" href="_components-sections-features.html">Features</a></li>
                         <li><a class="is-submenu" href="_components-sections-pricing.html">Pricing</a></li>
@@ -607,7 +806,8 @@
                         <li><a class="is-submenu" href="_components-sections-carousel.html">Carousel</a></li>
                     </ul>
                 </li>
-                <li class="has-children"><a class="parent-link" href="#"><span class="material-icons">playlist_add_check</span>Basic
+                <li class="has-children"><a class="parent-link" href="#"><span
+                            class="material-icons">playlist_add_check</span>Basic
                         UI</a>
                     <ul>
                         <li><a class="is-submenu" href="_components-basicui-cards.html">Cards</a></li>
@@ -621,7 +821,8 @@
                         <li><a class="is-submenu" href="_components-basicui-popups.html">Popups</a></li>
                     </ul>
                 </li>
-                <li class="has-children"><a class="parent-link" href="#"><span class="material-icons">playlist_add</span>Advanced
+                <li class="has-children"><a class="parent-link" href="#"><span
+                            class="material-icons">playlist_add</span>Advanced
                         UI</a>
                     <ul>
                         <li><a class="is-submenu" href="_components-advancedui-tables.html">Tables</a></li>
@@ -630,7 +831,8 @@
                         <li><a class="is-submenu" href="_components-advancedui-messages.html">Messages</a></li>
                     </ul>
                 </li>
-                <li class="has-children"><a class="parent-link" href="#"><span class="material-icons">check_box</span>Forms</a>
+                <li class="has-children"><a class="parent-link" href="#"><span
+                            class="material-icons">check_box</span>Forms</a>
                     <ul>
                         <li><a class="is-submenu" href="_components-forms-inputs.html">Inputs</a></li>
                         <li><a class="is-submenu" href="_components-forms-controls.html">Controls</a></li>
@@ -638,12 +840,14 @@
                         <li><a class="is-submenu" href="_components-forms-uploader.html">Uploader</a></li>
                     </ul>
                 </li>
-                <li class="has-children"><a class="parent-link" href="#"><span class="material-icons">adjust</span>Icons</a>
+                <li class="has-children"><a class="parent-link" href="#"><span
+                            class="material-icons">adjust</span>Icons</a>
                     <ul>
                         <li><a class="is-submenu" href="_components-icons-im.html">Icons Mind</a></li>
                         <li><a class="is-submenu" href="_components-icons-sl.html">Simple Line Icons</a></li>
                         <li><a class="is-submenu" href="_components-icons-fa.html">Font Awesome</a></li>
-                        <li><a class="is-submenu" href="https://material.io/icons/" target="_blank">Material Icons</a></li>
+                        <li><a class="is-submenu" href="https://material.io/icons/" target="_blank">Material Icons</a>
+                        </li>
                     </ul>
                 </li>
             </ul>
@@ -669,7 +873,8 @@
             </div>
             <!-- Navigation body -->
             <ul class="navigation-menu">
-                <li class="has-children"><a class="parent-link" href="#"><span class="material-icons">dashboard</span>Dashboard
+                <li class="has-children"><a class="parent-link" href="#"><span
+                            class="material-icons">dashboard</span>Dashboard
                         kit</a>
                     <ul>
                         <li><a class="is-submenu" href="dashboard.html">Main Layout</a></li>
@@ -701,6 +906,9 @@
     <!-- Plugins js -->
     <script src="assets/js/fileuploader/jquery.fileuploader.min.js"></script>
     <script src="assets/js/fileuploader/fileuploader.init.js"></script>
+    <script src="assets/js/tagsinput/jquery.tags.input.js"></script>
+    <script src="assets/js/easyAutocomplete/jquery.easy-autocomplete.min.js"></script>
+    <script src="assets/js/chosen/chosen.jquery.min.js"></script>
     <script src="assets/js/ggpopover/ggtooltip.js"></script>
     <script src="assets/js/embed/embed.js"></script>
     <!-- Bulkit js -->
@@ -709,6 +917,9 @@
     <script src="assets/js/pages/landingv3.js"></script>
     <script src="assets/js/pages/components-fileinput.js"></script>
 
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+    <script src='http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js'></script>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/bootstrap-validator/0.4.5/js/bootstrapvalidator.min.js'></script>
 </body>
 
 </html>

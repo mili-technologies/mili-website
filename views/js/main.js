@@ -23,7 +23,7 @@ $(document).ready(function () {
                 $(".nav-fostrap li a").css({ "color": "black" }),
                 $(".white").css({ "background": "#c8c4c4ba" }),
                 $(".brand_logo").css({ "color": "black" }),
-                $("a.log_in").css({ "color": "white" });
+                $("a.login").css({ "color": "white" });
         }
         else {
             $(".logo").css({ "color": "white" }),

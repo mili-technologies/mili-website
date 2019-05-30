@@ -69,18 +69,163 @@ a.button.button-signup.mili-logo.btn-outlined.is-bold.btn-align.light-btn:hover 
 a#signup-btn:hover {
     color: white!important;
 }
-@media screen and (max-width: 768px){
-.column.is-half-mobile {
+.model1 {
+    border: 1px solid;
+    position: absolute;
+    margin-top: 58px;
+    width: 85%;
+    height: 75px;
+    background: black;
+    box-shadow: 0px 1px 2px 2px grey;
+    z-index: 10;
+}
+.inner-model {
+    float: right;
+margin: -30px -23px;
+border: 0px;
+background: no-repeat;
+color: red;
+font-family: monospace;
+}
+.wrong_login {
+height: 16%;
+width: 39.5%;
+text-align: center;
+padding: 40px;
+margin-top: -244px;
+box-shadow: 1px 0px 4px 4px #9e9b9b8a;
+font-family: none;
+font-size: 18px;
+background: rgb(255, 255, 255);
+position: absolute;
+z-index: 100;
+color: #ef0707;
+display: none;
+}
+.control-material.is-accent {
+margin-top: 35px;
+}
+h2#login {
+text-align: center;
+}
+.modal .modal-content{
+z-index: 95!important;
+}
+.modal.is-active .modal-background{
+z-index: 90!important;
+}
+.nav-left.shrink {
+    /* max-height: 3rem!important; */
+    /* margin-top: -10px; */
+    flex-basis: inherit;
+}
+.nav-item img{
+    max-height: 4rem!important;
+    margin-top: 0px;
+}
+.grid-4{
     -webkit-box-flex: 0;
     -ms-flex: none;
-    flex: auto;
-    width: 100%!important;
+    flex: none;
+    width: 24.33333%;
+}
+.process-block.has-line:after {
+    content: '';
+    height: 4px;
+    width: 34px;
+    background: #ededed;
+    position: absolute;
+    top: 88px;
+    right: -14%;
+    border-radius: 50px;
+}
+.nav-left.shrink {
+    /* max-height: 3rem!important; */
+    /* margin-top: -10px; */
+    flex-basis: inherit;
+}
+.nav-item img{
+    max-height: 3rem!important;
+    margin-top: -10px;
+}
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600);
+
+.item-1, 
+.item-2, 
+.item-3,
+.item-4 {
+	position: absolute;
+  display: block;
+	top: 2em;
+  
+  width: 60%;
+  
+  /* font-size: 2em; */
+
+	animation-duration: 20s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+}
+
+.item-1{
+	animation-name: anim-1;
+}
+
+.item-2{
+	animation-name: anim-2;
+}
+
+.item-3{
+	animation-name: anim-3;
+}
+/* .item-4{
+	animation-name: anim-1;
+} */
+@keyframes anim-1 {
+	0%, 8.3% { left: -100%; opacity: 0; }
+  8.3%,25% { left: 25%; opacity: 1; }
+  33.33%, 100% { left: 110%; opacity: 0; }
+}
+
+@keyframes anim-2 {
+	0%, 33.33% { left: -100%; opacity: 0; }
+  41.63%, 58.29% { left: 25%; opacity: 1; }
+  66.66%, 100% { left: 110%; opacity: 0; }
+}
+
+@keyframes anim-3 {
+	0%, 66.66% { left: -100%; opacity: 0; }
+  74.96%, 91.62% { left: 25%; opacity: 1; }
+  100% { left: 110%; opacity: 0; }
+}
+.has-text-centered.get_start {
+    margin-top: 20%;
+}
+.subtitle.light-subtitle {
+    margin-top: 6%;
+    margin-left: -5%;
+    width: 100%;
+    color: white;
+    margin-left: -26%;
+}
+img.dashboard-img{
+    box-shadow: -3px 0px 13px -4px grey;
+}
+#main-hero{
+    background-position: center!important;
+}
+
+.light-subtitle{
+    /* display: none; */
 }
 .section.is-skewed-sm {
     transform: skew(0deg, -3deg) translate(0, -45px);
     padding-top: 50px!important;
 }
+.mililogo {
+    margin-left: 0px;
 }
+
 footer.footer-dark .footer-logo img {
     height: 36px!important;
 }
@@ -109,7 +254,7 @@ img.six-icon {
     width: 60%;
     margin-top: 12px;
 }
-@media (max-width: 360px) {
+@media (max-width: 480px) {
         .column is-12 sec-menu{
             display: none;
         }
@@ -118,7 +263,17 @@ img.six-icon {
     margin-top: -20px;
     /* display: none; */
 }
+
+.grid-4 {
+    -webkit-box-flex: 0;
+    -ms-flex: none;
+    flex: none;
+    width: 100%;
 }
+
+
+}
+
 /* @media screen and (min-width: 360px) {
     .column is-12 sec-menu{
         display: none;
@@ -229,3 +384,26 @@ button.sub_btn {
 .fileuploader{
     background: none!important;
 }
+.upload-btn-wrapper {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+  }
+  
+  .btn {
+    border: 2px solid gray;
+    color: gray;
+    background-color: white;
+    padding: 8px 20px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  .upload-btn-wrapper input[type=file] {
+    font-size: 100px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+  }

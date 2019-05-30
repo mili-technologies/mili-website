@@ -192,8 +192,8 @@ function loginToApp() {
         currentUser = user;
         firebase.auth().currentUser.getIdToken(true).then(function (idToken) {
           $('div.main-login').append('<input name="idToken" id="idToken" value=' + idToken + ' type="hidden"/>');
-          //console.log(idToken);
-          addSubmitForm();
+          console.log('ssssssssssss ' + idToken);
+          //addSubmitForm();
         }).catch(function (error) {
           var errorCode = error.code;
           var errorMessage = error.message;
@@ -215,5 +215,5 @@ function addSubmitForm() {
   var loginForm = $('#loginForm').get(0);
   loginForm.action = '/dashboard';
   loginForm.method = 'POST';
-  loginForm.submit();
+  //loginForm.submit();
 }
