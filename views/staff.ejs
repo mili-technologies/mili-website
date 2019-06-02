@@ -33,16 +33,21 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-   <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet">
+   <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+   <link href="//code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet">
    </link>
-   <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+   <script src="//code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
    <!-- Plugins css -->
    <link rel="stylesheet" type="text/css" href="assets/js/ggpopover/ggtooltip.css">
    <link rel="stylesheet" type="text/css" href="assets/js/highlightjs/style.css">
    <!-- Icons -->
    <link rel="stylesheet" type="text/css" href="assets/css/icons.min.css">
+   <style>
+      .container.dash-container {
+         margin-right: -50px;
+      }
+   </style>
    <script>
       $(document).ready(function () {
          $('.menu_table_body').on("click", '.staff_resturant_update', function () {
@@ -442,10 +447,12 @@
                                  <tr class="cloneRow <%= data[0].result[i].staff_id %>">
                                     <td style='text-align:center;'>
                                        <h4><span class="label label-success"><span
-                                                class="staff_first_name"><%= data[0].result[i].staff_first_name %></span></span></h4>
+                                                class="staff_first_name"><%= data[0].result[i].staff_first_name %></span></span>
+                                       </h4>
                                     <td style='text-align:center;'>
                                        <h4><span class="label label-success"><span
-                                                class="staff_last_name"><%= data[0].result[i].staff_last_name %></span></span></h4>
+                                                class="staff_last_name"><%= data[0].result[i].staff_last_name %></span></span>
+                                       </h4>
                                     </td>
                                     <td style='text-align:center;'>
                                        <h4><span class="label label-success"><span

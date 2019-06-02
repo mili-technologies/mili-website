@@ -8,7 +8,7 @@
    <title>YWait - Menu</title>
    <link rel="icon" type="image/png" href="assets/images/favicon.png" />
    <!-- Core css -->
-   <script src="assets/js/waiwait.js"></script>
+   <script src="assets/js/YWait.js"></script>
    <link rel="stylesheet" type="text/css" href="assets/css/bulma.css">
    <link rel="stylesheet" type="text/css" href="assets/css/core_demo.css">
    <link rel="stylesheet" type="text/css" href="assets/css/custom_dashboard.css">
@@ -33,10 +33,10 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-   <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet">
+   <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+   <link href="//code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet">
    </link>
-   <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+   <script src="//code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
    <!-- Plugins css -->
    <link rel="stylesheet" type="text/css" href="assets/js/ggpopover/ggtooltip.css">
@@ -45,10 +45,12 @@
    <link rel="stylesheet" type="text/css" href="assets/css/icons.min.css">
    <style>
    
-   .food_resturant_update{
+   .food_resturant_update {
       margin-right: 5px;
    }
-   
+   .container.dash-container {
+      margin-right: -26px;
+   }
    </style>
    <script src="assets/js/menu.js"></script>
    <script src="assets/js/menuautocomplete.js"></script>
@@ -433,9 +435,6 @@
                         </select>
                      </td>
                      <td>
-                        <!-- Is Veg?
-                        <input type='radio' value='0' name='is_veg' id="is_veg" required>No
-                        <input type='radio' value='1' name='is_veg' id="is_veg" required>Yes -->
                         <select name="is_veg" class="select-quantity">
                            <option>Is Veg</option>
                            <option name="is_veg" value="0">No</option>
@@ -454,7 +453,7 @@
                      </td>
                      <td>
                         <select name="is_customizable" class="select-quantity">
-                              <option>is_customizable</option>
+                              <option>Is Customizable</option>
                               <option name="is_customizable" value="0">No</option>
                               <option name="is_customizable" value="1">Yes</option>
                         </select>

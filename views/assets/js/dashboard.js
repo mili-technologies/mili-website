@@ -1,4 +1,4 @@
-var baseURI = 'http://ywait.in:8080';
+var baseURI = 'https://ywait.in';
 var restaurant_id;
 $(".search_customer").on("keyup", function () {
 	var value = $(this).val().toLowerCase();

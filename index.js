@@ -3,6 +3,7 @@ var mysql = require("mysql");
 var path = require("path");
 var logger = require("morgan");
 var ejs = require("ejs");
+var https = require("https");
 var context = require("request-context");
 var realtime = require("firebase-admin");
 var serviceAccount1 = require(__dirname +
@@ -28,7 +29,7 @@ var pool = require("./Database/config");
 //5/5/2019
 var nodemailer = require("nodemailer");
 const uniqueRandom = require("unique-random");
-const random = uniqueRandom(1, 9999);
+const random = uniqueRandom(1000, 9999);
 
 //5/5/2019
 const bcrypt = require("bcrypt");
@@ -80,6 +81,12 @@ realtime.initializeApp({
   credential: realtime.credential.cert(serviceAccount1),
   databaseURL: "https://test-6d54b.firebaseio.com"
 });
+
+//for https
+const options = {
+    cert: fs.readFileSync('./sslcert/fullchain.pem'),
+    key: fs.readFileSync('./sslcert/privkey.pem')
+};
 
 var app = express();
 
@@ -318,6 +325,12 @@ app.post("/resetPassword", async function(req, res) {
                   }
                 });
               });
+            }else{
+              res.send({
+                code: 400,
+                success: "0",
+                data: "Wrong security code"
+              });
             }
           } else {
             // Create the transporter with the required configuration for Gmail
@@ -344,9 +357,7 @@ app.post("/resetPassword", async function(req, res) {
                "<b>Verify your email address</b><br> To verify your email address use this security code : " +
               uid // html body
             };
-			
-			
-
+	
             // send mail with defined transport object
             transporter.sendMail(mailOptions, function(error, info) {
               if (error) {
@@ -359,7 +370,7 @@ app.post("/resetPassword", async function(req, res) {
             res.send({
               code: 400,
               success: "1",
-              data: "Verification link successfully sent to your email address"
+              data: "Security code sent to your email id"
             });
           }
         } else {
@@ -427,7 +438,7 @@ app.post("/resendSecurityCode", async function(req, res) {
           res.send({
             code: 400,
             success: "1",
-            data: "Verification link successfully sent to your email address"
+            data: "Security code sent to your email id"
           });
         } else {
           res.send({
@@ -493,7 +504,7 @@ app.post("/resendSecurityCodelng", async function(req, res) {
           res.send({
             code: 400,
             success: "1",
-            data: "Verification link successfully sent to your email address"
+            data: "Security code sent to your email id"
           });
         } else {
           res.send({
@@ -543,7 +554,7 @@ app.post("/validateSignIn", function(req, res) {
             res.send({
               code: 400,
               success: "2",
-              data: "Verification link successfully sent to your email address"
+              data: "Security code sent to your email id"
             });
           } else {
             // Create the transporter with the required configuration for Gmail
@@ -584,7 +595,7 @@ app.post("/validateSignIn", function(req, res) {
             res.send({
               code: 400,
               success: "1",
-              data: "Verification link successfully sent to your email address"
+              data: "Security code sent to your email id"
             });
           }
         }
@@ -1622,8 +1633,9 @@ app.post("/addLoginUser", async function(request, response) {
   var fcm_key = user_details.fcmKey;
   var full_name = user_details.fullName;
   var mobile_number = user_details.mobileNumber;
+  var is_existing = user_details.isExistingUser
   console.log(
-    "Values from Request------------------ " + user_email,
+    'Values from Request------------------ ' + user_email,
     full_name,
     register_type,
     restaurant_entity,
@@ -1634,7 +1646,10 @@ app.post("/addLoginUser", async function(request, response) {
   );
 
   var insertNewUser =
-    "INSERT INTO mili_global_schema.global_user(mobile_number, user_email,verfication_type,user_role,fcm_key,full_name) VALUES (?,?,?,?,?,?);";
+    'INSERT INTO mili_global_schema.global_user(mobile_number, user_email,verfication_type,user_role,fcm_key,full_name) VALUES (?,?,?,?,?,?);'
+	var updateUser = 'UPDATE mili_global_schema.global_user SET user_email = ?, full_name = ? WHERE mobile_number = ?'
+	
+	if(is_existing==1){
   pool.query(
     insertNewUser,
     [mobile_number, user_email, register_type, user_role, fcm_key, full_name],
@@ -1648,6 +1663,21 @@ app.post("/addLoginUser", async function(request, response) {
       }
     }
   );
+  }else{
+  pool.query(
+    updateUser,
+    [user_email, full_name, mobile_number],
+    function(err, result) {
+      if (err) {
+        console.log("Insert failed " + err);
+        response.json({ message: "user insert failed added" + err });
+      } else {
+        console.log("user added");
+        response.json({ message: "user added" });
+      }
+    }
+  );
+  }
 });
 
 app.post("/checkUserExists", async function(request, response) {
@@ -2481,24 +2511,38 @@ app.post("/suggestMeChatRoomMsg", function(request, response) {
   });
 });
 
-var servercreate = app.listen(8080, function(error) {
-  if (!!error) log.Error("error while starting server", "app", "listen");
-  else log.Info("Server started and Listening to the port 80");
-  if (process.send) {
-    process.send("online");
-  }
-});
+// for https running on port 8080
+//var servercreate = app.listen(8080, function(error) {
+//  if (!!error) log.Error("error while starting server", "app", "listen");
+//  else log.Info("Server started and Listening to the port 80");
+//  if (process.send) {
+//    process.send("online");
+//  }
+//});
+
+
+
+// for https
+var servercreate = http.createServer(function (req, res) {
+    res.writeHead(301, { "Location": "https://" + req.headers['host'] + req.url });
+    res.end();
+}).listen(80);
+
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header(
-    "Access-Control-Allow-Headers",
-    "Origin, X-Requested-With, Content-Type, Accept"
-  );
-  next();
+  if (req.secure) {
+                // request was via https, so do no special handling
+                next();
+        } else {
+                // request was via http, so redirect to https
+                res.redirect('https://' + req.headers.host + req.url);
+        }
 });
 
 var io = socket(servercreate);
+
+// for https
+https.createServer(options, app).listen(443);
 
 module.exports.socketDef = io;
 

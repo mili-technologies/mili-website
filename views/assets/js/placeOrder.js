@@ -126,6 +126,7 @@ function removeToDeleteArrayList(id) {
 
 function ajaxRequest() {
    var json = { 'order_cart_details': [] };
+   console.log($('.payment_mode').val());
    if ($('.payment_mode').val() == '') {
       showErrorToast('Please select payment mode');
       return;
@@ -159,7 +160,7 @@ function ajaxRequest() {
       var food_Name = children.find('.food_Name').text();
       var food_Price = children.find('.food_Price').text();
       var food_quantity_InCart = children.find('.food_Quantity_InCart').val();
-      json['order_cart_details'].push({ "customizationComments": "", "foodDescription": foodDescription, "foodId": foodId, "foodImageUrl": foodImageUrl, "foodInCart": 1, "foodLikes": foodLikes, "foodName": food_Name, "foodPrice": food_Price, "foodPriority": 0, "isAvailable": isAvailable, "isCustomizable": isCustomizable, "isRecommended": isRecommended, "isVeg": isVeg, "menuCategory": menuCategory, "offerId": 0, "orderStatus": "PLACED", "quantity": quantity, "quantityInCart": food_quantity_InCart, "readyIn": readyIn, "restaurantFoodId": value, "restaurantId": '<%= data[0].t1%>' });
+      json['order_cart_details'].push({ "customizationComments": "", "foodDescription": foodDescription, "foodId": foodId, "foodImageUrl": foodImageUrl, "foodInCart": 1, "foodLikes": foodLikes, "foodName": food_Name, "foodPrice": food_Price, "foodPriority": 0, "isAvailable": isAvailable, "isCustomizable": isCustomizable, "isRecommended": isRecommended, "isVeg": isVeg, "menuCategory": menuCategory, "offerId": 0, "orderStatus": "PLACED", "quantity": quantity, "quantityInCart": food_quantity_InCart, "readyIn": readyIn, "restaurantFoodId": value, "restaurantId": restaurantId });
    });
 
    var children = $('.user_details');
@@ -170,7 +171,7 @@ function ajaxRequest() {
 
    var jsonArray = {
       "order_cart_details": JSON.stringify(json['order_cart_details']), "order_transaction_amount": tPrice, "user_identifier": user_identifier, "order_type": "TAKE AWAY",
-      "payment_mode": payment_mode, "payment_status": payment_status, "restaurant_id": '<%= data[0].t1%>', "order_status": "PLACED", "table_no": table_no
+      "payment_mode": payment_mode, "payment_status": payment_status, "restaurant_id": restaurantId, "order_status": "PLACED", "table_no": table_no
    };
 
    if (order.length <= 0) {

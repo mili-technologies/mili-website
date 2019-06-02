@@ -1,4 +1,4 @@
-var baseURI = 'http://ywait.in:8080';
+var baseURI = 'https://ywait.in';
 var restaurant_id;
 $(document).ready(function () {
 

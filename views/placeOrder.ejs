@@ -33,10 +33,10 @@
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-   <link href="http://code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet">
+   <script src="//code.jquery.com/jquery-1.9.1.js"></script>
+   <link href="//code.jquery.com/ui/1.10.2/themes/smoothness/jquery-ui.css" rel="Stylesheet">
    </link>
-   <script src="http://code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
+   <script src="//code.jquery.com/ui/1.10.2/jquery-ui.js"></script>
    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
    <!-- Plugins css -->
    <link rel="stylesheet" type="text/css" href="assets/js/ggpopover/ggtooltip.css">
@@ -46,6 +46,14 @@
    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/jquery.dataTables.min.css">
    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
    <script src="assets/js/placeOrder.js"></script>
+   <script>
+   var restaurantId = '<%= data[0].t1%>';
+   </script>
+   <style>
+      .container.dash-container {
+         margin-right: -32px;
+      }
+   </style>
 </head>
 
 <body>
@@ -212,7 +220,7 @@
          <nav class="breadcrumbs">
             <ul>
                <li><a href="#">Home</a></li>
-               <li>Menu</li>
+               <li>PlaceOrder</li>
             </ul>
          </nav>
 
@@ -362,7 +370,7 @@
                <div class="confirm-modal">
                   <div class="user_details">
                      <div class="form-group col-xs-4">
-                        <select type="search" class="select-table-filter payment_mode" data-table="menu_table_body">
+                        <select type="search" class="select-table-filter" data-table="menu_table_body">
                            <option value="">Reset</option>
                         </select>
                      </div>

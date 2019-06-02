@@ -110,7 +110,8 @@ function handleSignUp() {
   if (email == '') {
     return false;
   }else{    
-    if (!email.match('^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$') ) {
+    var re = /^(?:[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
+    if (!re.test(email)) {
       return false;
     }
   }
@@ -122,7 +123,9 @@ function handleSignUp() {
   if (phonenumber == '') {
     return false;
   }else{    
-    if (!phonenumber.match('\+?\d[\d -]{8,12}\d') ) {
+    var re = /^([+][9][1]|[9][1]|[0]){0,1}([7-9]{1})([0-9]{9})$/;
+    if (!re.test(phonenumber)) {
+      showErrorToast('Invalid contact number');
       return false;
     }
   }
@@ -305,12 +308,13 @@ function ajaxRequestToResetPassword(jsonData) {
       } else {
         if (result.success == 0) {
           $('#forgot-password').attr('disabled', false);
-          showSuccessToast(result.data);
+          showErrorToast(result.data);
           return false;
         } else {
           if (result.success == 2) {
             $('#forgot-password').attr('disabled', false);
             showSuccessToast(result.data);
+            window.location.href = "/login";
             return true;
           }
         }
