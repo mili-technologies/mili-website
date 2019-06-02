@@ -244,7 +244,7 @@ panel_font{
     margin-left: 9%;
 }
 .nav-left{
-    margin-left: 15%;
+    /* margin-left: 15%; */
 }
 .dashboard-wrapper .flex-card .card-heading {
     color: #ffffff!important;
@@ -452,7 +452,7 @@ button:focus {
         background: white!important;
     }
     .nav-left{
-        margin-left: 0%;
+        /* margin-left: 0%; */
     }
     .main-menu .main-menu-inner .main-logo img{
         padding: 20% 8% 24% 12%;

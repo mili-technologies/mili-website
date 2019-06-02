@@ -12,9 +12,9 @@ $(document).ready(function($){
     $(window).on('scroll', function () {    // this will work when your window scrolled.
         var height = $(window).scrollTop();  //getting the scrolling height of window
         if(height  > 80) {
-            $("img.light-logo").attr("src","assets/images/logos/bulkit-logo.png");
+            $("img.light-logo").attr("src","assets/images/logos/bulkit-logo-lemonade.png");
         } else{
-            $("img.light-logo").attr("src","assets/images/logos/bulkit-w.png");
+            $("img.light-logo").attr("src","assets/images/logos/home-ywait-logo.png");
         }
     });
     

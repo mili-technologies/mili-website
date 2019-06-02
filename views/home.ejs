@@ -46,52 +46,72 @@
 
     <!-- Hero and nav -->
     <div class="hero is-medium">
-        <div class="navbar-wrapper navbar-fade">
+        <div class="navbar-wrapper navbar-fade navbar-light">
             <div class="hero-head">
-
+    
                 <!-- Nav -->
                 <div class="container">
                     <nav class="nav">
                         <div class="container big">
-                            <div class="nav-left shrink">
-                                <a class="nav-item mililogo" href="/">
-                                    <img src="assets/images/logos/brands/home-ywait-logo.png" alt="">
-                                    <!-- MILI -->
+                            <div class="nav-left">
+                                <a class="nav-item" href="/">
+                                    <img class="light-logo" src="assets/images/logos/home-ywait-logo.png" alt="">
                                 </a>
                                 <!-- Sidebar trigger -->
-                            </div>
-                            <a href="#process" class="nav-item is-tab nav-inner is-not-mobile">
-                                How it work?
-                            </a>
-                            <a href="demo-page" class="nav-item is-tab nav-inner is-not-mobile">
-                                Demo
-                            </a>
-                        </div>
-                        <!-- Responsive toggle -->
-                        <span class="nav-toggle">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </span>
-                        <div class="nav-right nav-menu">
-                            <a href="#process" class="nav-item is-tab nav-inner is-menu-mobile">
-                                How it work?
-                            </a>
-                            <a href="demo-page" class="nav-item is-tab nav-inner is-menu-mobile">
-                                Demo
-                            </a>
-                            <span class="nav-item">
-                                <a id="signup-btn" href="login"
-                                    class="button button-signup btn-outlined is-bold btn-align primary-btn rounded raised">
-                                    Log in
+                                <!-- <a id="navigation-trigger" class="nav-item hamburger-btn" href="javascript:void(0);">
+                                    <span class="menu-toggle">
+                                        <span class="icon-box-toggle">
+                                            <span class="rotate">
+                                                <i class="icon-line-top"></i>
+                                                <i class="icon-line-center"></i>
+                                                <i class="icon-line-bottom"></i>
+                                            </span>
+                                        </span>
+                                    </span>
+                                </a> -->
+                                <!-- <a href="landing-v3-pricing.html" class="nav-item is-tab nav-inner is-not-mobile">
+                                    Pricing
                                 </a>
+                                <a href="landing-v3-help.html" class="nav-item is-tab nav-inner is-not-mobile">
+                                    Help
+                                </a> -->
+                                <!-- <a  class="button button-signup btn-outlined is-bold btn-align primary-btn rounded raised modal-trigger"
+                                    data-modal="vertical-form-modal"> -->
+                                <!-- <a id="signup-btn" class="nav-item is-tab nav-inner is-not-mobile raised modal-trigger" data-modal="vertical-form-modal">
+                                    Login
+                                </a> -->
+                            </div>
+                            <!-- Responsive toggle -->
+                            <span class="nav-toggle">
+                                <span></span>
+                                <span></span>
+                                <span></span>
                             </span>
+                            <div class="nav-right nav-menu">
+                                <span class="nav-item">
+                                    <a href='demo-page' class="nav-item is-tab nav-inner is-mobile raised modal-trigger">
+                                        Demo
+                                    </a>
+                                </span>
+                                <span class="nav-item">
+                                    <a id="signup-btn" href='login'
+                                        class="login-btn nav-item is-tab nav-inner is-mobile raised"
+                                        >
+                                        Login
+                                    </a>
+                                </span>
+                                <span class="nav-item">
+                                    <a id="signup-btn" href="signup"
+                                        class="button button-signup btn-outlined is-bold btn-align light-btn rounded">
+                                        Sign up
+                                    </a>
+                                </span>
+                            </div>
                         </div>
+                    </nav>
                 </div>
-                </nav>
+                <!-- /Nav -->
             </div>
-            <!-- /Nav -->
-
         </div>
     </div>
     <!-- Hero image -->
@@ -188,10 +208,6 @@
         background-color: #04b261 !important;
     }
 
-    section.section.is-medium.allinone {
-        margin-top: 30%;
-    }
-
     .hero-body {
         padding: 11rem 1.5rem;
     }
@@ -228,5 +244,14 @@
         }
     }
 </style>
-
+<script>
+    $(window).on('scroll', function () { // this will work when your window scrolled. 
+        var height = $(window).scrollTop();  //getting the scrolling height of window
+        if(height  > 80) {
+            $("img.light-logo").attr("src","assets/images/logos/home-ywait-logo.png");
+        } else{
+            $("img.light-logo").attr("src","assets/images/logos/home-ywait-logo.png");
+        }
+    });
+    </script>
 </html>
