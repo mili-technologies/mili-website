@@ -13,7 +13,7 @@
    <link rel="stylesheet" type="text/css" href="assets/css/core_demo.css">
    <link rel="stylesheet" type="text/css" href="assets/css/custom_dashboard.css">
    <link rel="stylesheet" type="text/css" href="assets/css/dashboard.css">
-   <link rel="stylesheet" type="text/css" href="assets/css/menu_style.css">   
+   <link rel="stylesheet" type="text/css" href="assets/css/menu_style.css">
    <!-- Icons -->
    <link rel="stylesheet" type="text/css" href="assets/css/icons.min.css">
    <link rel="stylesheet" type="text/css" href="assets/css/custom_dashboard.css">
@@ -44,153 +44,178 @@
    <!-- Icons -->
    <link rel="stylesheet" type="text/css" href="assets/css/icons.min.css">
    <style>
-   
-   .food_resturant_update {
-      margin-right: 5px;
-   }
-   .container.dash-container {
-      margin-right: -26px;
-   }
+      .food_resturant_update {
+         margin-right: 5px;
+      }
+
+      .container.dash-container {
+         margin-right: -26px;
+      }
    </style>
    <script src="assets/js/menu.js"></script>
    <script src="assets/js/menuautocomplete.js"></script>
 </head>
+
 <body>
    <!-- Pageloader -->
    <!-- <div class="pageloader"></div>
    <div class="infraloader is-active"></div> -->
    <!-- Main sidebar menu -->
-   
+
    <!-- /Main sidebar menu -->
    <!-- Child push sidebar menu -->
 
-         <!-- /Child menu header -->
-         <!-- Sidebar menu 1 -->
-            <% include side-navbar.ejs %>
-         <!-- /Sidebar menu 1 -->
-         <!-- Sidebar menu 2 -->
-         <ul id="documents-menu" class="sidebar-menu animated preFadeInRIght fadeInRight">
-            <li class="have-children">
-               <a class="parent-link" href="#"><span class="material-icons">insert_drive_file</span>Documents</a>
-               <ul>
-                  <li><a href="javascript:void(0);">Document list <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-                  <li><a href="javascript:void(0);">Document details <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-                  <li><a href="javascript:void(0);">Invoice <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-               </ul>
+   <!-- /Child menu header -->
+   <!-- Sidebar menu 1 -->
+   <% include side-navbar.ejs %>
+   <!-- /Sidebar menu 1 -->
+   <!-- Sidebar menu 2 -->
+   <ul id="documents-menu" class="sidebar-menu animated preFadeInRIght fadeInRight">
+      <li class="have-children">
+         <a class="parent-link" href="#"><span class="material-icons">insert_drive_file</span>Documents</a>
+         <ul>
+            <li><a href="javascript:void(0);">Document list <span class="sl sl-icon-lock warning-text ml-10"></span></a>
             </li>
-            <li class="have-children">
-               <a class="parent-link" href="#"><span class="material-icons">assignment</span>Projects</a>
-               <ul>
-                  <li><a href="javascript:void(0);">Project list <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-                  <li><a href="javascript:void(0);">Project details <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-               </ul>
+            <li><a href="javascript:void(0);">Document details <span
+                     class="sl sl-icon-lock warning-text ml-10"></span></a></li>
+            <li><a href="javascript:void(0);">Invoice <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
+         </ul>
+      </li>
+      <li class="have-children">
+         <a class="parent-link" href="#"><span class="material-icons">assignment</span>Projects</a>
+         <ul>
+            <li><a href="javascript:void(0);">Project list <span class="sl sl-icon-lock warning-text ml-10"></span></a>
             </li>
-            <li class="have-children">
-               <a class="parent-link" href="#"><span class="material-icons">assignment_turned_in</span>Tasks</a>
-               <ul>
-                  <li><a href="javascript:void(0);">Task list <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-                  <li><a href="javascript:void(0);">Kanban board</a></li>
-               </ul>
+            <li><a href="javascript:void(0);">Project details <span
+                     class="sl sl-icon-lock warning-text ml-10"></span></a></li>
+         </ul>
+      </li>
+      <li class="have-children">
+         <a class="parent-link" href="#"><span class="material-icons">assignment_turned_in</span>Tasks</a>
+         <ul>
+            <li><a href="javascript:void(0);">Task list <span class="sl sl-icon-lock warning-text ml-10"></span></a>
             </li>
-            <li class="have-children">
-               <a class="parent-link" href="#"><span class="material-icons">library_books</span>Forms</a>
-               <ul>
-                  <li><a href="javascript:void(0);">Step form <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-                  <li><a href="javascript:void(0);">Steps <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-               </ul>
+            <li><a href="javascript:void(0);">Kanban board</a></li>
+         </ul>
+      </li>
+      <li class="have-children">
+         <a class="parent-link" href="#"><span class="material-icons">library_books</span>Forms</a>
+         <ul>
+            <li><a href="javascript:void(0);">Step form <span class="sl sl-icon-lock warning-text ml-10"></span></a>
+            </li>
+            <li><a href="javascript:void(0);">Steps <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
+         </ul>
+      </li>
+   </ul>
+   <!-- /Sidebar menu 2 -->
+   <!-- Sidebar menu 3 -->
+   <ul id="business-menu" class="sidebar-menu animated preFadeInRIght fadeInRight">
+      <li class="have-children">
+         <a class="parent-link" href="#"><span class="material-icons">group</span>Contacts</a>
+         <ul>
+            <li><a href="javascript:void(0);">Contact list <span class="sl sl-icon-lock warning-text ml-10"></span></a>
+            </li>
+            <li><a href="javascript:void(0);">Contact grid <span class="sl sl-icon-lock warning-text ml-10"></span></a>
+            </li>
+            <li><a href="javascript:void(0);">Contact details <span
+                     class="sl sl-icon-lock warning-text ml-10"></span></a></li>
+         </ul>
+      </li>
+      <li class="have-children">
+         <a class="parent-link" href="#"><span class="material-icons">person_add</span>Leads</a>
+         <ul>
+            <li><a href="javascript:void(0);">Leads list <span class="sl sl-icon-lock warning-text ml-10"></span></a>
+            </li>
+            <li><a href="javascript:void(0);">Add lead <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
+         </ul>
+      </li>
+      <li class="have-children">
+         <a class="parent-link" href="#"><span class="material-icons">attach_money</span>Deals</a>
+         <ul>
+            <li><a href="javascript:void(0);">Deals list <span class="sl sl-icon-lock warning-text ml-10"></span></a>
+            </li>
+            <li><a href="javascript:void(0);">Single Deal <span class="sl sl-icon-lock warning-text ml-10"></span></a>
             </li>
          </ul>
-         <!-- /Sidebar menu 2 -->
-         <!-- Sidebar menu 3 -->
-         <ul id="business-menu" class="sidebar-menu animated preFadeInRIght fadeInRight">
-            <li class="have-children">
-               <a class="parent-link" href="#"><span class="material-icons">group</span>Contacts</a>
-               <ul>
-                  <li><a href="javascript:void(0);">Contact list <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-                  <li><a href="javascript:void(0);">Contact grid <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-                  <li><a href="javascript:void(0);">Contact details <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-               </ul>
+      </li>
+   </ul>
+   <!-- /Sidebar menu 3 -->
+   <!-- Sidebar menu 4 -->
+   <ul id="misc-menu" class="sidebar-menu animated preFadeInRIght fadeInRight">
+      <li class="have-children">
+         <a class="parent-link" href="#"><span class="material-icons">grid_on</span>Datatables</a>
+         <ul>
+            <li><a href="javascript:void(0);">Example 1 <span class="sl sl-icon-lock warning-text ml-10"></span></a>
             </li>
-            <li class="have-children">
-               <a class="parent-link" href="#"><span class="material-icons">person_add</span>Leads</a>
-               <ul>
-                  <li><a href="javascript:void(0);">Leads list <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-                  <li><a href="javascript:void(0);">Add lead <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-               </ul>
+            <li><a href="javascript:void(0);">Example 2 <span class="sl sl-icon-lock warning-text ml-10"></span></a>
             </li>
-            <li class="have-children">
-               <a class="parent-link" href="#"><span class="material-icons">attach_money</span>Deals</a>
-               <ul>
-                  <li><a href="javascript:void(0);">Deals list <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-                  <li><a href="javascript:void(0);">Single Deal <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-               </ul>
+            <li><a href="javascript:void(0);">Example 3 <span class="sl sl-icon-lock warning-text ml-10"></span></a>
             </li>
          </ul>
-         <!-- /Sidebar menu 3 -->
-         <!-- Sidebar menu 4 -->
-         <ul id="misc-menu" class="sidebar-menu animated preFadeInRIght fadeInRight">
-            <li class="have-children">
-               <a class="parent-link" href="#"><span class="material-icons">grid_on</span>Datatables</a>
-               <ul>
-                  <li><a href="javascript:void(0);">Example 1 <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-                  <li><a href="javascript:void(0);">Example 2 <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-                  <li><a href="javascript:void(0);">Example 3 <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-               </ul>
-            </li>
-            <li class="have-children">
-               <a class="parent-link" href="#"><span class="material-icons">speaker_notes</span>Faq</a>
-               <ul>
-                  <li><a href="javascript:void(0);">Faq home <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-                  <li><a href="javascript:void(0);">Faq article <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-               </ul>
-            </li>
-            <li class="have-children">
-               <a class="parent-link" href="#"><span class="material-icons">thumbs_up_down</span>Forum</a>
-               <ul>
-                  <li><a href="javascript:void(0);">Forum home <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-                  <li><a href="javascript:void(0);">Forum thread <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-               </ul>
-            </li>
-            <li class="have-children">
-               <a class="parent-link" href="#"><span class="material-icons">email</span>Mailbox</a>
-               <ul>
-                  <li><a href="javascript:void(0);">Inbox <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-                  <li><a href="javascript:void(0);">Compose <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-               </ul>
+      </li>
+      <li class="have-children">
+         <a class="parent-link" href="#"><span class="material-icons">speaker_notes</span>Faq</a>
+         <ul>
+            <li><a href="javascript:void(0);">Faq home <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
+            <li><a href="javascript:void(0);">Faq article <span class="sl sl-icon-lock warning-text ml-10"></span></a>
             </li>
          </ul>
-         <!-- /Sidebar menu 4 -->
-         <!-- Sidebar menu 5 -->
-         <ul id="settings-menu" class="sidebar-menu animated preFadeInRIght fadeInRight">
-            <li class="have-children">
-               <a class="parent-link" href="#"><span class="material-icons">settings</span>Global settings</a>
-               <ul>
-                  <li><a href="javascript:void(0);">Preferences <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-                  <li><a href="javascript:void(0);">Change password <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-               </ul>
+      </li>
+      <li class="have-children">
+         <a class="parent-link" href="#"><span class="material-icons">thumbs_up_down</span>Forum</a>
+         <ul>
+            <li><a href="javascript:void(0);">Forum home <span class="sl sl-icon-lock warning-text ml-10"></span></a>
             </li>
-            <li class="have-children">
-               <a class="parent-link" href="#"><span class="material-icons">account_circle</span>User settings</a>
-               <ul>
-                  <li><a href="javascript:void(0);">User list <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-                  <li><a href="javascript:void(0);">Add user <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-                  <li><a href="javascript:void(0);">Access rights <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-               </ul>
-            </li>
-            <li class="have-children">
-               <a class="parent-link" href="#"><span class="material-icons">domain</span>Organizations</a>
-               <ul>
-                  <li><a href="javascript:void(0);">Organizations list <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-                  <li><a href="javascript:void(0);">Add organization <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
-               </ul>
+            <li><a href="javascript:void(0);">Forum thread <span class="sl sl-icon-lock warning-text ml-10"></span></a>
             </li>
          </ul>
-         <!-- /Sidebar menu 5 -->
-      </div>
+      </li>
+      <li class="have-children">
+         <a class="parent-link" href="#"><span class="material-icons">email</span>Mailbox</a>
+         <ul>
+            <li><a href="javascript:void(0);">Inbox <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
+            <li><a href="javascript:void(0);">Compose <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
+         </ul>
+      </li>
+   </ul>
+   <!-- /Sidebar menu 4 -->
+   <!-- Sidebar menu 5 -->
+   <ul id="settings-menu" class="sidebar-menu animated preFadeInRIght fadeInRight">
+      <li class="have-children">
+         <a class="parent-link" href="#"><span class="material-icons">settings</span>Global settings</a>
+         <ul>
+            <li><a href="javascript:void(0);">Preferences <span class="sl sl-icon-lock warning-text ml-10"></span></a>
+            </li>
+            <li><a href="javascript:void(0);">Change password <span
+                     class="sl sl-icon-lock warning-text ml-10"></span></a></li>
+         </ul>
+      </li>
+      <li class="have-children">
+         <a class="parent-link" href="#"><span class="material-icons">account_circle</span>User settings</a>
+         <ul>
+            <li><a href="javascript:void(0);">User list <span class="sl sl-icon-lock warning-text ml-10"></span></a>
+            </li>
+            <li><a href="javascript:void(0);">Add user <span class="sl sl-icon-lock warning-text ml-10"></span></a></li>
+            <li><a href="javascript:void(0);">Access rights <span class="sl sl-icon-lock warning-text ml-10"></span></a>
+            </li>
+         </ul>
+      </li>
+      <li class="have-children">
+         <a class="parent-link" href="#"><span class="material-icons">domain</span>Organizations</a>
+         <ul>
+            <li><a href="javascript:void(0);">Organizations list <span
+                     class="sl sl-icon-lock warning-text ml-10"></span></a></li>
+            <li><a href="javascript:void(0);">Add organization <span
+                     class="sl sl-icon-lock warning-text ml-10"></span></a></li>
+         </ul>
+      </li>
+   </ul>
+   <!-- /Sidebar menu 5 -->
+   </div>
    </nav>
    <!-- /Child push sidebar menu -->
    <!-- Top Navbar -->
-   <% include dash-navbar.ejs %> 
+   <% include dash-navbar.ejs %>
    <!-- /Top Navbar -->
    <!-- Main dashboard container -->
    <div id="dashboard-wrapper" class="columns">
@@ -205,69 +230,73 @@
          </nav>
 
          <div class="form-group">
-               <!--		Show Numbers Of Rows 		-->
-               <select class="form-control show_all" name="state" id="maxRows">
-                  <option value="5000">Show ALL Rows</option>
-                  <option value="5">5</option>
-                  <option value="10">10</option>
-                  <option value="15">15</option>
-                  <option value="20">20</option>
-                  <option value="50">50</option>
-                  <option value="70">70</option>
-                  <option value="100">100</option>
-               </select>
-   
-            </div>
+            <!--		Show Numbers Of Rows 		-->
+            <select class="form-control show_all" name="state" id="maxRows">
+               <option value="5000">Show ALL Rows</option>
+               <option value="5">5</option>
+               <option value="10">10</option>
+               <option value="15">15</option>
+               <option value="20">20</option>
+               <option value="50">50</option>
+               <option value="70">70</option>
+               <option value="100">100</option>
+            </select>
+
+         </div>
 
          <!-- /Breadcrumbs -->
-<style>
-.update-form-modal {
-    /* padding-right: 3%; */
-    /* padding-top: 0%; */
-    /* margin-top: 5%; */
-    width: 98%;
-    /* border: 1px solid; */
-}
-.table {
-    width: 100%;
-    max-width: 100%;
-    margin-bottom: 0px;
-}
-.dashboard-wrapper{
-   padding: 0px 22px 0 16px!important;
-}
- #reset_token{
-     display: none;
- }
-</style>
-   <!-- Update Menu Form -->
-   <div class="update-form-modal">
-      <!-- /Update Menu Form -->
-      <script>
-      $('.hide_update_btn').click( function (){
-         $('.hide_update_form').hide();
-      });
-      </script>
-   </div>
+         <style>
+            .update-form-modal {
+               /* padding-right: 3%; */
+               /* padding-top: 0%; */
+               /* margin-top: 5%; */
+               width: 98%;
+               /* border: 1px solid; */
+            }
+
+            .table {
+               width: 100%;
+               max-width: 100%;
+               margin-bottom: 0px;
+            }
+
+            .dashboard-wrapper {
+               padding: 0px 22px 0 16px !important;
+            }
+
+            #reset_token {
+               display: none;
+            }
+         </style>
+         <!-- Update Menu Form -->
+         <div class="update-form-modal">
+            <!-- /Update Menu Form -->
+            <script>
+               $('.hide_update_btn').click(function () {
+                  $('.hide_update_form').hide();
+               });
+            </script>
+         </div>
          <!-- Dashboard Wrapper -->
          <div class="dashboard-wrapper">
             <div class="column">
-                  <div class="has-text-centered">
-                       
+               <div class="has-text-centered">
+
                </div>
             </div>
             <style>
-            .confirm-modal {
-               border: 1px solid;
-               height: 100px;
-               text-align: center;
-               padding: 20px;
-            }
+               .confirm-modal {
+                  border: 1px solid;
+                  height: 100px;
+                  text-align: center;
+                  padding: 20px;
+               }
             </style>
 
             <div class="confirm-modal" style="display:none;">
                Confirm Delete?<br>
-               <button class="food_resturant_delete btn btn-danger" id="confirm_remove" value='" + remove_id + "' >Remove</button>
+               <button class="food_resturant_delete btn btn-danger" id="confirm_remove"
+                  value='" + remove_id + "'>Remove</button>
                <button class="food_resturant_delete btn btn-danger" id="cancel_remove">Cancel</button>
             </div>
             <div class="columns">
@@ -280,11 +309,13 @@
                         <div class="flex-card light-bordered light-raised menu-flex">
                            <h3 class="card-heading has-icon">Menu Management
                               <div class="searchbox control has-icons-left">
-                                 <input class="input is-secondary-focus search_menu" id="search_menu" style='height: 3.5rem;' type="text" placeholder="Search food quickly">
-                                 
+                                 <input class="select-table-filter input is-secondary-focus search_menu"
+                                    data-table="menu_table_body" id="search_menu" style='height: 3.5rem;' type="text"
+                                    placeholder="Search food quickly">
+
                               </div>
                            </h3>
-                           <table class="table hire-table menu_table_body"  id="table-id">
+                           <table class="table hire-table menu_table_body" id="table-id">
                               <thead>
                                  <tr>
                                     <th style="text-align:center;">Food</th>
@@ -301,42 +332,57 @@
                                     <th style="text-align:center;">Action</th>
                                  </tr>
                               </thead>
-                              <tbody>                                 
+                              <tbody>
                                  <% for(var i=0; i < data[0].result.length; i++) { %>
                                  <tr class="cloneRow <%= data[0].result[i].restaurant_food_menu_id %>">
-                                    <td style='text-align:center;' class=""><img src='<%= data[0].result[i].restaurant_food_img_url %>' alt='' class="food_img"></td>
-                                    <td style='text-align:center;' class="food_Name"><%= data[0].result[i].food_name %></td>
-                                    <td style='text-align:center;' class="food_Category"><%= data[0].result[i].menu_category %></td>
-                                    <td style='text-align:center;' class="food_Quantity"><%= data[0].result[i].food_quantity %></td>
-                                    <td style='text-align:center;' class="food_Price"><%= data[0].result[i].food_price %></td>
+                                    <td style='text-align:center;' class=""><img
+                                          src='<%= data[0].result[i].restaurant_food_img_url %>' alt=''
+                                          class="food_img"></td>
+                                    <td style='text-align:center;' class="food_Name"><%= data[0].result[i].food_name %>
+                                    </td>
+                                    <td style='text-align:center;' class="food_Category">
+                                       <%= data[0].result[i].menu_category %></td>
+                                    <td style='text-align:center;' class="food_Quantity">
+                                       <%= data[0].result[i].food_quantity %></td>
+                                    <td style='text-align:center;' class="food_Price">
+                                       <%= data[0].result[i].food_price %></td>
                                     <td style='text-align:center;'>
-                                       <select class='food_status food-select order_Status' data-value='<%= data[0].result[i].restaurant_food_menu_id %>' id = 'food_status-<%= data[0].result[i].restaurant_food_menu_id %>'>
+                                       <select class='food_status food-select order_Status'
+                                          data-value='<%= data[0].result[i].restaurant_food_menu_id %>'
+                                          id='food_status-<%= data[0].result[i].restaurant_food_menu_id %>'>
                                           <option value='1'>Yes</option>
                                           <option value='0'>No</option>
-                                       </select>                                       
+                                       </select>
                                        <script>
                                           $('#food_status-<%= data[0].result[i].restaurant_food_menu_id %>').val('<%= data[0].result[i].is_available %>');
                                        </script>
                                     </td>
                                     <td style='text-align:center;'>
-                                       <select class='food_recommended food-select order_Status' data-value='<%= data[0].result[i].restaurant_food_menu_id %>' id = 'food_recommended-<%= data[0].result[i].restaurant_food_menu_id %>'>
+                                       <select class='food_recommended food-select order_Status'
+                                          data-value='<%= data[0].result[i].restaurant_food_menu_id %>'
+                                          id='food_recommended-<%= data[0].result[i].restaurant_food_menu_id %>'>
                                           <option value='1'>Yes</option>
                                           <option value='0'>No</option>
-                                       </select>                                       
+                                       </select>
                                        <script>
                                           $('#food_recommended-<%= data[0].result[i].restaurant_food_menu_id %>').val('<%= data[0].result[i].is_recommended %>');
                                        </script>
                                     </td>
                                     <td style='text-align:center;'>
                                        <div class='column'>
-                                          <button type='button' class='food_resturant_update btn btn-primary modal-trigger' data-modal='card-modal' data-value='<%= data[0].result[i].restaurant_food_menu_id %>'>Update</button>
-                                          <Button class='food_resturant_delete btn btn-danger' class='food_resturant_delete' data-value='<%= data[0].result[i].restaurant_food_menu_id %>'>Remove</Button>
+                                          <button type='button'
+                                             class='food_resturant_update btn btn-primary modal-trigger'
+                                             data-modal='card-modal'
+                                             data-value='<%= data[0].result[i].restaurant_food_menu_id %>'>Update</button>
+                                          <Button class='food_resturant_delete btn btn-danger'
+                                             class='food_resturant_delete'
+                                             data-value='<%= data[0].result[i].restaurant_food_menu_id %>'>Remove</Button>
                                        </div>
                                     </td>
-                                 </tr>                                                                          
+                                 </tr>
                                  <% } %>
                               </tbody>
-                           </table>					   
+                           </table>
                            <!--		Start Pagination -->
                            <div class='pagination-container'>
                               <nav>
@@ -352,7 +398,7 @@
                                  </ul>
                               </nav>
                            </div>
-						   
+
                         </div>
                      </div>
                      <!-- /User table widget -->
@@ -364,24 +410,34 @@
          </div>
          <!-- /Main view -->
       </div>
-	  
-	  
-   <table class="cloneTable" style="display: none!important;">
-         <tr class="cloneRow">
-               <td style='text-align:center;' class=""><img src='' alt='' class="food_img"></td>
-               <td style='text-align:center;' class="food_Name"></td>
-               <td style='text-align:center;' class="food_Category"></td>
-               <td style='text-align:center;' class="food_Quantity"></td>
-               <td style='text-align:center;' class="food_Price"></td>
-               <td style='text-align:center;'><select class='food_status  food-select order_Status'><option value='1'>Yes</option><option value='0'>No</option></select></td>
-               <td style='text-align:center;'><select class='food_recommended  food-select order_Status'><option value='1'>Yes</option><option value='0'>No</option></select></td>
-               <td style='text-align:center;'>
-               <div class='column'>
-               <button type='button' class='food_resturant_update update-modal btn btn-primary modal-trigger' data-modal='card-modal'>Update</button>
-               <Button class='food_resturant_delete btn btn-danger' class='food_resturant_delete'>Remove</Button></div></td></tr>
-   </table>
 
-	  
+
+      <table class="cloneTable" style="display: none!important;">
+         <tr class="cloneRow">
+            <td style='text-align:center;' class=""><img src='' alt='' class="food_img"></td>
+            <td style='text-align:center;' class="food_Name"></td>
+            <td style='text-align:center;' class="food_Category"></td>
+            <td style='text-align:center;' class="food_Quantity"></td>
+            <td style='text-align:center;' class="food_Price"></td>
+            <td style='text-align:center;'><select class='food_status  food-select order_Status'>
+                  <option value='1'>Yes</option>
+                  <option value='0'>No</option>
+               </select></td>
+            <td style='text-align:center;'><select class='food_recommended  food-select order_Status'>
+                  <option value='1'>Yes</option>
+                  <option value='0'>No</option>
+               </select></td>
+            <td style='text-align:center;'>
+               <div class='column'>
+                  <button type='button' class='food_resturant_update update-modal btn btn-primary modal-trigger'
+                     data-modal='card-modal'>Update</button>
+                  <Button class='food_resturant_delete btn btn-danger' class='food_resturant_delete'>Remove</Button>
+               </div>
+            </td>
+         </tr>
+      </table>
+
+
    </div>
    <!-- /Dashboard Wrapper -->
    </div>
@@ -397,29 +453,30 @@
                <!-- <input type="text" class="search_food"> -->
                <button class="delete is-medium modal-dismiss" aria-label="close"></button>
             </header>
-            <form  autocomplete="off" method="POST" action="/addFoodInMenu" id = "foodform">
+            <form autocomplete="off" method="POST" action="/addFoodInMenu" id="foodform">
                <input type='hidden' class="txt-style" name='restaurant_food_menu_id' id="restaurant_food_menu_id">
                <input type='text' name='restaurantId' style="display: none;" value='<%= data[0].t1 %>'>
                <table class="table hire-table">
                   <tr>
-                     <td> 
+                     <td>
                         <!-- <input type='text' class="txt-style" name='food_name' id="food_name" required autocomplete="on">  -->
                         <div class="control-material is-primary">
-                        <input class="material-input " type="text" name='food_name' id="food_name" required>
-                        <script>                                 
-                           autocomplete(document.getElementById("food_name"), foodNames);
-                        </script>
-                        <span class="material-highlight"></span>
-                        <span class="bar"></span>
-                        <label>Food Name</label>
+                           <input class="material-input " type="text" name='food_name' id="food_name" required>
+                           <script>
+                              autocomplete(document.getElementById("food_name"), foodNames);
+                           </script>
+                           <span class="material-highlight"></span>
+                           <span class="bar"></span>
+                           <label>Food Name</label>
                         </div>
                      </td>
                      <td>
                         <div class="control-material is-primary">
-                              <input class="material-input " type="text" name='food_price' id="food_price" autocomplete="on" required>
-                              <span class="material-highlight"></span>
-                              <span class="bar"></span>
-                              <label>Food Price</label>
+                           <input class="material-input " type="text" name='food_price' id="food_price"
+                              autocomplete="on" required>
+                           <span class="material-highlight"></span>
+                           <span class="bar"></span>
+                           <label>Food Price</label>
                         </div>
                      </td>
                   </tr>
@@ -443,49 +500,52 @@
                      </td>
                   </tr>
                   <tr>
-                     <td> 
+                     <td>
                         <div class="control-material is-primary">
-                              <input class="material-input " type="text" name='menu_category' id="menu_category" autocomplete="on" required>
-                              <span class="material-highlight"></span>
-                              <span class="bar"></span>
-                              <label>Menu Category</label>
+                           <input class="material-input " type="text" name='menu_category' id="menu_category"
+                              autocomplete="on" required>
+                           <span class="material-highlight"></span>
+                           <span class="bar"></span>
+                           <label>Menu Category</label>
                         </div>
                      </td>
                      <td>
                         <select name="is_customizable" class="select-quantity">
-                              <option>Is Customizable</option>
-                              <option name="is_customizable" value="0">No</option>
-                              <option name="is_customizable" value="1">Yes</option>
+                           <option>Is Customizable</option>
+                           <option name="is_customizable" value="0">No</option>
+                           <option name="is_customizable" value="1">Yes</option>
                         </select>
                      </td>
                   </tr>
                   <tr>
-                     <td> 
+                     <td>
                         <div class="control-material is-primary">
-                              <input class="material-input " type="text" name='food_description' id="food_description" autocomplete="on" required>
-                              <span class="material-highlight"></span>
-                              <span class="bar"></span>
-                              <label>Food Description</label>
+                           <input class="material-input " type="text" name='food_description' id="food_description"
+                              autocomplete="on" required>
+                           <span class="material-highlight"></span>
+                           <span class="bar"></span>
+                           <label>Food Description</label>
                         </div>
                      </td>
-                     <td> 
+                     <td>
                         <div class="control-material is-primary">
-                              <input class="material-input " type="text" name='ready_in' id="ready_in" autocomplete="on" required>
-                              <span class="material-highlight"></span>
-                              <span class="bar"></span>
-                              <label>Ready in?</label>
+                           <input class="material-input " type="text" name='ready_in' id="ready_in" autocomplete="on"
+                              required>
+                           <span class="material-highlight"></span>
+                           <span class="bar"></span>
+                           <label>Ready in?</label>
                         </div>
                      </td>
                   </tr>
                   <tr>
-                  <td colspan="4" style="text-align:center;">
-                     <input type='submit' name='save' class='btn-save-menu' value="save">
-                  </td>
-                  <td>
-                           <!-- <div class="upload-btn-wrapper">
+                     <td colspan="4" style="text-align:center;">
+                        <input type='submit' name='save' class='btn-save-menu' value="save">
+                     </td>
+                     <td>
+                        <!-- <div class="upload-btn-wrapper">
                                  <input type="file" name="food_img" accept="image" id="food_img" />
                            </div> -->
-                           </td>
+                     </td>
                   </tr>
                </table>
             </form>
@@ -509,7 +569,8 @@
                <button class="delete is-medium modal-dismiss" aria-label="close"></button>
             </header>
             <form method="GET" action="/addFoodInMenu">
-               <table class="table hire-table"><tr>
+               <table class="table hire-table">
+                  <tr>
                      <td>Food Name</td>
                      <td> <input type='text' name='food_name' id="food_name" required> </td>
                      <td>Food Price</td>
@@ -716,8 +777,10 @@
                               aliquam. Aperiri admodum no mea, et mea quem tation, nam illud saepe ut.
                            </div>
                            <div class="reminder-controls">
-                              <i class="sl sl-icon-settings" data-toggle="tooltip" data-placement="top" data-title="Edit"></i>
-                              <i class="sl sl-icon-trash" data-toggle="tooltip" data-placement="top" data-title="Delete"></i>
+                              <i class="sl sl-icon-settings" data-toggle="tooltip" data-placement="top"
+                                 data-title="Edit"></i>
+                              <i class="sl sl-icon-trash" data-toggle="tooltip" data-placement="top"
+                                 data-title="Delete"></i>
                            </div>
                         </div>
                         <!-- Reminder -->
@@ -732,8 +795,10 @@
                               aliquam. Aperiri admodum no mea, et mea quem tation, nam illud saepe ut.
                            </div>
                            <div class="reminder-controls">
-                              <i class="sl sl-icon-settings" data-toggle="tooltip" data-placement="top" data-title="Edit"></i>
-                              <i class="sl sl-icon-trash" data-toggle="tooltip" data-placement="top" data-title="Delete"></i>
+                              <i class="sl sl-icon-settings" data-toggle="tooltip" data-placement="top"
+                                 data-title="Edit"></i>
+                              <i class="sl sl-icon-trash" data-toggle="tooltip" data-placement="top"
+                                 data-title="Delete"></i>
                            </div>
                         </div>
                         <!-- Reminder -->
@@ -748,8 +813,10 @@
                               aliquam. Aperiri admodum no mea, et mea quem tation, nam illud saepe ut.
                            </div>
                            <div class="reminder-controls">
-                              <i class="sl sl-icon-settings" data-toggle="tooltip" data-placement="top" data-title="Edit"></i>
-                              <i class="sl sl-icon-trash" data-toggle="tooltip" data-placement="top" data-title="Delete"></i>
+                              <i class="sl sl-icon-settings" data-toggle="tooltip" data-placement="top"
+                                 data-title="Edit"></i>
+                              <i class="sl sl-icon-trash" data-toggle="tooltip" data-placement="top"
+                                 data-title="Delete"></i>
                            </div>
                         </div>
                      </li>
@@ -773,7 +840,8 @@
                            <div class="setting-title">Busy mode</div>
                            <div class="setting-control">
                               <div class="field">
-                                 <input id="busySwitch" type="checkbox" name="busySwitch" class="switch is-outlined is-warning">
+                                 <input id="busySwitch" type="checkbox" name="busySwitch"
+                                    class="switch is-outlined is-warning">
                                  <label for="busySwitch"></label>
                               </div>
                            </div>
@@ -932,7 +1000,8 @@
                      <div class="field mb-10">
                         <label class="label dark-text font-w-500">Remind me before</label>
                         <div class="control has-icons-right">
-                           <input data-toggle="datepicker" type="text" class="input is-medium" placeholder="select a date ...">
+                           <input data-toggle="datepicker" type="text" class="input is-medium"
+                              placeholder="select a date ...">
                            <span class="icon is-right is-medium">
                               <i class="im im-icon-Calendar-4"></i>
                            </span>
@@ -960,11 +1029,13 @@
                      <div class="field mb-10">
                         <label class="label dark-text font-w-500">Remind me what ?</label>
                         <div class="control">
-                           <textarea class="textarea is-grow is-secondary-focus" rows="5" placeholder="Type something relevant ..."></textarea>
+                           <textarea class="textarea is-grow is-secondary-focus" rows="5"
+                              placeholder="Type something relevant ..."></textarea>
                         </div>
                      </div>
                      <div class="has-text-right mt-30">
-                        <button type="submit" class="button btn-dash secondary-btn no-lh rounded is-fullwidth is-raised ripple">Create
+                        <button type="submit"
+                           class="button btn-dash secondary-btn no-lh rounded is-fullwidth is-raised ripple">Create
                            reminder</button>
                      </div>
                   </form>

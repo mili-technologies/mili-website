@@ -235,7 +235,7 @@ async function createTrigger(DESTINATION_SCHEMA_NAME) {
       "INSERT INTO mili_global_schema.global_food_items(food_name,food_description,is_veg) VALUES (new.food_name, new.food_description,new.is_veg); " +
       "SET new.food_id = LAST_INSERT_ID(); " +
       "else " +
-      "SET new.food_id = (SELECT food_id from mili_global_schema.global_food_items where food_name = new.food_name)  " +
+      "SET new.food_id = (SELECT food_global_id from mili_global_schema.global_food_items where food_name = new.food_name); " +
       "End if; " +
       "END",
     function(err, result) {
@@ -268,6 +268,19 @@ async function createTrigger(DESTINATION_SCHEMA_NAME) {
                 function(err, result) {
                   if (err) throw err;
                   else {
+                    pool.query(
+                      "use " +
+                        DESTINATION_SCHEMA_NAME +
+                        "; CREATE DEFINER=`mili_dba`@`%` TRIGGER `restaurant_food_menu_AFTER_INSERT` AFTER INSERT ON `restaurant_food_menu` FOR EACH ROW BEGIN " +
+                        "SELECT DATABASE() as database_name from dual into @schemaName; " +
+                        "INSERT INTO mili_global_schema.global_restaurant_food_item(global_food_id,restaurant_schema_name,food_restaurant_item_price) VALUES (new.food_id, @schemaName,new.food_price); " +
+                        "END",
+                      function(err, result) {
+                        if (err) throw err;
+                        else {
+                        }
+                      }
+                    );
                   }
                 }
               );

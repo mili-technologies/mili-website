@@ -1,10 +1,17 @@
-var baseURI = 'https://ywait.in';
+var baseURI = 'https://ywait.in:443';
 var restaurant_id;
 $(document).ready(function () {
 
    ajaxRequestUserDetail();
 
    getRestaurantId();
+
+   $(".select-table-filter").on("keyup", function() {
+      var value = $(this).val().toLowerCase();
+      $(".order_table tr").filter(function() {
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+      });
+    });
 
    function getRestaurantId() {
       $.ajax({

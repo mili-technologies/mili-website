@@ -71,7 +71,7 @@ exports.addNewUser = function(request, response) {
                 subject: "Welcome to YWait family",
                 text: "Hello, ", // plaintext body
                 html:
-                  "<b>You have successfully registered to YWait.</b><br> Please login to your YWait account."
+                  "<html><body><b>You have successfully registered to YWait.</b><br> Please <a href='https://ywait.in/login'>login</a> to your YWait account.</body></html>"
               };
 
               // send mail with defined transport object

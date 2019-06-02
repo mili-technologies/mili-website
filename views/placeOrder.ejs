@@ -47,7 +47,7 @@
    <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
    <script src="assets/js/placeOrder.js"></script>
    <script>
-   var restaurantId = '<%= data[0].t1%>';
+      var restaurantId = '<%= data[0].t1%>';
    </script>
    <style>
       .container.dash-container {
@@ -369,8 +369,8 @@
             <div class="col-xs-12">
                <div class="confirm-modal">
                   <div class="user_details">
-                     <div class="form-group col-xs-4">
-                        <select type="search" class="select-table-filter" data-table="menu_table_body">
+                     <div class="form-group col-xs-4 searchbox control has-icons-left">
+                        <select type="search" class="select-table-filter search_box" data-table="menu_table_body">
                            <option value="">Reset</option>
                         </select>
                      </div>

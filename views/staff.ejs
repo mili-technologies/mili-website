@@ -50,6 +50,14 @@
    </style>
    <script>
       $(document).ready(function () {
+
+         $(".select-table-filter").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $(".menu_table_body tr").filter(function () {
+               $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+         });
+
          $('.menu_table_body').on("click", '.staff_resturant_update', function () {
             var tr_class = $(this).data('value');
             var staff_Resturant_Id = tr_class;
@@ -425,7 +433,7 @@
                         <div class="flex-card light-bordered light-raised menu-flex">
                            <h3 class="card-heading has-icon">Staff Management
                               <div class="searchbox control has-icons-left">
-                                 <input class="input is-secondary-focus search_menu" id="search_menu"
+                                 <input class="input is-secondary-focus search_menu select-table-filter" id="search_menu"
                                     style='height: 3.5rem;' type="text" placeholder="Search food quickly">
 
                               </div>

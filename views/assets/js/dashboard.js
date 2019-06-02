@@ -1,4 +1,4 @@
-var baseURI = 'https://ywait.in';
+var baseURI = 'https://ywait.in:443';
 var restaurant_id;
 $(".search_customer").on("keyup", function () {
 	var value = $(this).val().toLowerCase();
@@ -45,6 +45,7 @@ $(document).ready(function () {
 
 	var socket = io.connect(baseURI);
 	socket.on('broadcast', function (data) {
+		console.log(data);
 		var jsonData = {
 			orderId: data.order_id
 		};

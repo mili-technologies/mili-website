@@ -422,8 +422,8 @@ app.post("/resendSecurityCode", async function(req, res) {
             subject: "Verify your email addres",
             text: "Hello world ", // plaintext body
             html:
-              "<b>Verify your email address</b><br> To verify your email address use this security code : " +
-              uid // html body
+              "<html><body><b>Verify your email address</b><br> To verify your email address use this security code : " +
+              uid + "</body></html>"// html body
           };
 
           // send mail with defined transport object
@@ -488,8 +488,8 @@ app.post("/resendSecurityCodelng", async function(req, res) {
             subject: "Verify your email addres",
             text: "Hello world ", // plaintext body
             html:
-              "<b>Verify your email address</b><br> To verify your email address use this security code : " +
-              uid // html body
+              "<html><body><b>Verify your email address</b><br> To verify your email address use this security code : " +
+              uid + "</body></html>" // html body
           };
 
           // send mail with defined transport object
@@ -578,8 +578,8 @@ app.post("/validateSignIn", function(req, res) {
               subject: "Verify your email addres",
               text: "Hello world ", // plaintext body
               html:
-                "<b>Verify your email address</b><br> To verify your email address use this security code : " +
-                uid // html body
+                "<html><body><b>Verify your email address</b><br> To verify your email address use this security code : " +
+                uid + "</body></html>" // html body
             };
 
             // send mail with defined transport object
@@ -2539,10 +2539,10 @@ app.use(function(req, res, next) {
         }
 });
 
-var io = socket(servercreate);
-
 // for https
-https.createServer(options, app).listen(443);
+servercreate = https.createServer(options, app).listen(443);
+
+var io = socket(servercreate);
 
 module.exports.socketDef = io;
 
