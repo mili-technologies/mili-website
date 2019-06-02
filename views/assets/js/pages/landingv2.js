@@ -14,7 +14,7 @@ $(document).ready(function($){
         if(height  > 80) {
             $("img.light-logo").attr("src","assets/images/logos/bulkit-logo-deep-blue.png");
         } else{
-            $("img.light-logo").attr("src","assets/images/logos/bulkit-w.png");
+            $("img.light-logo").attr("src","assets/images/logos/home-ywait-logo.png");
         }
     });
     
