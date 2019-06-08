@@ -88,6 +88,8 @@ exports.addRestaurantDetails = function(request, res) {
   cuisines = request.body.cuisines;
   restaurant_pay_upi = request.body.restaurant_pay_upi;
   restaurant_IFSC_code = request.body.restaurant_IFSC_code;
+  restaurant_GST_No = request.body.restaurant_GST_No;
+  restaurant_GST_Rate = request.body.restaurant_GST_Rate;
   restaurant_acc_holder_name = request.body.restaurant_acc_holder_name;
   restaurant_acc_number = request.body.restaurant_acc_number;
   cuisines = cuisines.toString();
@@ -141,7 +143,7 @@ exports.addRestaurantDetails = function(request, res) {
           "call mili_global_schema.add_res(002 , " +
           "'mili_" +
           lsid +
-          "', 1 , ?,   0.00000000 ,   0.00000000 , ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? , ?,   5 ,   ?,   'https' ,   ? ,   ?,   ?,   ?,   ?,   ?, '2018-12-25 10:25:03',   '2018-12-25 10:25:03',   '10',   '20',   ?,   ?,   ?,  ?,   ?,   ?,   ?,   ?,   ?,   ?,   ? ,   ?,   ?)";
+          "', 1 , ?,   0.00000000 ,   0.00000000 , ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? , ?,   5 ,   ?,   'https' ,   ? ,   ?,   ?,   ?,   ?,   ?, '2018-12-25 10:25:03',   '2018-12-25 10:25:03',   '10',   '20',   ?,   ?,   ?,  ?,   ?,   ?,   ?,   ?,   ?,   ?,   ? ,   ?,   ?,   ?,   ?)";
         pool.query(
           query_select,
           [
@@ -178,7 +180,9 @@ exports.addRestaurantDetails = function(request, res) {
             live_sports_screening,
             full_bar_available,
             open_terrace,
-            pay_first
+            pay_first,
+            restaurant_GST_No,
+            restaurant_GST_Rate
           ],
           function(err, result) {
             if (err) throw err;

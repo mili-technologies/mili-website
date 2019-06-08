@@ -2,7 +2,9 @@ var foodNames = [];
 
 $(document).ready(function() {
   ajaxRequestGetCategory();
-  //ajaxRequestUserDetail();
+  
+  ajaxRequestUserDetail();
+
   ajaxRequestToGetGlobalFoodName();
 
   //getPagination('#table-id');
@@ -176,20 +178,23 @@ function ajaxRequestGetRestFood(restaurant_food_Id) {
   });
 }
 
-function ajaxRequestUserDetail() {
+function ajaxRequestUserDetail(jsonData) {
   $.ajax({
-    url: "/showUsers?restaurantId=<%= data[0].t1 %>",
-    success: function(result, state, xhr) {
-      $.each(result, function(i, obj) {
-        $(".user_name").text(obj.user_name);
-        $(".user_name_input").val(obj.user_name);
-        $(".user_email").text(obj.user_identifier);
-        $(".user_email_input").val(obj.user_identifier);
-        $(".user_contact").text(obj.user_contact);
-        $(".user_contact_input").val(obj.user_contact);
-        $(".user_company_name").text(obj.restaurant_name);
-        $(".user_company_name_input").val(obj.restaurant_name);
-        $(".user_position").text(obj.user_role);
+    url: "/showUsers?restaurantId",
+    success: function (result, state, xhr) {
+
+      $.each(result, function (i, obj) {
+        $('.user_name').text(obj.first_name);
+        $('.user_name_input').val(obj.first_name);
+        $('.last_user_name').text(obj.last_name);
+        $('.last_user_name').val(obj.last_name);
+        $('.user_email').text(obj.user_email);
+        $('.user_email_input').val(obj.user_email);
+        $('.user_contact').text(obj.user_contact);
+        $('.user_contact_input').val(obj.user_contact);
+        $('.user_company_name').text(obj.restaurant_name);
+        $('.user_company_name_input').val(obj.restaurant_name);
+        $('.user_position').text(obj.user_role);
       });
     }
   });

@@ -210,11 +210,12 @@ function ajaxRequestToValidateLoin(jsonData) {
         } else {
           if (result.success == 0) {
             $('#main-login').attr("disabled", false);
-            $('div.main-login').wrap('<form id="loginForm" name="loginForm">');
-            var loginForm = $('#loginForm').get(0);
-            loginForm.action = '/restaurant_form';
-            loginForm.method = 'POST';
-            loginForm.submit();
+            // $('div.main-login').wrap('<form id="loginForm" name="loginForm">');
+            // var loginForm = $('#loginForm').get(0);
+            // loginForm.action = '/restaurant_form';
+            // loginForm.method = 'POST';
+            // loginForm.submit();
+            showSuccessToast('Our YWait team is processing Your application.')
           } else {
             $('#main-login').attr("disabled", false);
             showErrorToast(result.data);

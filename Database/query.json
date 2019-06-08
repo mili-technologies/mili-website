@@ -34,5 +34,6 @@
     "getTotalOrderCostPaidByRestaurantId" : "SELECT sum(total_order_cost) AS totalOrderCostPaid FROM (SELECT *, ROW_NUMBER() OVER (PARTITION BY order_id ORDER BY sequence_no DESC) rn FROM restaurantSchemaName.order_detail WHERE order_status != 'REJECTED' and payment_status='PAID') v WHERE rn = 1",
     "getTotalOrderCostNotPaidByRestaurantId" : "SELECT sum(total_order_cost) AS totalOrderCostNotPaid FROM (SELECT *, ROW_NUMBER() OVER (PARTITION BY order_id ORDER BY sequence_no DESC) rn FROM restaurantSchemaName.order_detail WHERE order_status != 'REJECTED' and payment_status='NOT PAID') v WHERE rn = 1",
     "getTotalOrderPAID" : "SELECT count(*) AS totalOrderPAID FROM (SELECT *, ROW_NUMBER() OVER (PARTITION BY order_id ORDER BY sequence_no DESC) rn FROM restaurantSchemaName.order_detail where payment_status='PAID') v WHERE rn = 1",
-    "updateFoodOrderStatus" : "update restaurantSchemaName.food_order_detail set order_status = ? where food_order_id = ?"
+    "updateFoodOrderStatus" : "update restaurantSchemaName.food_order_detail set order_status = ? where food_order_id = ?",
+    "getFoodAnalytics" : "SELECT T2.food_name As label, count(T2.food_name) As y FROM restaurantSchemaName.food_order_detail as T1 INNER JOIN restaurantSchemaName.restaurant_food_menu AS T2 ON T1.restaurant_food_id = T2.restaurant_food_menu_id GROUP BY T2.food_name;"
 }

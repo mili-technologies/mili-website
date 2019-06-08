@@ -82,6 +82,14 @@ $(document).ready(function () {
             showErrorToast('Please enter restaurant IFSC code');
             return false;
         }
+        if ($('#restaurant_GST_No').val().trim() == '') {
+            showErrorToast('Please enter restaurant GST NO');
+            return false;
+        }
+        if ($('#restaurant_GST_Rate').val().trim() == '') {
+            showErrorToast('Please enter restaurant GST Rate');
+            return false;
+        }
         if ($('#restaurant_pay_upi').val().trim() == '') {
             showErrorToast('Please enter restaurant upi');
             return false;

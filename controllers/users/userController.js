@@ -112,6 +112,20 @@ exports.showUsers = function(request, response) {
   });
 };
 
+exports.getGSTDetails = function(request, response) {
+  var resSession = request.session;
+  var rest_id = resSession.restaurantId;
+  var sql_query_1 =
+    "SELECT * FROM mili_global_schema.global_restaurants where restaurant_id = ?;";
+  pool.query(sql_query_1, [rest_id], function(err, result) {
+    if (err) {
+      throw err;
+    } else {
+      response.send(result);
+    }
+  });
+};
+
 exports.getUserStatus = function(request, response) {
   var userEmailId = request.query.userEmailId;
   var responseJson = {};

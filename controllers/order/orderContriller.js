@@ -323,3 +323,25 @@ exports.updateFoodOrderStatus = function (request, response) {
         }
     });
 };
+
+exports.getFoodAnalytics = function (request, response) {
+    var resSession = request.session;
+    var restaurantId = resSession.restaurantId;
+    var orderId = request.query.orderID;
+    var responseJson = {};
+    let query = fs.readFileSync('Database/query.json');
+    var restaurantSchemaNameQuery = JSON.parse(query).restaurantSchemaNameQuery;
+    pool.query(restaurantSchemaNameQuery, restaurantId, function (err, result) {
+        if (err) { throw err; }
+        else {
+            var restaurantSchemaName = getrestaurantSchemaNameAndQuery(result);
+            var getFoodByOrderId = bindrestaurantSchemaNameAndQueryForTemp(restaurantSchemaName, JSON.parse(query).getFoodAnalytics);
+            pool.query(getFoodByOrderId, [orderId], function (err, result) {
+                if (err) { throw err; }
+                else {
+                    response.send(result);
+                }
+            });
+        }
+    });
+}
