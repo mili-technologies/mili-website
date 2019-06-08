@@ -30,8 +30,6 @@
    <script src="assets/js/dashboard.js"></script>
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-   <style>
-   </style>
 </head>
 
 <body>
@@ -39,7 +37,7 @@
    <% include side-navbar.ejs %>
    </div>
    </nav>
-
+   <% var title = ''; %>
    <% include dash-navbar.ejs %>
    <!-- Main dashboard container -->
 
@@ -61,30 +59,31 @@
             <!-- Stat tiles -->
             <div class="columns dashboard-columns">
                <!-- Tile -->
-               <div class="column is-3">
+               <div class="column is-3 panel-def">
                   <div class="flex-card card-overflow light-bordered light-raised">
                      <div class="icon-header">
-                        <i class="material-icons primary">account_balance_wallet</i>
+                        <i class="material-icons primary"></i>
                      </div>
                      <div class="content">
                         <div class="card-title is-tile has-text-right">
                            Order
-                           <div class="card-stat primary has-text-right" id="order_count"> <span class="stat-type">this
-                                 month</span></div>
+                           <div class="card-stat primary has-text-right" id="order_count">
+                              <span class="stat-type"></span>
+                           </div>
                         </div>
                      </div>
                   </div>
                </div>
                <!-- Tile -->
-               <div class="column is-3">
+               <div class="column is-3 panel-def">
                   <div class="flex-card card-overflow light-bordered light-raised">
                      <div class="icon-header">
-                        <i class="material-icons secondary">business</i>
+                        <i class="material-icons secondary"></i>
                      </div>
                      <div class="content">
                         <div class="card-title is-tile has-text-right">
                            Amount<br><i class="fa fa-inr card-stat secondary" aria-hidden="true"
-                              style="float:left;padding-left: 38%;"></i>
+                              style="float:left;padding-left: 10%;"></i>
                            <div class="card-stat secondary has-text-right" id="account_cost"> <span
                                  class="stat-type"></span></div>
                         </div>
@@ -92,10 +91,10 @@
                   </div>
                </div>
                <!-- Tile -->
-               <div class="column is-3">
+               <div class="column is-3 panel-def">
                   <div class="flex-card card-overflow light-bordered light-raised">
                      <div class="icon-header">
-                        <i class="material-icons primary">account_balance</i>
+                        <i class="material-icons primary"></i>
                      </div>
                      <div class="content">
                         <div class="card-title is-tile has-text-right">
@@ -107,22 +106,33 @@
                   </div>
                </div>
                <!-- Tile -->
-               <div class="column is-3">
+               <div class="column is-3 panel-def">
                   <div class="flex-card card-overflow light-bordered light-raised">
                      <div class="icon-header">
-                        <i class="material-icons secondary">work</i>
+                        <i class="material-icons secondary"></i>
                      </div>
                      <div class="content">
                         <div class="card-title is-tile has-text-right">
                            Rejected
-                           <div class="card-stat secondary has-text-right" id="order_count_rejected">14 <span
-                                 class="stat-type">pending</span></div>
+                           <div class="card-stat secondary has-text-right" id="order_count_rejected"><span
+                                 class="stat-type"></span></div>
                         </div>
                      </div>
                   </div>
                </div>
 
             </div>
+
+            <style>
+               .col-lg-3 {
+                  padding-right: 0px;
+                  padding-left: 0px;
+               }
+
+               i.fa.fa-inr.rupee {
+                  margin-top: 3px;
+               }
+            </style>
             <!-- /Stat tiles -->
             <div class="columns">
                <div class="column">
@@ -227,61 +237,43 @@
                            </div>
                         </div> -->
                         <!-- Modal -->
-                        <style>
-                           #toast {
-                              display: block;
-                           }
-
-                           .material-icons {
-                              font-weight: bold;
-                              margin-left: -6px;
-                           }
-
-                           i.fa.fa-inr {
-                              margin-top: -2px;
-                           }
-
-                           button.btn.btn-success.modal-trigger.addNewFood {
-                              display: none;
-                           }
-                        </style>
                         <div id="card-test" style="display:none;margin-left: -11%; overflow-y: scroll;">
                            <table class="table model-table hire-table order_table table-fixed">
                               <thead>
-                                 <th>Food Name</th>
-                                 <th>Food Type</th>
-                                 <th>Food Quantity</th>
-                                 <th>Food Price</th>
-                                 <th>Comments</th>
-                                 <th>Order Status</th>
+                                 <th style="text-align: center;"><b>Dish</b></th>
+                                 <!-- <th>Type</th> -->
+                                 <th style="text-align: center;"><b>Quantity</b></th>
+                                 <th style="text-align: center;"><b>Price</b></th>
+                                 <th style="text-align: center;"><b>Comments</b></th>
+                                 <th style="text-align: center;"><b>Status</b></th>
                               </thead>
                               <tbody class="order_table_body">
-
                               </tbody>
                            </table>
                            <table class="cloneTableOrderFood" style="display: none!important;">
                               <tr class="cloneRow">
-                                 <td>
+                                 <td></td>
+                                 <td style="text-align: center;">
                                     <h4><span class="label label-success"><span class="food_Name"></span></span><i
                                           class="fa fa-food"></i></h4>
                                  </td>
-                                 <td>
+                                 <!-- <td>
                                     <h4><span class="food_Type"></span><i class="fa fa-food"></i></h4>
-                                 </td>
-                                 <td>
+                                 </td> -->
+                                 <td style="text-align: center;">
                                     <h4><span class="label label-success"><span class="food_count"></span></span></h4>
                                  </td>
-                                 <td>
+                                 <td style="text-align: center;">
                                     <h4><span class="label label-success"><i class="fa fa-inr"
                                              aria-hidden="true"></i><span class="food_price"></span></span></h4>
                                  </td>
-                                 <td>
+                                 <td style="text-align: center;">
                                     <h4><span class="label label-success"><span class="comments"></span><i
                                              class="fa fa-comments-o" aria-hidden="true"></i></span></h4>
                                  </td>
-                                 <td>
+                                 <td style="text-align: center;">
                                     <select class='food-select order_Status_OrderFood' data-value=''>
-                                       <option class='opt-food'>Select Option</option>
+                                       <!-- <option class='opt-food'>Select Option</option> -->
                                        <option class='opt-food' value='REJECTED'>Rejected</option>
                                     </select>
                                  </td>
@@ -299,7 +291,7 @@
                            <div class="">
                               <form action="/dashboardFilter" class='form-inline dashboard_filter_form' method="POST">
                                  <div class="row dashboard_filter_row">
-                                    <div class="form-group col-lg-3">
+                                    <div class="form-group col-xs-3 search-filter-panel-def">
                                        <select class="payment_mode" name="order_status_filter" id="order_status_filter">
                                           <option class='opt-food' value="">Select Order Status</option>
                                           <option class='opt-food' value="all">All</option>
@@ -307,7 +299,7 @@
                                           <option class='opt-food' value='REJECTED'>Rejected</option>
                                        </select>
                                     </div>
-                                    <div class="form-group col-lg-3">
+                                    <div class="form-group col-xs-3 search-filter-panel-def">
                                        <select class="payment_status" name="payment_status_filter"
                                           id="payment_status_filter">
                                           <option class='opt-food' value="">Select Payment Status</option>
@@ -316,11 +308,11 @@
                                           <option class='opt-food' value='NOT PAID'>NOT PAID</option>
                                        </select>
                                     </div>
-                                    <div class="form-group col-lg-3">
+                                    <div class="form-group col-xs-3 search-filter-panel-def">
                                        <input type="number" style="padding-left: 10px;" class="payment_status"
                                           name="table_no_filter" placeholder="Enter Table No" id="table_no_filter">
                                     </div>
-                                    <div class="form-group col-lg-3">
+                                    <div class="form-group col-xs-3 search-filter-panel-def">
                                        <input type="submit" value="Filter" class="btn btn-success filter-order">
                                     </div>
                                  </div>
@@ -331,7 +323,7 @@
                      <div class="column is-12">
                         <div class="flex-card light-bordered dashboard-top light-raised">
                            <h3 class="card-heading dashboard-size has-icon">
-                              Order Management
+                              Dashboard
                               <div class="searchbox control has-icons-left">
                                  <!-- <input class="input is-secondary-focus" aria-controls="DataTables_Table_0"
                                     type="search" placeholder="Quick search"> -->
@@ -371,14 +363,14 @@
                            </div>
                            <table class="table hire-table order" id="table-id">
                               <thead>
-                                 <th>Order ID</th>
+                                 <th style="text-align: center;">No</th>
                                  <th style="display:none;">Sequence No</th>
-                                 <th>User Name</th>
-                                 <th>Table No</th>
-                                 <th>Token No</th>
-                                 <th>Total Order Cost</th>
-                                 <th>Order Status</th>
-                                 <th>Payment Status</th>
+                                 <th style="display:none;">Customer</th>
+                                 <th style="text-align: center;">Table</th>
+                                 <th style="text-align: center;">Token</th>
+                                 <th style="text-align: center;">Total</th>
+                                 <th style="text-align: center;">Order</th>
+                                 <th style="text-align: center;">Payment</th>
                               </thead>
                               <tbody class="">
                                  <% for(var i=0; i < data[0].result.length; i++) { %>
@@ -390,7 +382,7 @@
                                     </td>
                                     <td class="sequence_no" style="display:none;"><%= data[0].result[i].sequence_no %>
                                     </td>
-                                    <td class="user_Name">
+                                    <td class="user_Name" style="display:none;">
                                        <h4><span
                                              class="label label-success"><span><%= data[0].result[i].user_identifier %></span><i
                                                 class="fa fa-user" aria-hidden="true"></i></span></h4>
@@ -406,14 +398,14 @@
                                        </h4>
                                     </td>
                                     <td class="total_Order_Cost">
-                                       <h4><span class="label label-success"><i class="fa fa-inr"
+                                       <h4><span class="label label-success"><i class="fa fa-inr rupee"
                                                 aria-hidden="true"></i><span><%= data[0].result[i].total_order_cost %></span></span>
                                        </h4>
                                     </td>
-                                    <td>
+                                    <td class="order_Status_td">
                                        <select class='order_Status' data-value='<%= data[0].result[i].order_id %>'
                                           id="order-Status-<%= data[0].result[i].order_id %>">
-                                          <option class='opt-food'>Select Option</option>
+                                          <!-- <option class='opt-food'>Select Option</option> -->
                                           <option class='opt-food' value='PLACED'>Placed</option>
                                           <option class='opt-food' value='REJECTED'>Rejected</option>
                                        </select>
@@ -432,10 +424,10 @@
                                        </script>
                                        <% } %>
                                     </td>
-                                    <td>
+                                    <td class="order_Pay_Status_td">
                                        <select class='order_Pay_Status' data-value='<%= data[0].result[i].order_id %>'
                                           id="order-Pay-Status-<%= data[0].result[i].order_id %>">
-                                          <option class='opt-food'>Select Option</option>
+                                          <!-- <option class='opt-food'>Select Option</option> -->
                                           <option class='opt-food' value='PAID'>PAID</option>
                                           <option class='opt-food' value='NOT PAID'>NOT PAID</option>
                                        </select>
@@ -511,18 +503,18 @@
          </td>
          <td>
             <h4><span class="label label-success total_Order_Cost"><span class="total_Order_Cost"></span><i
-                     class="fa fa-inr" aria-hidden="true"></i></span></h4>
+                     class="fa fa-inr rupee" aria-hidden="true"></i></span></h4>
          </td>
          <td>
             <select class='order_Status' data-value='' id=''>
-               <option class='opt-food'>Select Option</option>
+               <!-- <option class='opt-food'>Select Option</option> -->
                <option class='opt-food' value='PLACED'>Placed</option>
                <option class='opt-food' value='REJECTED'>Rejected</option>
             </select>
          </td>
          <td>
             <select class='order_Pay_Status' data-value='' id=''>
-               <option class='opt-food'>Select Option</option>
+               <!-- <option class='opt-food'>Select Option</option> -->
                <option class='opt-food' value='PAID'>PAID</option>
                <option class='opt-food' value='NOT PAID'>NOT PAID</option>
             </select>

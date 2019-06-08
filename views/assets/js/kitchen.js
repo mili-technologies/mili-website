@@ -22,7 +22,7 @@ $(document).ready(function () {
       });
    }
 
-   getPagination('#table-id');
+   //getPagination('#table-id');
 
    function ajaxRequestUserDetail(jsonData) {
       $.ajax({
@@ -55,6 +55,8 @@ $(document).ready(function () {
       }
    });
    socket.on('broadcast_update_order_status_webportal', function (data) {
+      console.log(data);
+      
       var jsonData = { orderId: data.order_id, order_status: data.order_status };
       if (data.restaurant_id == restaurant_id) {
          var array = document.getElementsByClassName('order_Status-' + jsonData.orderId);
@@ -64,6 +66,7 @@ $(document).ready(function () {
       }
    });
    socket.on('broadcast_update_food_order_status_webportal', function (data) {
+      console.log(data);
       if (data.restaurant_id == restaurant_id) {
          var jsonData = { orderId: data.food_order_id, order_status: data.order_status };
          $('#food-select-option-' + jsonData.orderId).val(jsonData.order_status);

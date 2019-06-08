@@ -1,7 +1,9 @@
 var order = [];
-var tPrice;
+var tPrice, gstRate, gst_no;
 
 $(document).ready(function() {
+  ajaxRequestUserDetail();
+  ajaxRequestGSTDetail();
   $("#food_name_search_filter").on("keyup", function() {
     var value = $(this).val().toLowerCase();
     $(".menu_table_body tr").filter(function() {
@@ -62,6 +64,7 @@ $(document).ready(function() {
     } else {
       $("#checkbox_" + $(this).data("value")).prop("checked", false);
       $(".placeOrder-" + $(this).data("value")).remove();
+      totalPrice();
     }
   });
 
@@ -69,6 +72,24 @@ $(document).ready(function() {
     $(".form").submit();
   });
 });
+
+function calculateAmount(val) {
+  if (gst_no != null) {
+    $("#gst_no").text("GST NO : " + gst_no);
+  }
+
+  $("#gst").text("GST : " + gstRate + "%");
+
+  if (gstRate != null) {
+    var price = val * 1;
+    var tot_price = price + price * (gstRate / 100);
+    return tot_price;
+  } else {
+    var price = val * 1;
+    var tot_price = price + price * (5 / 100);
+    return tot_price;
+  }
+}
 
 function showSuccessToast(msg) {
   var x = document.getElementById("toast");
@@ -97,7 +118,11 @@ function totalPrice() {
     totalPrice = totalPrice + parseInt(array[i].innerHTML);
   }
 
-  $("#order_placed_total_price").text("Total order cost : " + totalPrice);
+  $("#order_placed_total_price").text(totalPrice);
+
+  totalPrice = calculateAmount(totalPrice);
+
+  $("#order_placed_total_price_gst").text("Total Order Cost : " + totalPrice);
 
   tPrice = totalPrice;
 }
@@ -106,7 +131,6 @@ function addToDeleteArrayList(id) {
   if (order.indexOf(id) === -1) {
     order.push(id);
   }
-  console.log(order);
 }
 
 function cloneRow(food_id, food_name, food_quantity_InCart, food_Price) {
@@ -131,12 +155,49 @@ function removeToDeleteArrayList(id) {
   if (index > -1) {
     order.splice(index, 1);
   }
-  console.log(order);
+}
+
+function ajaxRequestUserDetail() {
+  $.ajax({
+    url: "/showUsers?restaurantId",
+    success: function(result, state, xhr) {
+      $.each(result, function(i, obj) {
+        $(".user_name").text(obj.first_name);
+        $(".user_name_input").val(obj.first_name);
+        $(".last_user_name").text(obj.last_name);
+        $(".last_user_name").val(obj.last_name);
+        $(".user_email").text(obj.user_email);
+        $(".user_email_input").val(obj.user_email);
+        $(".user_contact").text(obj.user_contact);
+        $(".user_contact_input").val(obj.user_contact);
+        $(".user_company_name").text(obj.restaurant_name);
+        $(".user_company_name_input").val(obj.restaurant_name);
+        $(".user_position").text(obj.user_role);
+      });
+    }
+  });
+}
+
+function myPrint() {
+  var printdata = document.getElementById(menu_table_body_placeOrder);
+  newwin = window.open("");
+  newwin.document.write(printdata.outerHTML);
+  newwin.print();
+  newwin.close();
+}
+
+function ajaxRequestGSTDetail() {
+  $.ajax({
+    url: "/getGSTDetails",
+    success: function(result, state, xhr) {
+      gstRate = result[0].restaurant_gst;
+      gst_no = result[0].restaurant_gstno;
+    }
+  });
 }
 
 function ajaxRequest() {
   var json = { order_cart_details: [] };
-  console.log($(".payment_mode").val());
   if ($(".payment_mode").val() == "") {
     showErrorToast("Please select payment mode");
     return;

@@ -48,14 +48,15 @@
     <div class="hero is-medium">
         <div class="navbar-wrapper navbar-fade navbar-light">
             <div class="hero-head">
-    
+
                 <!-- Nav -->
                 <div class="container">
                     <nav class="nav">
                         <div class="container big">
                             <div class="nav-left">
                                 <a class="nav-item" href="/">
-                                    <img class="light-logo" src="assets/images/logos/home-ywait-logo.png" alt="">
+                                    <img class="light-logo desktop-logo" src="assets/images/logos/home-ywait-logo.png" alt="">
+                                    <img class="light-logo mobile-logo" src="assets/images/logos/bulkit-logo-lemonade.png" alt="">
                                 </a>
                                 <!-- Sidebar trigger -->
                                 <!-- <a id="navigation-trigger" class="nav-item hamburger-btn" href="javascript:void(0);">
@@ -89,14 +90,14 @@
                             </span>
                             <div class="nav-right nav-menu">
                                 <span class="nav-item">
-                                    <a href='demo-page' class="nav-item is-tab nav-inner is-mobile raised modal-trigger">
+                                    <a href='demo-page'
+                                        class="nav-item is-tab nav-inner is-mobile raised modal-trigger">
                                         Demo
                                     </a>
                                 </span>
                                 <span class="nav-item">
                                     <a id="signup-btn" href='login'
-                                        class="login-btn nav-item is-tab nav-inner is-mobile raised"
-                                        >
+                                        class="login-btn nav-item is-tab nav-inner is-mobile raised">
                                         Login
                                     </a>
                                 </span>
@@ -117,34 +118,37 @@
     <!-- Hero image -->
     <img src="assets\images\illustrations\mockups\landing3\restaurant.jpg" class="img-background is-hidden-mobile">
     <div id="main-hero" class="hero-body is-relative no-padding-bottom">
-            <div class="container has-text-centered">          
-                <div class="columns">
-                    <div class="column is-8 is-offset-2 has-text-centered">
-                        <h1 class="title big-title text-bold is-2">
-                            Scan Eat Enjoy
-                        </h1>
-                        <!-- <div class="item-1 subtitle light-subtitle">
+        <div class="container has-text-centered">
+            <div class="columns">
+                <div class="column is-8 is-offset-2 has-text-centered">
+                    <h1 class="title big-title text-bold is-2">
+                        Scan Eat Enjoy
+                    </h1>
+                    <!-- <div class="item-1 subtitle light-subtitle">
                             Start collaborating immediatly on a powerful and easy to use Restaurant Management
                             system
                         </div> -->
-                        <div class="item-1 subtitle light-subtitle">Don't let your customers do pssh pssh! hiss hiss! excuse me.. FWEET!.. Oye Waiter, Bro, Mere Bhai, Anna, @#$% for calling out waiters.</div>
-    
-                        <div class="item-2 subtitle light-subtitle">Let the customers scan the QR code and place the order through their own mobile and enjoy automated order placement.</div>
-    
-                        <div class="item-3 subtitle light-subtitle">Introducing YWait! Register to know innovative way to change restaurant interactions with customers.</div>
-                        <!-- CTA button -->
-                        <div class="has-text-centered get_start">
-                            <a href="signup" class="button button-cta primary-btn rounded raised">Get
-                                started free</a>
-                        </div>
-                        <!-- Popup video link -->
-                        <div class="video-link has-text-centered modal-trigger" data-modal="video-modal">
-                            <i class="fa fa-play"></i> <span>See how it works</span>
-                        </div>
+                    <div class="item-1 subtitle light-subtitle">Don't let your customers do pssh pssh! hiss hiss! excuse
+                        me.. FWEET!.. Oye Waiter, Bro, Mere Bhai, Anna, @#$% for calling out waiters.</div>
+
+                    <div class="item-2 subtitle light-subtitle">Let the customers scan the QR code and place the order
+                        through their own mobile and enjoy automated order placement.</div>
+
+                    <div class="item-3 subtitle light-subtitle">Introducing YWait! Register to know innovative way to
+                        change restaurant interactions with customers.</div>
+                    <!-- CTA button -->
+                    <div class="has-text-centered get_start">
+                        <a href="signup" class="button button-cta primary-btn rounded raised">Get
+                            started free</a>
+                    </div>
+                    <!-- Popup video link -->
+                    <div class="video-link has-text-centered modal-trigger" data-modal="video-modal">
+                        <i class="fa fa-play"></i> <span>See how it works</span>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
     <!-- /Hero image -->
     </div>
     <!-- /Hero and nav -->
@@ -225,19 +229,43 @@
     .video-link span {
         color: #ffffff;
     }
+    .nav-item a.is-tab, a.nav-item.is-tab{
+        border-bottom: 0px;
+    }
+    .button.btn-outlined.light-btn:hover {
+        background-color: #04b261;
+        border: 2px solid #04b261;
+        color: #444F60;
+    }
 
-    .navbar-wrapper.navbar-fade .hero-head{
+    .navbar-wrapper.navbar-fade .hero-head {
         background-color: #181818;
     }
+    .mobile-logo{
+        display: none;
+    }
+
     @media screen and (max-width: 680px) {
         .hero-body {
             padding: 3rem 1.5rem !important;
         }
-
+        .navbar-wrapper.navbar-fade .hero-head {
+        background-color: white;
+    }
+    .mobile-logo{
+        display: block;
+    }
+    .desktop-logo{
+        display: none;
+    }
         .hero-body .title.big-title {
             color: #444F60;
         }
-
+        .subtitle.light-subtitle{
+            color: black;
+            font-size: 16px;
+            display: none;
+        }
         .video-link i,
         .video-link span {
             color: #444F60;
@@ -245,13 +273,14 @@
     }
 </style>
 <script>
-    $(window).on('scroll', function () { // this will work when your window scrolled. 
-        var height = $(window).scrollTop();  //getting the scrolling height of window
-        if(height  > 80) {
-            $("img.light-logo").attr("src","assets/images/logos/home-ywait-logo.png");
-        } else{
-            $("img.light-logo").attr("src","assets/images/logos/home-ywait-logo.png");
-        }
-    });
-    </script>
+    // $(window).on('scroll', function () { // this will work when your window scrolled. 
+    //     var height = $(window).scrollTop();  //getting the scrolling height of window
+    //     if (height > 80) {
+    //         $("img.light-logo").attr("src", "assets/images/logos/home-ywait-logo.png");
+    //     } else {
+    //         $("img.light-logo").attr("src", "assets/images/logos/home-ywait-logo.png");
+    //     }
+    // });
+</script>
+
 </html>
