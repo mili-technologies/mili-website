@@ -209,9 +209,9 @@ app.get("/faq", function (request, response) {
 });
 
 // Test page
-app.get("/test", function (request, response) {
-    response.render("test");
-});
+// app.get("/test", function (request, response) {
+//     response.render("Analytics/testing");
+// });
 
 app.post("/restaurant_form", function (request, response) {
     response.render("restaurant_form");
@@ -223,6 +223,10 @@ app.get("/login", function (request, response) {
 
 app.get("/Analytics", function (request, response) {
     response.render("dataAnalytics");
+});
+
+app.get("/databoard", function (request, response) {
+    response.render("Analytics/databoard");
 });
 
 // 5/5/2019
@@ -641,7 +645,7 @@ app.get("/staff", function (request, response) {
                     throw err;
                 } else {
                     console.log(result);
-                    response.render("staff", {
+                    response.render("Analytics/test-staff", {
                         data: [{
                             t1: sess.restaurantId,
                             result: result
@@ -728,7 +732,8 @@ app.post("/dashboard", function (request, response) {
                                                     user: rows
                                                 });
                                                 resResult = rows;
-                                                response.render("dashboard", {
+                                                console.log(resResult);
+                                                response.render("Analytics/testing", {
                                                     data: [{
                                                         t1: sess.restaurantId,
                                                         result: resResult
@@ -782,7 +787,7 @@ app.get("/dashboard", requireLogin, function (request, response) {
                         user: rows
                     });
                     resResult = rows;
-                    response.render("dashboard", {
+                    response.render("Analytics/testing", {
                         data: [{
                             t1: sess.restaurantId,
                             result: resResult
@@ -845,7 +850,7 @@ app.post("/dashboardFilter", requireLogin, function (request, response) {
                     log.Error("check query" + error);
                 } else {
                     resResult = rows;
-                    response.render("dashboard", {
+                    response.render("Analytics/testing", {
                         data: [{
                             t1: sess.restaurantId,
                             result: resResult
@@ -935,7 +940,7 @@ app.get("/menu", requireLogin, function (request, response) {
                     throw err;
                 } else {
                     resResult = result;
-                    response.render("menu", {
+                    response.render("Analytics/test-menu", {
                         data: [{
                             t1: sess.restaurantId,
                             result: resResult
@@ -988,7 +993,7 @@ app.get("/kitchen", requireLogin, function (request, response) {
                             order: rows
                         });
                         resResult = rows;
-                        response.render("kitchen", {
+                        response.render("Analytics/test-kitchen", {
                             data: [{
                                 t1: sess.restaurantId,
                                 result: resResult
@@ -1056,7 +1061,7 @@ app.post("/kitchenFilter", requireLogin, function (request, response) {
                     log.Error("check query" + error);
                 } else {
                     resResult = rows;
-                    response.render("kitchen", {
+                    response.render("Analytics/test-kitchen", {
                         data: [{
                             t1: sess.restaurantId,
                             result: resResult
@@ -2326,7 +2331,7 @@ app.get("/placeOrder", requireLogin, function (request, response) {
                 } else {
                     resResult = result;
                     console.log(resResult);
-                    response.render("placeOrder", {
+                    response.render("Analytics/test-placeOrder", {
                         data: [{
                             t1: sess.restaurantId,
                             result: resResult
