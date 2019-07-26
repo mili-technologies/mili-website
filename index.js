@@ -2601,6 +2601,10 @@ app.post("/suggestMeChatRoomMsg", function (request, response) {
     });
 });
 
+app.get("/blog", function (request, response) {
+    response.render("blog");
+});
+
 /*for https running on port 8080
 var servercreate = app.listen(8080, function(error) {
  if (!!error) log.Error("error while starting server", "app", "listen");
